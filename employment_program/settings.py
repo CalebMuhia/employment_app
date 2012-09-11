@@ -1,5 +1,7 @@
 # Django settings for employment_program project.
-
+import os
+Project_dir = os.path.abspath(os.path.dirname(os.path.dirname(__file__)))
+base_dir = os.path.dirname(Project_dir)
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
@@ -104,6 +106,18 @@ TEMPLATE_DIRS = (
 # Don't forget to use absolute paths, not relative paths.
 )
 
+# settings for sending email. ensure that you have postfix installed()
+EMAIL_HOST = 'localhost'
+EMAIL_PORT = 1025
+EMAIL_HOST_USER = ""
+EMAIL_HOST_PASSWORD = ""
+EMAIL_USE_TLS = False
+DEFAULT_FROM_EMAIL = 'clbnjoroge@gmail.com'
+#bash-3.2$ python -m smtpd -n -c DebuggingServer localhost:1025
+
+
+ACCOUNT_ACTIVATION_DAYS = 30
+
 INSTALLED_APPS = (
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -112,11 +126,15 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     # Uncomment the next line to enable the admin:
-    # 'django.contrib.admin',
+    'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
     'employment_app',
+    'registration',
+
     )
+
+LOGIN_REDIRECT_URL = '/'
 
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to

@@ -1,7 +1,8 @@
 # Django settings for employment_program project.
 import os
-Project_dir = os.path.abspath(os.path.dirname(os.path.dirname(__file__)))
-base_dir = os.path.dirname(Project_dir)
+
+
+PROJECT_ROOT = os.path.abspath(os.path.dirname(__file__))
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
@@ -14,7 +15,7 @@ MANAGERS = ADMINS
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': 'employment.db', # Or path to database file if using sqlite3.
+        'NAME': os.path.join(PROJECT_ROOT,'employment.db'), # Or path to database file if using sqlite3.
     }
 }
 
@@ -54,17 +55,18 @@ MEDIA_URL = ''
 # Don't put anything in this directory yourself; store your static files
 # in apps' "static/" subdirectories and in STATICFILES_DIRS.
 # Example: "/home/media/media.lawrence.com/static/"
-STATIC_ROOT = ''
+STATIC_ROOT = '/home/caleb/projects/employment_app/employement app/static'
 
 # URL prefix for static files.
 # Example: "http://media.lawrence.com/static/"
-STATIC_URL = '/static/'
+STATIC_URL = 'http://localhost:8000/static/'
 
 # Additional locations of static files
 STATICFILES_DIRS = (
 # Put strings here, like "/home/html/static" or "C:/www/django/static".
 # Always use forward slashes, even on Windows.
 # Don't forget to use absolute paths, not relative paths.
+#"/home/caleb/projects/employment_app/employement app/static/"
 )
 
 # List of finder classes that know how to find static files in
@@ -104,6 +106,9 @@ TEMPLATE_DIRS = (
 # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
 # Always use forward slashes, even on Windows.
 # Don't forget to use absolute paths, not relative paths.
+    "/home/caleb/projects/employment_app/employement app/templates/"
+#os.path.join(PROJECT_ROOT, "templates"),
+
 )
 
 # settings for sending email. ensure that you have postfix installed()

@@ -1,8 +1,13 @@
 # Django settings for employment_program project.
-import os
+#import os
 
 
-PROJECT_ROOT = os.path.abspath(os.path.dirname(__file__))
+#PROJECT_ROOT = os.path.abspath(os.path.dirname(__file__))
+
+from os.path import join, realpath, dirname, abspath
+
+
+SITE_ROOT = join(abspath(dirname(__file__)),"../employment_app")
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
@@ -57,11 +62,14 @@ MEDIA_URL = ''
 # Don't put anything in this directory yourself; store your static files
 # in apps' "static/" subdirectories and in STATICFILES_DIRS.
 # Example: "/home/media/media.lawrence.com/static/"
-STATIC_ROOT = '/home/caleb/projects/employment_app/employement app/static'
+#STATIC_ROOT = '/home/caleb/projects/employment_app/employement app/static'
+
+STATIC_ROOT = join(SITE_ROOT, 'static/')
+STATIC_URL = '/static/'
 
 # URL prefix for static files.
 # Example: "http://media.lawrence.com/static/"
-STATIC_URL = 'http://localhost:8000/static/'
+#STATIC_URL = 'http://localhost:8000/static/'
 
 # Additional locations of static files
 STATICFILES_DIRS = (

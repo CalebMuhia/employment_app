@@ -10,7 +10,7 @@ class Location(models.Model):
     zip = models.CharField(max_length=5)
     country = models.CharField(max_length=255)
     purpose = models.CharField(max_length=100)
-    touch_date = models.DateTimeField(auto_now_add=True, blank=True)
+    touch_date = models.DateTimeField(auto_now_add=True)
     user_comment = models.TextField()
 
 
@@ -21,7 +21,4 @@ class Location(models.Model):
 class Person(models.Model):
     user = models.ForeignKey(User, unique=True)
     location_id = models.ForeignKey(Location)
-
-
-
 

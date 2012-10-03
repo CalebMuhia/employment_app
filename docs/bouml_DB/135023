@@ -1,0 +1,586 @@
+format 74
+"common" // common
+  revision 3
+  modified_by 111 "giussepi"
+  // class settings
+  //class diagram settings
+  draw_all_relations default hide_attributes default hide_operations default hide_getset_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_context default show_members_multiplicity default show_members_initialization default show_attribute_modifiers default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_relation_visibility default show_infonote default shadow default show_stereotype_properties default
+  //use case diagram settings
+  package_name_in_tab default show_context default auto_label_position default draw_all_relations default class_drawing_mode default shadow default show_stereotype_properties default
+  //sequence diagram settings
+  show_full_operations_definition default write_horizontally default class_drawing_mode default drawing_language default draw_all_relations default shadow default show_stereotype_properties default show_class_context_mode default show_msg_context_mode default
+  //collaboration diagram settings
+  show_full_operations_definition default show_hierarchical_rank default write_horizontally default drawing_language default package_name_in_tab default show_context default show_msg_context default draw_all_relations default shadow default show_stereotype_properties default
+  //object diagram settings
+   write_horizontally default package_name_in_tab default show_context default auto_label_position default draw_all_relations default shadow default show_stereotype_properties default
+  //component diagram settings
+  package_name_in_tab default show_context default auto_label_position default draw_all_relations default shadow default
+  draw_component_as_icon default show_component_req_prov default show_component_rea default show_stereotype_properties default
+  //deployment diagram settings
+  package_name_in_tab default show_context default write_horizontally default auto_label_position default draw_all_relations default shadow default
+  draw_component_as_icon default show_component_req_prov default show_component_rea default show_stereotype_properties default
+  //state diagram settings
+  package_name_in_tab default show_context default auto_label_position default write_trans_label_horizontally default show_trans_definition default draw_all_relations default shadow default
+  show_activities default region_horizontally default drawing_language default show_stereotype_properties default
+  //activity diagram settings
+  package_name_in_tab default show_context default show_opaque_action_definition default auto_label_position default write_flow_label_horizontally default draw_all_relations default shadow default
+  show_infonote default drawing_language default show_stereotype_properties default
+  
+  classview 141167 "common class view"
+    //class diagram settings
+    draw_all_relations default hide_attributes default hide_operations default hide_getset_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_context default show_members_multiplicity default show_members_initialization default show_attribute_modifiers default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_relation_visibility default show_infonote default shadow default show_stereotype_properties default
+    //collaboration diagram settings
+    show_full_operations_definition default show_hierarchical_rank default write_horizontally default drawing_language default package_name_in_tab default show_context default show_msg_context default draw_all_relations default shadow default show_stereotype_properties default
+    //object diagram settings
+     write_horizontally default package_name_in_tab default show_context default auto_label_position default draw_all_relations default shadow default show_stereotype_properties default
+    //sequence diagram settings
+    show_full_operations_definition default write_horizontally default class_drawing_mode default drawing_language default draw_all_relations default shadow default show_stereotype_properties default show_class_context_mode default show_msg_context_mode default
+    //state diagram settings
+    package_name_in_tab default show_context default auto_label_position default write_trans_label_horizontally default show_trans_definition default draw_all_relations default shadow default
+    show_activities default region_horizontally default drawing_language default show_stereotype_properties default
+    //class settings
+    //activity diagram settings
+    package_name_in_tab default show_context default show_opaque_action_definition default auto_label_position default write_flow_label_horizontally default draw_all_relations default shadow default
+    show_infonote default drawing_language default show_stereotype_properties default
+    classdiagram 141167 "common models"
+      draw_all_relations yes hide_attributes no hide_operations default hide_getset_operations default show_members_full_definition yes show_members_visibility yes show_members_stereotype yes show_members_context default show_members_multiplicity yes show_members_initialization yes show_attribute_modifiers yes member_max_width 0 show_parameter_dir yes show_parameter_name yes package_name_in_tab yes class_drawing_mode default drawing_language default show_context_mode default auto_label_position yes show_relation_modifiers yes show_relation_visibility default show_infonote default shadow default show_stereotype_properties default
+      package_color lightgreen 
+      size A4
+    end
+
+    class 141167 "Location"
+      visibility package 
+      cpp_decl ""
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl "class ${name}${inherit}:
+${docstring}${members}
+"
+      idl_decl ""
+      explicit_switch_type ""
+      
+      attribute 129007 "address_line_1"
+	private explicit_type ""
+	multiplicity "1"
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl "${comment}${self}${name} = ${value}
+"
+	idl_decl ""
+      end
+
+      attribute 129135 "address_line_2"
+	private explicit_type ""
+	multiplicity "0..1"
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl "${comment}${self}${name} = ${value}
+"
+	idl_decl ""
+      end
+
+      attribute 129519 "zip"
+	private explicit_type ""
+	multiplicity "1"
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl "${comment}${self}${name} = ${value}
+"
+	idl_decl ""
+      end
+
+      attribute 129775 "purpose"
+	private explicit_type ""
+	multiplicity "1"
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl "${comment}${self}${name} = ${value}
+"
+	idl_decl ""
+      end
+
+      attribute 129903 "touch_date"
+	private explicit_type "datetimeField"
+	multiplicity "0..1"
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl "${comment}${self}${name} = ${value}
+"
+	idl_decl ""
+	comment "auto_now_add=True"
+      end
+
+      attribute 130031 "user_comment"
+	private explicit_type ""
+	multiplicity "1"
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl "${comment}${self}${name} = ${value}
+"
+	idl_decl ""
+      end
+
+      classrelation 135407 // <composition>
+	relation_ref 134895 // <composition>
+      end
+
+      attribute 138863 "address_line_3"
+	private explicit_type ""
+	multiplicity "0..1"
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl "${comment}${self}${name} = ${value}
+"
+	idl_decl ""
+      end
+
+      classrelation 143855 // city (<aggregation>)
+	relation 142575 o---
+	  a role_name "city" multiplicity "1" private
+	    python "${comment}${self}${name} = ${value}
+"
+	    classrelation_ref 143855 // city (<aggregation>)
+	  b role_name "location_set" multiplicity "*" private
+	    python "${comment}${self}${name} = ${value}
+"
+	    classrelation_ref 143983 // <aggregation>
+      end
+
+      classrelation 144111 // country (<aggregation>)
+	relation 142703 o---
+	  a role_name "country" multiplicity "1" private
+	    python "${comment}${self}${name} = ${value}
+"
+	    classrelation_ref 144111 // country (<aggregation>)
+	  b role_name "location_set" multiplicity "*" private
+	    python "${comment}${self}${name} = ${value}
+"
+	    classrelation_ref 144239 // <aggregation>
+      end
+
+      classrelation 144367 // state (<aggregation>)
+	relation 142831 o---
+	  a role_name "state" multiplicity "1" private
+	    python "${comment}${self}${name} = ${value}
+"
+	    classrelation_ref 144367 // state (<aggregation>)
+	  b role_name "location_set" multiplicity "*" private
+	    python "${comment}${self}${name} = ${value}
+"
+	    classrelation_ref 144495 // <aggregation>
+      end
+    end
+
+    class 141295 "Person"
+      visibility package 
+      cpp_decl ""
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl "class ${name}${inherit}:
+${docstring}${members}
+"
+      idl_decl ""
+      explicit_switch_type ""
+      
+      comment "Multi-table inheritance
+
+Person Supertype. All people are centralized here. Sub-types are in other tables. A person can belong to multiple groups (client and developer). “No one can see your personal info including name, email, phone, address”."
+      classrelation 134895 // user (<composition>)
+	relation_ref 134639 // <composition>
+      end
+
+      classrelation 135279 // location_set (<composition>)
+	relation 134895 *---
+	  a role_name "location_set" multiplicity "*" private
+	    python "${comment}${self}${name} = ${type}()
+"
+	    classrelation_ref 135279 // location_set (<composition>)
+	  b role_name "person" multiplicity "1" private
+	    python "${comment}${self}${name} = ${type}()
+"
+	    classrelation_ref 135407 // <composition>
+      end
+
+      attribute 136559 "person_id"
+	derived unique private explicit_type ""
+	multiplicity "1"
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl "${comment}${self}${name} = ${value}
+"
+	idl_decl ""
+	comment "alphanumeric of length 16"
+      end
+
+      attribute 136687 "phone_number"
+	private explicit_type ""
+	multiplicity "1"
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl "${comment}${self}${name} = ${value}
+"
+	idl_decl ""
+      end
+
+      attribute 136943 "middle_name"
+	private explicit_type ""
+	multiplicity "0..1"
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl "${comment}${self}${name} = ${value}
+"
+	idl_decl ""
+      end
+
+      attribute 137071 "sex"
+	private explicit_type ""
+	multiplicity "1"
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl "${comment}${self}${name} = ${value}
+"
+	idl_decl ""
+	comment "(('M', 'Male'), ('F', 'Female'))"
+      end
+
+      attribute 137583 "feedback"
+	private explicit_type ""
+	multiplicity "0..1"
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl "${comment}${self}${name} = ${value}
+"
+	idl_decl ""
+	comment "Feedback to CFGIO Large text field: What are we doing right, what are we doing wrong, and what can we do to serve your needs better? What are your priorities? Send CFGIO an email every time this field is changed."
+      end
+
+      attribute 137711 "time_zone"
+	private explicit_type ""
+	multiplicity "0..1"
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl "${comment}${self}${name} = ${value}
+"
+	idl_decl ""
+      end
+
+      attribute 137839 "comment"
+	private explicit_type ""
+	multiplicity "0..1"
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl "${comment}${self}${name} = ${value}
+"
+	idl_decl ""
+	comment "internal CFGIO comment"
+      end
+
+      classrelation 141935 // challenge_question_set (<composition>)
+	relation 141423 *---
+	  a role_name "challenge_question_set" multiplicity "*" private
+	    python "${comment}${self}${name} = ${type}()
+"
+	    classrelation_ref 141935 // challenge_question_set (<composition>)
+	  b role_name "person" multiplicity "1" private
+	    comment "(can postpone this for now if we are in a hurry. Clients can just email us for a new password and we manually send it to them) when user forgets passwords. 1:M (Not in a hurry to implement this.)"
+	    python "${comment}${self}${name} = ${type}()
+"
+	    classrelation_ref 142063 // person (<composition>)
+      end
+
+      classrelation 142191 // phone_number_set (<composition>)
+	relation 141551 *---
+	  a role_name "phone_number_set" multiplicity "*" private
+	    python "${comment}${self}${name} = ${type}()
+"
+	    classrelation_ref 142191 // phone_number_set (<composition>)
+	  b role_name "person" multiplicity "1" private
+	    python "${comment}${self}${name} = ${type}()
+"
+	    classrelation_ref 142319 // person (<composition>)
+      end
+
+      attribute 141551 "datetime"
+	derived private explicit_type ""
+	multiplicity "1"
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl "${comment}${self}${name} = ${value}
+"
+	idl_decl ""
+	comment "auto_now_add=True"
+      end
+
+      classrelation 144751 // person_skill_set (<composition>)
+	relation 143087 *---
+	  a role_name "person_skill_set" multiplicity "*" private
+	    python "${comment}${self}${name} = ${type}()
+"
+	    classrelation_ref 144751 // person_skill_set (<composition>)
+	  b role_name "person" multiplicity "1" private
+	    python "${comment}${self}${name} = ${type}()
+"
+	    classrelation_ref 144879 // person (<composition>)
+      end
+
+      classrelation 145391 // project_set (<composition>)
+	relation 143471 *---
+	  a role_name "project_set" multiplicity "*" private
+	    python "${comment}${self}${name} = ${type}()
+"
+	    classrelation_ref 145391 // project_set (<composition>)
+	  b role_name "person" multiplicity "1" private
+	    python "${comment}${self}${name} = ${type}()
+"
+	    classrelation_ref 145519 // <composition>
+      end
+
+      classrelation 152303 // person_project_set (<composition>)
+	relation 150127 *---
+	  a role_name "person_project_set" multiplicity "*" private
+	    python "${comment}${self}${name} = ${type}()
+"
+	    classrelation_ref 152303 // person_project_set (<composition>)
+	  b role_name "person" multiplicity "1" private
+	    python "${comment}${self}${name} = ${type}()
+"
+	    classrelation_ref 152431 // <composition>
+      end
+
+      classrelation 161007 // project_comment_set (<composition>)
+	relation 157679 *---
+	  a role_name "project_comment_set" multiplicity "*" private
+	    comment "personID (the person who commented on the project.  Anyone commenting has to register in order “to raise the level of discourse”. Can’t just let anybody comment. When prompting them to register, we state: “You can choose a screen name” and “We will not spam you or give your info to anybody”)"
+	    python "${comment}${self}${name} = ${type}()
+"
+	    classrelation_ref 161007 // project_comment_set (<composition>)
+	  b role_name "person" multiplicity "1" private
+	    python "${comment}${self}${name} = ${type}()
+"
+	    classrelation_ref 161135 // person (<composition>)
+      end
+    end
+
+    class 147823 "Challenge_Question"
+      visibility package 
+      cpp_decl ""
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl "class ${name}${inherit}:
+${docstring}${members}
+"
+      idl_decl ""
+      explicit_switch_type ""
+      
+      classrelation 142063 // person (<composition>)
+	relation_ref 141423 // <composition>
+      end
+
+      attribute 137967 "question"
+	private explicit_type ""
+	multiplicity "1"
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl "${comment}${self}${name} = ${value}
+"
+	idl_decl ""
+      end
+
+      attribute 138095 "answer"
+	private explicit_type ""
+	multiplicity "1"
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl "${comment}${self}${name} = ${value}
+"
+	idl_decl ""
+	comment "don’t make answering it case sensitive"
+      end
+
+      attribute 138223 "datetime"
+	derived private explicit_type ""
+	multiplicity "1"
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl "${comment}${self}${name} = ${value}
+"
+	idl_decl ""
+	comment "auto_now_add=True
+record first created
+"
+      end
+    end
+
+    class 147951 "Phone_Number"
+      visibility package 
+      cpp_decl ""
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl "class ${name}${inherit}:
+${docstring}${members}
+"
+      idl_decl ""
+      explicit_switch_type ""
+      
+      classrelation 142319 // person (<composition>)
+	relation_ref 141551 // <composition>
+      end
+
+      attribute 138351 "phone_number"
+	private explicit_type ""
+	multiplicity "1"
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl "${comment}${self}${name} = ${value}
+"
+	idl_decl ""
+      end
+
+      attribute 138479 "purpose"
+	private explicit_type ""
+	multiplicity "1"
+	init_value "'H'"
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl "${comment}${self}${name} = ${value}
+"
+	idl_decl ""
+	comment "(('H', 'Home'), ('W', 'Work'), ('V', 'Vacation'))"
+      end
+
+      attribute 138607 "comment"
+	private explicit_type ""
+	multiplicity "0..1"
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl "${comment}${self}${name} = ${value}
+"
+	idl_decl ""
+      end
+
+      attribute 138735 "datetime"
+	derived private explicit_type ""
+	multiplicity "1"
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl "${comment}${self}${name} = ${value}
+"
+	idl_decl ""
+	comment "auto_now_add=True"
+      end
+    end
+
+    class 148719 "Skill"
+      visibility package 
+      cpp_decl ""
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl "class ${name}${inherit}:
+${docstring}${members}
+"
+      idl_decl ""
+      explicit_switch_type ""
+      
+      classrelation 145007 // person_skill_set (<composition>)
+	relation 143215 *---
+	  a role_name "person_skill_set" multiplicity "*" private
+	    python "${comment}${self}${name} = ${type}()
+"
+	    classrelation_ref 145007 // person_skill_set (<composition>)
+	  b role_name "skill" multiplicity "1" private
+	    python "${comment}${self}${name} = ${type}()
+"
+	    classrelation_ref 145135 // skill (<composition>)
+      end
+
+      attribute 141679 "name"
+	private explicit_type ""
+	multiplicity "1"
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl "${comment}${self}${name} = ${value}
+"
+	idl_decl ""
+      end
+    end
+
+    class 148847 "Person_Skill"
+      visibility package 
+      cpp_decl ""
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl "class ${name}${inherit}:
+${docstring}${members}
+"
+      idl_decl ""
+      explicit_switch_type ""
+      
+      classrelation 144879 // person (<composition>)
+	relation_ref 143087 // <composition>
+      end
+
+      classrelation 145135 // skill (<composition>)
+	relation_ref 143215 // <composition>
+      end
+
+      attribute 141807 "experience_years"
+	private explicit_type ""
+	multiplicity "1"
+	init_value "0"
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl "${comment}${self}${name} = ${value}
+"
+	idl_decl ""
+      end
+
+      attribute 141935 "level"
+	private explicit_type ""
+	multiplicity "1"
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl "${comment}${self}${name} = ${value}
+"
+	idl_decl ""
+	comment "(('A', 'A'), ('B', 'B'),  ('C', 'C'),  ('D', 'D'),  ('F', 'F'))"
+      end
+
+      attribute 142063 "datetime"
+	derived private explicit_type ""
+	multiplicity "1"
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl "${comment}${self}${name} = ${value}
+"
+	idl_decl ""
+	comment "auto_now_add=True"
+      end
+    end
+  end
+end

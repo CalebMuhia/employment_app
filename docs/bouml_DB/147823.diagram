@@ -1,0 +1,68 @@
+format 74
+
+packagecanvas 128111 
+  package_ref 135023 // common
+    xyzwh 391 103 2000 287 237
+end
+classcanvas 128239 class_ref 141295 // Person
+  draw_all_relations default hide_attributes default hide_operations default hide_getset_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_context default show_members_multiplicity default show_members_initialization default show_attribute_modifiers default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_relation_visibility default show_infonote default shadow default show_stereotype_properties default
+  xyz 441 144 2005
+end
+classcanvas 128367 class_ref 148591 // Developer
+  draw_all_relations default hide_attributes default hide_operations default hide_getset_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_context default show_members_multiplicity default show_members_initialization default show_attribute_modifiers default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_relation_visibility default show_infonote default shadow default show_stereotype_properties default
+  xyz 752 254 2000
+end
+classcanvas 128623 class_ref 148975 // Client
+  draw_all_relations default hide_attributes default hide_operations default hide_getset_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_context default show_members_multiplicity default show_members_initialization default show_attribute_modifiers default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_relation_visibility default show_infonote default shadow default show_stereotype_properties default
+  xyz 755 165 2000
+end
+classcanvas 128879 class_ref 149103 // Project
+  draw_all_relations default hide_attributes default hide_operations default hide_getset_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_context default show_members_multiplicity default show_members_initialization default show_attribute_modifiers default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_relation_visibility default show_infonote default shadow default show_stereotype_properties default
+  xyz 7 429 2000
+end
+classcanvas 129135 class_ref 155631 // Person_Project
+  draw_all_relations default hide_attributes default hide_operations default hide_getset_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_context default show_members_multiplicity default show_members_initialization default show_attribute_modifiers default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_relation_visibility default show_infonote default shadow default show_stereotype_properties default
+  xyz 566 574 2005
+end
+classcanvas 129519 class_ref 162543 // Project_Comment
+  draw_all_relations default hide_attributes default hide_operations default hide_getset_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_context default show_members_multiplicity default show_members_initialization default show_attribute_modifiers default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_relation_visibility default show_infonote default shadow default show_stereotype_properties default
+  xyz 8 186 2000
+end
+relationcanvas 128495 relation_ref 142959 // <generalisation>
+  from ref 128367 z 2006 to ref 128239
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+relationcanvas 128751 relation_ref 143343 // <generalisation>
+  from ref 128623 z 2006 to ref 128239
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+relationcanvas 129007 relation_ref 143471 // <composition>
+  from ref 128239 z 2006 to ref 128879
+  role_a_pos 349 425 3000 role_b_pos 461 319 3000
+  multiplicity_a_pos 323 425 3000 multiplicity_b_pos 433 319 3000
+end
+relationcanvas 129263 relation_ref 149999 // <composition>
+  from ref 128879 z 2006 to ref 129135
+  role_a_pos 438 612 3000 role_b_pos 343 612 3000
+  multiplicity_a_pos 549 639 3000 multiplicity_b_pos 343 639 3000
+end
+relationcanvas 129391 relation_ref 150127 // <composition>
+  from ref 128239 z 2006 to ref 129135
+  role_a_pos 651 553 3000 role_b_pos 574 319 3000
+  multiplicity_a_pos 625 553 3000 multiplicity_b_pos 546 319 3000
+end
+relationcanvas 129647 relation_ref 157423 // <composition>
+  from ref 128879 z 2001 to ref 129519
+  role_a_pos 145 259 3000 role_b_pos 161 408 3000
+  multiplicity_a_pos 119 259 3000 multiplicity_b_pos 133 408 3000
+end
+relationcanvas 129903 relation_ref 157679 // <composition>
+  decenter_begin 721
+  decenter_end 507
+  from ref 128239 z 2006 to ref 129519
+  role_a_pos 268 201 3000 role_b_pos 385 247 3000
+  multiplicity_a_pos 268 228 3000 multiplicity_b_pos 422 274 3000
+end
+end

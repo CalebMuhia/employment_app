@@ -1,0 +1,36 @@
+<!-- Documentation produced by the Html generator of Bouml (http://bouml.free.fr) -->
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<title>Class Mail_Send</title>
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body bgcolor="#ffffff">
+
+<div class = "title">Class Mail_Send</div>
+<p></p>
+
+<!-- ============================================================= -->
+
+<a name="refclass162287"></a>
+<p>for internal email.  This is how someone sends an internal email to someone.  Need code to copy this email data to recipient’s email box and set a flag stating “you have mail!”<br /></p>
+<p>Declaration :</p><ul>
+<li>Python : class Mail_Send(object)</li></ul><div class="sub">
+<a name="refattribute158959"></a>
+<table><tr><td><div class="element">Attribute <b>email_id</b></div></td></tr></table>
+<p>16 character integer - uniquely identifies this specific email<br /></p><p>Declaration :</p><ul><li>Uml : - email_id : , multiplicity : 1</li><li>Python : self.email_id = None<br /></li></ul><a name="refrelation159599"></a>
+<table><tr><td><div class="element">Relation <b>sender (&lt;composition&gt;)</b></div></td></tr></table><p>Declaration :</p><ul><li>Uml : - sender : <a href="class128111.html#refclass128111"><b>User</b></a>, multiplicity : 1</li><li>Python : self.sender = <a href="class128111.html#refclass128111"><b>User</b></a>()<br /></li></ul><a name="refattribute159087"></a>
+<table><tr><td><div class="element">Attribute <b>subject</b></div></td></tr></table>
+<p>Declaration :</p><ul><li>Uml : - subject : , multiplicity : 1</li><li>Python : self.subject = None<br /></li></ul><a name="refattribute159215"></a>
+<table><tr><td><div class="element">Attribute <b>body</b></div></td></tr></table>
+<p>Declaration :</p><ul><li>Uml : - body : , multiplicity : 1</li><li>Python : self.body = None<br /></li></ul><a name="refattribute159343"></a>
+<table><tr><td><div class="element">Attribute <b>datetime_email_sent</b></div></td></tr></table>
+<p>auto_now_add=True<br /></p><p>Declaration :</p><ul><li>Uml : - datetime_email_sent : , multiplicity : 1, derived</li><li>Python : self.datetime_email_sent = None<br /></li></ul><a name="refrelation160367"></a>
+<table><tr><td><div class="element">Relation <b>receivers (&lt;aggregation&gt;)</b></div></td></tr></table><p>Declaration :</p><ul><li>Uml : - receivers : <a href="class128111.html#refclass128111"><b>User</b></a>, multiplicity : *</li><li>Python : self.receivers = None<br /></li></ul><a name="refattribute159471"></a>
+<table><tr><td><div class="element">Attribute <b>datetime_email_read</b></div></td></tr></table>
+<p>Declaration :</p><ul><li>Uml : - datetime_email_read : , multiplicity : 0..1, derived</li><li>Python : self.datetime_email_read = None<br /></li></ul></div>
+</body>
+</html>

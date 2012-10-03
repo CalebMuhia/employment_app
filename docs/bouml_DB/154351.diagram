@@ -1,0 +1,47 @@
+format 74
+
+packagecanvas 128111 
+  package_ref 128111 // Django
+    xyzwh 403 45 2000 267 263
+end
+classcanvas 128239 class_ref 128111 // User
+  draw_all_relations default hide_attributes default hide_operations default hide_getset_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_context default show_members_multiplicity default show_members_initialization default show_attribute_modifiers default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_relation_visibility default show_infonote default shadow default show_stereotype_properties default
+  xyzwh 421 73 2005 231 205
+end
+classcanvas 128367 class_ref 162159 // Connection_Approval
+  draw_all_relations default hide_attributes default hide_operations default hide_getset_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_context default show_members_multiplicity default show_members_initialization default show_attribute_modifiers default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_relation_visibility default show_infonote default shadow default show_stereotype_properties default
+  xyz 347 473 2000
+end
+classcanvas 128751 class_ref 162287 // Mail_Send
+  draw_all_relations default hide_attributes default hide_operations default hide_getset_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_context default show_members_multiplicity default show_members_initialization default show_attribute_modifiers default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_relation_visibility default show_infonote default shadow default show_stereotype_properties default
+  xyz 4 129 2000
+end
+relationcanvas 128495 relation_ref 156655 // <composition>
+  decenter_begin 47
+  decenter_end 46
+  from ref 128239 z 2006 to ref 128367
+  role_a_pos 372 452 3000 role_b_pos 439 284 3000
+  multiplicity_a_pos 346 452 3000 multiplicity_b_pos 411 284 3000
+end
+relationcanvas 128623 relation_ref 156783 // <composition>
+  decenter_begin 961
+  decenter_end 953
+  from ref 128239 z 2006 to ref 128367
+  role_a_pos 641 452 3000 role_b_pos 652 284 3000
+  multiplicity_a_pos 615 452 3000 multiplicity_b_pos 624 284 3000
+end
+relationcanvas 128879 relation_ref 156911 // <composition>
+  decenter_begin 326
+  decenter_end 89
+  from ref 128239 z 2006 to ref 128751
+  role_a_pos 218 119 3000 role_b_pos 365 119 3000
+  multiplicity_a_pos 218 146 3000 multiplicity_b_pos 402 146 3000
+end
+relationcanvas 129391 relation_ref 157295 // <aggregation>
+  decenter_begin 809
+  decenter_end 924
+  from ref 128239 z 2006 to ref 128751
+  role_a_pos 218 218 3000 role_b_pos 352 218 3000
+  multiplicity_a_pos 218 245 3000 multiplicity_b_pos 404 245 3000
+end
+end

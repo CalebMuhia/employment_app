@@ -1,0 +1,70 @@
+<!-- Documentation produced by the Html generator of Bouml (http://bouml.free.fr) -->
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<title>Class Project</title>
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body bgcolor="#ffffff">
+
+<div class = "title">Class Project</div>
+<p></p>
+
+<!-- ============================================================= -->
+
+<a name="refclass149103"></a>
+<p>Declaration :</p><ul>
+<li>Python : class Project(object)</li></ul><div class="sub">
+<a name="refattribute142319"></a>
+<table><tr><td><div class="element">Attribute <b>project_id</b></div></td></tr></table>
+<p>15 digit integer, auto-generated<br /></p><p>Declaration :</p><ul><li>Uml : - project_id : , multiplicity : 1, unique</li><li>Python : self.project_id = None<br /></li></ul><a name="refrelation145519"></a>
+<table><tr><td><div class="element">Relation <b>&lt;composition&gt;</b></div></td></tr></table><p>Declaration :</p><ul><li>Uml : - person : <a href="class141295.html#refclass141295"><b>Person</b></a>, multiplicity : 1</li><li>Python : self.person = <a href="class141295.html#refclass141295"><b>Person</b></a>()<br /></li></ul><a name="refattribute142447"></a>
+<table><tr><td><div class="element">Attribute <b>title</b></div></td></tr></table>
+<p>140 characters<br /></p><p>Declaration :</p><ul><li>Uml : - title : , multiplicity : 1</li><li>Python : self.title = None<br /></li></ul><a name="refattribute142575"></a>
+<table><tr><td><div class="element">Attribute <b>short_description</b></div></td></tr></table>
+<p>Declaration :</p><ul><li>Uml : - short_description : , multiplicity : 1</li><li>Python : self.short_description = None<br /></li></ul><a name="refattribute142703"></a>
+<table><tr><td><div class="element">Attribute <b>public_description</b></div></td></tr></table>
+<p>4,000 bytes varchar. Startups don’t want to give away their whole idea.  This is where they tell a little about it to interest developers and investors. Everyone can see this.<br /></p><p>Declaration :</p><ul><li>Uml : - public_description : , multiplicity : 1</li><li>Python : self.public_description = None<br /></li></ul><a name="refattribute142831"></a>
+<table><tr><td><div class="element">Attribute <b>long_description</b></div></td></tr></table>
+<p>For developers and investors only. This is private so no one can steal their idea. Can include private discussion group URL such as Google groups, or Linkedin. <br /></p><p>Declaration :</p><ul><li>Uml : - long_description : , multiplicity : 1</li><li>Python : self.long_description = None<br /></li></ul><a name="refattribute142959"></a>
+<table><tr><td><div class="element">Attribute <b>payment_description</b></div></td></tr></table>
+<p>Identify the type of profit-sharing, installment payment, or transaction-based payment you are offering. Include milestones that measure progress. This field was created so that other startups and developers can learn from successes and failures of others.<br /></p><p>Declaration :</p><ul><li>Uml : - payment_description : , multiplicity : 1</li><li>Python : self.payment_description = None<br /></li></ul><a name="refattribute143087"></a>
+<table><tr><td><div class="element">Attribute <b>dissolution_strategy</b></div></td></tr></table>
+<p>describe how partnership can dissolve with mutual respect and fairness. This field was created so that other startups and developers can learn from successes and failures of others.  What happens if programmer does some work, then goes dead in the water?  This causes project to be “married” to developer so startup can’t get others to work on it. What about the work programmer has already done?  Can’t just keep on splitting revenue with more and more people.  Come up with plans to deal with this amicably. <br /></p><p>Declaration :</p><ul><li>Uml : - dissolution_strategy : , multiplicity : 1</li><li>Python : self.dissolution_strategy = None<br /></li></ul><a name="refattribute143215"></a>
+<table><tr><td><div class="element">Attribute <b>estimated_total_project_cost</b></div></td></tr></table>
+<p>include legal costs, paying a for-profit company to code final production version, everything.  Just make up your best guess”. Update it as more info arrives.<br /></p><p>Declaration :</p><ul><li>Uml : - estimated_total_project_cost : , multiplicity : 1</li><li>Python : self.estimated_total_project_cost = None<br /></li></ul><a name="refattribute143343"></a>
+<table><tr><td><div class="element">Attribute <b>complexity_rating</b></div></td></tr></table>
+<p>(('H', 'High'), ('M', 'Medium'), ('L', 'Low'))<br /></p><p>Declaration :</p><ul><li>Uml : - complexity_rating : , multiplicity : 1</li><li>Python : self.complexity_rating = None<br /></li></ul><a name="refattribute143471"></a>
+<table><tr><td><div class="element">Attribute <b>url</b></div></td></tr></table>
+<p>Declaration :</p><ul><li>Uml : - url : , multiplicity : 0..1</li><li>Python : self.url = None<br /></li></ul><a name="refattribute149999"></a>
+<table><tr><td><div class="element">Attribute <b>percent_prototype_completed</b></div></td></tr></table>
+<p>Declaration :</p><ul><li>Uml : - percent_prototype_completed :  = 0, multiplicity : 1</li><li>Python : self.percent_prototype_completed = 0<br /></li></ul><a name="refattribute150127"></a>
+<table><tr><td><div class="element">Attribute <b>datetime_prototype_completion_anticipated</b></div></td></tr></table>
+<p>Declaration :</p><ul><li>Uml : - datetime_prototype_completion_anticipated : , multiplicity : 1</li><li>Python : self.datetime_prototype_completion_anticipated = None<br /></li></ul><a name="refattribute150255"></a>
+<table><tr><td><div class="element">Attribute <b>datetime_prototype_actually_completed</b></div></td></tr></table>
+<p>Declaration :</p><ul><li>Uml : - datetime_prototype_actually_completed : , multiplicity : 1</li><li>Python : self.datetime_prototype_actually_completed = None<br /></li></ul><a name="refattribute150383"></a>
+<table><tr><td><div class="element">Attribute <b>project_status_history</b></div></td></tr></table>
+<p>large text field keeping track of dates and milestones<br /></p><p>Declaration :</p><ul><li>Uml : - project_status_history : , multiplicity : 0..1</li><li>Python : self.project_status_history = None<br /></li></ul><a name="refattribute150511"></a>
+<table><tr><td><div class="element">Attribute <b>looking_for_developers</b></div></td></tr></table>
+<p>(('Y', 'Yes'), ('N', 'No'))<br /></p><p>Declaration :</p><ul><li>Uml : - looking_for_developers :  = 'N', multiplicity : 1</li><li>Python : self.looking_for_developers = 'N'<br /></li></ul><a name="refattribute150639"></a>
+<table><tr><td><div class="element">Attribute <b>developer_description</b></div></td></tr></table>
+<p>Declaration :</p><ul><li>Uml : - developer_description : , multiplicity : 0..1</li><li>Python : self.developer_description = None<br /></li></ul><a name="refattribute150767"></a>
+<table><tr><td><div class="element">Attribute <b>non_disclosure_agreement</b></div></td></tr></table>
+<p>body of non-disclosure agreement.<br /></p><p>Declaration :</p><ul><li>Uml : - non_disclosure_agreement : , multiplicity : 0..1</li><li>Python : self.non_disclosure_agreement = None<br /></li></ul><a name="refattribute150895"></a>
+<table><tr><td><div class="element">Attribute <b>open_or_closed</b></div></td></tr></table>
+<p>(('O', 'Open'), ('C', 'Closed'))<br /></p><p>Declaration :</p><ul><li>Uml : - open_or_closed :  = 'O', multiplicity : 1</li><li>Python : self.open_or_closed = 'O'<br /></li></ul><a name="refattribute151023"></a>
+<table><tr><td><div class="element">Attribute <b>comment</b></div></td></tr></table>
+<p>Declaration :</p><ul><li>Uml : - comment : , multiplicity : 0..1</li><li>Python : self.comment = None<br /></li></ul><a name="refattribute151151"></a>
+<table><tr><td><div class="element">Attribute <b>lessons_learned</b></div></td></tr></table>
+<p>long text.  This must be open to public so all can learn.  Don’t use anyone’s real name<br /></p><p>Declaration :</p><ul><li>Uml : - lessons_learned : , multiplicity : 0..1</li><li>Python : self.lessons_learned = None<br /></li></ul><a name="refattribute151279"></a>
+<table><tr><td><div class="element">Attribute <b>registration</b></div></td></tr></table>
+<p>auto_now_add=True<br /></p><p>Declaration :</p><ul><li>Uml : - registration : datetime, multiplicity : 1, derived</li><li>Python : self.registration = None<br /></li></ul><a name="refattribute151407"></a>
+<table><tr><td><div class="element">Attribute <b>last_edited</b></div></td></tr></table>
+<p>auto_now=True<br /></p><p>Declaration :</p><ul><li>Uml : - last_edited : datetime, multiplicity : 1, derived</li><li>Python : self.last_edited = None<br /></li></ul><a name="refrelation152047"></a>
+<table><tr><td><div class="element">Relation <b>person_project_set (&lt;composition&gt;)</b></div></td></tr></table><p>Declaration :</p><ul><li>Uml : - person_project_set : <a href="class155631.html#refclass155631"><b>Person_Project</b></a>, multiplicity : *</li><li>Python : self.person_project_set = <a href="class155631.html#refclass155631"><b>Person_Project</b></a>()<br /></li></ul><a name="refrelation160495"></a>
+<table><tr><td><div class="element">Relation <b>project_comment_set (&lt;composition&gt;)</b></div></td></tr></table><p>Declaration :</p><ul><li>Uml : - project_comment_set : <a href="class162543.html#refclass162543"><b>Project_Comment</b></a>, multiplicity : *</li><li>Python : self.project_comment_set = <a href="class162543.html#refclass162543"><b>Project_Comment</b></a>()<br /></li></ul></div>
+</body>
+</html>

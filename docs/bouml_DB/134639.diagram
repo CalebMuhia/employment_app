@@ -1,0 +1,20 @@
+format 74
+
+classcanvas 128111 class_ref 134639 // RegistrationProfile
+  draw_all_relations default hide_attributes default hide_operations default hide_getset_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_context default show_members_multiplicity default show_members_initialization default show_attribute_modifiers default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_relation_visibility default show_infonote default shadow default show_stereotype_properties default
+  xyz 52 155 2000
+end
+packagecanvas 128239 
+  package_ref 128111 // Django
+    xyzwh 360 62 2000 257 263
+end
+classcanvas 128367 class_ref 128111 // User
+  draw_all_relations default hide_attributes default hide_operations default hide_getset_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_context default show_members_multiplicity default show_members_initialization default show_attribute_modifiers default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_relation_visibility default show_infonote default shadow default show_stereotype_properties default
+  xyzwh 366 86 2005 231 203
+end
+relationcanvas 128623 relation_ref 134767 // <composition>
+  from ref 128367 z 2006 to ref 128111
+  role_a_pos 208 161 3000 role_b_pos 325 164 3000
+  multiplicity_a_pos 208 188 3000 multiplicity_b_pos 347 191 3000
+end
+end

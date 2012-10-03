@@ -1,0 +1,538 @@
+format 74
+"employment_app" // employment_app
+  revision 5
+  modified_by 111 "giussepi"
+  // class settings
+  //class diagram settings
+  draw_all_relations default hide_attributes default hide_operations default hide_getset_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_context default show_members_multiplicity default show_members_initialization default show_attribute_modifiers default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_relation_visibility default show_infonote default shadow default show_stereotype_properties default
+  //use case diagram settings
+  package_name_in_tab default show_context default auto_label_position default draw_all_relations default class_drawing_mode default shadow default show_stereotype_properties default
+  //sequence diagram settings
+  show_full_operations_definition default write_horizontally default class_drawing_mode default drawing_language default draw_all_relations default shadow default show_stereotype_properties default show_class_context_mode default show_msg_context_mode default
+  //collaboration diagram settings
+  show_full_operations_definition default show_hierarchical_rank default write_horizontally default drawing_language default package_name_in_tab default show_context default show_msg_context default draw_all_relations default shadow default show_stereotype_properties default
+  //object diagram settings
+   write_horizontally default package_name_in_tab default show_context default auto_label_position default draw_all_relations default shadow default show_stereotype_properties default
+  //component diagram settings
+  package_name_in_tab default show_context default auto_label_position default draw_all_relations default shadow default
+  draw_component_as_icon default show_component_req_prov default show_component_rea default show_stereotype_properties default
+  //deployment diagram settings
+  package_name_in_tab default show_context default write_horizontally default auto_label_position default draw_all_relations default shadow default
+  draw_component_as_icon default show_component_req_prov default show_component_rea default show_stereotype_properties default
+  //state diagram settings
+  package_name_in_tab default show_context default auto_label_position default write_trans_label_horizontally default show_trans_definition default draw_all_relations default shadow default
+  show_activities default region_horizontally default drawing_language default show_stereotype_properties default
+  //activity diagram settings
+  package_name_in_tab default show_context default show_opaque_action_definition default auto_label_position default write_flow_label_horizontally default draw_all_relations default shadow default
+  show_infonote default drawing_language default show_stereotype_properties default
+  
+  classview 147823 "employment_app class view"
+    //class diagram settings
+    draw_all_relations default hide_attributes default hide_operations default hide_getset_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_context default show_members_multiplicity default show_members_initialization default show_attribute_modifiers default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_relation_visibility default show_infonote default shadow default show_stereotype_properties default
+    //collaboration diagram settings
+    show_full_operations_definition default show_hierarchical_rank default write_horizontally default drawing_language default package_name_in_tab default show_context default show_msg_context default draw_all_relations default shadow default show_stereotype_properties default
+    //object diagram settings
+     write_horizontally default package_name_in_tab default show_context default auto_label_position default draw_all_relations default shadow default show_stereotype_properties default
+    //sequence diagram settings
+    show_full_operations_definition default write_horizontally default class_drawing_mode default drawing_language default draw_all_relations default shadow default show_stereotype_properties default show_class_context_mode default show_msg_context_mode default
+    //state diagram settings
+    package_name_in_tab default show_context default auto_label_position default write_trans_label_horizontally default show_trans_definition default draw_all_relations default shadow default
+    show_activities default region_horizontally default drawing_language default show_stereotype_properties default
+    //class settings
+    //activity diagram settings
+    package_name_in_tab default show_context default show_opaque_action_definition default auto_label_position default write_flow_label_horizontally default draw_all_relations default shadow default
+    show_infonote default drawing_language default show_stereotype_properties default
+    classdiagram 147823 "employment_app models"
+      draw_all_relations yes hide_attributes default hide_operations default hide_getset_operations default show_members_full_definition yes show_members_visibility yes show_members_stereotype yes show_members_context default show_members_multiplicity yes show_members_initialization yes show_attribute_modifiers yes member_max_width 0 show_parameter_dir yes show_parameter_name yes package_name_in_tab yes class_drawing_mode default drawing_language default show_context_mode default auto_label_position yes show_relation_modifiers yes show_relation_visibility yes show_infonote default shadow default show_stereotype_properties default
+      package_color lightgreen 
+      size A4
+    end
+
+    class 148591 "Developer"
+      visibility package 
+      cpp_decl ""
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl "class ${name}${inherit}:
+${docstring}${members}
+"
+      idl_decl ""
+      explicit_switch_type ""
+      
+      attribute 141423 "bio"
+	private explicit_type ""
+	multiplicity "1"
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl "${comment}${self}${name} = ${value}
+"
+	idl_decl ""
+	comment "bio - and examples of work completed or sample of what they can do"
+      end
+
+      classrelation 144623 // <generalisation>
+	relation 142959 ---|>
+	  a public
+	    python "${type}"
+	    classrelation_ref 144623 // <generalisation>
+	  b parent class_ref 141295 // Person
+      end
+    end
+
+    class 148975 "Client"
+      visibility package 
+      cpp_decl ""
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl "class ${name}${inherit}:
+${docstring}${members}
+"
+      idl_decl ""
+      explicit_switch_type ""
+      
+      classrelation 145263 // <generalisation>
+	relation 143343 ---|>
+	  a public
+	    python "${type}"
+	    classrelation_ref 145263 // <generalisation>
+	  b parent class_ref 141295 // Person
+      end
+
+      attribute 142191 "info"
+	private explicit_type ""
+	multiplicity "1"
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl "${comment}${self}${name} = ${value}
+"
+	idl_decl ""
+	comment "bio; info"
+      end
+    end
+
+    class 149103 "Project"
+      visibility package 
+      cpp_decl ""
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl "class ${name}${inherit}:
+${docstring}${members}
+"
+      idl_decl ""
+      explicit_switch_type ""
+      
+      attribute 142319 "project_id"
+	unique private explicit_type ""
+	multiplicity "1"
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl "${comment}${self}${name} = ${value}
+"
+	idl_decl ""
+	comment "15 digit integer, auto-generated"
+      end
+
+      classrelation 145519 // <composition>
+	relation_ref 143471 // <composition>
+      end
+
+      attribute 142447 "title"
+	private explicit_type ""
+	multiplicity "1"
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl "${comment}${self}${name} = ${value}
+"
+	idl_decl ""
+	comment "140 characters"
+      end
+
+      attribute 142575 "short_description"
+	private explicit_type ""
+	multiplicity "1"
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl "${comment}${self}${name} = ${value}
+"
+	idl_decl ""
+      end
+
+      attribute 142703 "public_description"
+	private explicit_type ""
+	multiplicity "1"
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl "${comment}${self}${name} = ${value}
+"
+	idl_decl ""
+	comment "4,000 bytes varchar. Startups don’t want to give away their whole idea.  This is where they tell a little about it to interest developers and investors. Everyone can see this."
+      end
+
+      attribute 142831 "long_description"
+	private explicit_type ""
+	multiplicity "1"
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl "${comment}${self}${name} = ${value}
+"
+	idl_decl ""
+	comment "For developers and investors only. This is private so no one can steal their idea. Can include private discussion group URL such as Google groups, or Linkedin. "
+      end
+
+      attribute 142959 "payment_description"
+	private explicit_type ""
+	multiplicity "1"
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl "${comment}${self}${name} = ${value}
+"
+	idl_decl ""
+	comment "Identify the type of profit-sharing, installment payment, or transaction-based payment you are offering. Include milestones that measure progress. This field was created so that other startups and developers can learn from successes and failures of others."
+      end
+
+      attribute 143087 "dissolution_strategy"
+	private explicit_type ""
+	multiplicity "1"
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl "${comment}${self}${name} = ${value}
+"
+	idl_decl ""
+	comment "describe how partnership can dissolve with mutual respect and fairness. This field was created so that other startups and developers can learn from successes and failures of others.  What happens if programmer does some work, then goes dead in the water?  This causes project to be “married” to developer so startup can’t get others to work on it. What about the work programmer has already done?  Can’t just keep on splitting revenue with more and more people.  Come up with plans to deal with this amicably. "
+      end
+
+      attribute 143215 "estimated_total_project_cost"
+	private explicit_type ""
+	multiplicity "1"
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl "${comment}${self}${name} = ${value}
+"
+	idl_decl ""
+	comment "“include legal costs, paying a for-profit company to code final production version, everything.  Just make up your best guess”. Update it as more info arrives."
+      end
+
+      attribute 143343 "complexity_rating"
+	private explicit_type ""
+	multiplicity "1"
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl "${comment}${self}${name} = ${value}
+"
+	idl_decl ""
+	comment "(('H', 'High'), ('M', 'Medium'), ('L', 'Low'))"
+      end
+
+      attribute 143471 "url"
+	private explicit_type ""
+	multiplicity "0..1"
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl "${comment}${self}${name} = ${value}
+"
+	idl_decl ""
+      end
+
+      attribute 149999 "percent_prototype_completed"
+	private explicit_type ""
+	multiplicity "1"
+	init_value "0"
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl "${comment}${self}${name} = ${value}
+"
+	idl_decl ""
+      end
+
+      attribute 150127 "datetime_prototype_completion_anticipated"
+	private explicit_type ""
+	multiplicity "1"
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl "${comment}${self}${name} = ${value}
+"
+	idl_decl ""
+      end
+
+      attribute 150255 "datetime_prototype_actually_completed"
+	private explicit_type ""
+	multiplicity "1"
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl "${comment}${self}${name} = ${value}
+"
+	idl_decl ""
+      end
+
+      attribute 150383 "project_status_history"
+	private explicit_type ""
+	multiplicity "0..1"
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl "${comment}${self}${name} = ${value}
+"
+	idl_decl ""
+	comment "large text field keeping track of dates and milestones"
+      end
+
+      attribute 150511 "looking_for_developers"
+	private explicit_type ""
+	multiplicity "1"
+	init_value "'N'"
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl "${comment}${self}${name} = ${value}
+"
+	idl_decl ""
+	comment "(('Y', 'Yes'), ('N', 'No'))"
+      end
+
+      attribute 150639 "developer_description"
+	private explicit_type ""
+	multiplicity "0..1"
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl "${comment}${self}${name} = ${value}
+"
+	idl_decl ""
+      end
+
+      attribute 150767 "non_disclosure_agreement"
+	private explicit_type ""
+	multiplicity "0..1"
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl "${comment}${self}${name} = ${value}
+"
+	idl_decl ""
+	comment "body of non-disclosure agreement."
+      end
+
+      attribute 150895 "open_or_closed"
+	private explicit_type ""
+	multiplicity "1"
+	init_value "'O'"
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl "${comment}${self}${name} = ${value}
+"
+	idl_decl ""
+	comment "(('O', 'Open'), ('C', 'Closed'))"
+      end
+
+      attribute 151023 "comment"
+	private explicit_type ""
+	multiplicity "0..1"
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl "${comment}${self}${name} = ${value}
+"
+	idl_decl ""
+      end
+
+      attribute 151151 "lessons_learned"
+	private explicit_type ""
+	multiplicity "0..1"
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl "${comment}${self}${name} = ${value}
+"
+	idl_decl ""
+	comment "long text.  This must be open to public so all can learn.  Don’t use anyone’s real name"
+      end
+
+      attribute 151279 "registration"
+	derived private explicit_type "datetime"
+	multiplicity "1"
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl "${comment}${self}${name} = ${value}
+"
+	idl_decl ""
+	comment "auto_now_add=True"
+      end
+
+      attribute 151407 "last_edited"
+	derived private explicit_type "datetime"
+	multiplicity "1"
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl "${comment}${self}${name} = ${value}
+"
+	idl_decl ""
+	comment "auto_now=True"
+      end
+
+      classrelation 152047 // person_project_set (<composition>)
+	relation 149999 *---
+	  a role_name "person_project_set" multiplicity "*" private
+	    python "${comment}${self}${name} = ${type}()
+"
+	    classrelation_ref 152047 // person_project_set (<composition>)
+	  b role_name "project" multiplicity "1" private
+	    python "${comment}${self}${name} = ${type}()
+"
+	    classrelation_ref 152175 // project (<composition>)
+      end
+
+      classrelation 160495 // project_comment_set (<composition>)
+	relation 157423 *---
+	  a role_name "project_comment_set" multiplicity "*" private
+	    python "${comment}${self}${name} = ${type}()
+"
+	    classrelation_ref 160495 // project_comment_set (<composition>)
+	  b role_name "project" multiplicity "1" private
+	    python "${comment}${self}${name} = ${type}()
+"
+	    classrelation_ref 160623 // project (<composition>)
+      end
+    end
+
+    class 155631 "Person_Project"
+      visibility package 
+      cpp_decl ""
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl "class ${name}${inherit}:
+${docstring}${members}
+"
+      idl_decl ""
+      explicit_switch_type ""
+      
+      classrelation 152175 // project (<composition>)
+	relation_ref 149999 // <composition>
+      end
+
+      classrelation 152431 // <composition>
+	relation_ref 150127 // <composition>
+      end
+
+      attribute 157935 "type"
+	private explicit_type ""
+	multiplicity "1"
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl "${comment}${self}${name} = ${value}
+"
+	idl_decl ""
+	comment "(('D', 'Developer'), ('S', 'Startup Partner'))"
+      end
+
+      attribute 158063 "comment_by_client"
+	private explicit_type ""
+	multiplicity "0..1"
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl "${comment}${self}${name} = ${value}
+"
+	idl_decl ""
+      end
+
+      attribute 158191 "comment_by_cfgio"
+	private explicit_type ""
+	multiplicity "0..1"
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl "${comment}${self}${name} = ${value}
+"
+	idl_decl ""
+	comment "internal"
+      end
+
+      attribute 158319 "datetime"
+	derived private explicit_type ""
+	multiplicity "1"
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl "${comment}${self}${name} = ${value}
+"
+	idl_decl ""
+	comment "auto_now_add=True"
+      end
+
+      attribute 158447 "last_updated"
+	derived private explicit_type ""
+	multiplicity "1"
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl "${comment}${self}${name} = ${value}
+"
+	idl_decl ""
+	comment "auto_now=True"
+      end
+
+    end
+
+    class 162543 "Project_Comment"
+      visibility package 
+      cpp_decl ""
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl "class ${name}${inherit}:
+${docstring}${members}
+"
+      idl_decl ""
+      explicit_switch_type ""
+      
+      classrelation 160623 // project (<composition>)
+	relation_ref 157423 // <composition>
+      end
+
+      classrelation 161135 // person (<composition>)
+	relation_ref 157679 // <composition>
+      end
+
+      attribute 159599 "comment"
+	private explicit_type ""
+	multiplicity "1"
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl "${comment}${self}${name} = ${value}
+"
+	idl_decl ""
+      end
+
+      attribute 159727 "datetime_comment_submitted"
+	derived private explicit_type ""
+	multiplicity "1"
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl "${comment}${self}${name} = ${value}
+"
+	idl_decl ""
+	comment "auto_now_add=True"
+      end
+    end
+  end
+end

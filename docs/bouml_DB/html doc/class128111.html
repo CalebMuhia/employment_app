@@ -1,0 +1,49 @@
+<!-- Documentation produced by the Html generator of Bouml (http://bouml.free.fr) -->
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<title>Class User</title>
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body bgcolor="#ffffff">
+
+<div class = "title">Class User</div>
+<p></p>
+
+<!-- ============================================================= -->
+
+<a name="refclass128111"></a>
+<p>Declaration :</p><ul>
+<li>Python : class User(object)</li></ul><div class="sub">
+<a name="refattribute128239"></a>
+<table><tr><td><div class="element">Attribute <b>username</b></div></td></tr></table>
+<p>Declaration :</p><ul><li>Uml : - username : , multiplicity : 1, unique</li><li>Python : self.username = None<br /></li></ul><a name="refattribute128367"></a>
+<table><tr><td><div class="element">Attribute <b>first_name</b></div></td></tr></table>
+<p>Declaration :</p><ul><li>Uml : - first_name : , multiplicity : 1</li><li>Python : self.first_name = None<br /></li></ul><a name="refattribute128495"></a>
+<table><tr><td><div class="element">Attribute <b>last_name</b></div></td></tr></table>
+<p>Declaration :</p><ul><li>Uml : - last_name : , multiplicity : 1</li><li>Python : self.last_name = None<br /></li></ul><a name="refattribute128623"></a>
+<table><tr><td><div class="element">Attribute <b>email</b></div></td></tr></table>
+<p>Declaration :</p><ul><li>Uml : - email : , multiplicity : 1</li><li>Python : self.email = None<br /></li></ul><a name="refattribute128751"></a>
+<table><tr><td><div class="element">Attribute <b>is_staff</b></div></td></tr></table>
+<p>Declaration :</p><ul><li>Uml : - is_staff :  = False, multiplicity : 1</li><li>Python : self.is_staff = False<br /></li></ul><a name="refattribute128879"></a>
+<table><tr><td><div class="element">Attribute <b>is_superuser</b></div></td></tr></table>
+<p>Declaration :</p><ul><li>Uml : - is_superuser :  = False, multiplicity : 1</li><li>Python : self.is_superuser = False<br /></li></ul><a name="refrelation134767"></a>
+<table><tr><td><div class="element">Relation <b>person_set (&lt;composition&gt;)</b></div></td></tr></table><p>Declaration :</p><ul><li>Uml : - person_set : <a href="class141295.html#refclass141295"><b>Person</b></a>, multiplicity : 1</li><li>Python : self.person_set = <a href="class141295.html#refclass141295"><b>Person</b></a>()<br /></li></ul><a name="refrelation135023"></a>
+<table><tr><td><div class="element">Relation <b>userprofile (&lt;composition&gt;)</b></div></td></tr></table><p>Declaration :</p><ul><li>Uml : - userprofile : <a href="class134639.html#refclass134639"><b>RegistrationProfile</b></a>, multiplicity : 1</li><li>Python : self.userprofile = <a href="class134639.html#refclass134639"><b>RegistrationProfile</b></a>()<br /></li></ul><a name="refattribute136815"></a>
+<table><tr><td><div class="element">Attribute <b>password</b></div></td></tr></table>
+<p>Declaration :</p><ul><li>Uml : - password : , multiplicity : 1</li><li>Python : self.password = None<br /></li></ul><a name="refattribute137199"></a>
+<table><tr><td><div class="element">Attribute <b>date_joined</b></div></td></tr></table>
+<p>Declaration :</p><ul><li>Uml : - date_joined :  = timezone.now, multiplicity : 1</li><li>Python : self.date_joined = timezone.now<br /></li></ul><a name="refattribute137327"></a>
+<table><tr><td><div class="element">Attribute <b>last_login</b></div></td></tr></table>
+<p>Declaration :</p><ul><li>Uml : - last_login :  = timezone.now, multiplicity : 1</li><li>Python : self.last_login = timezone.now<br /></li></ul><a name="refattribute137455"></a>
+<table><tr><td><div class="element">Attribute <b>is_active</b></div></td></tr></table>
+<p>Declaration :</p><ul><li>Uml : - is_active :  = False, multiplicity : 1</li><li>Python : self.is_active = False<br /></li></ul><a name="refrelation158959"></a>
+<table><tr><td><div class="element">Relation <b>user_connection_approver_set (&lt;composition&gt;)</b></div></td></tr></table><p>Declaration :</p><ul><li>Uml : - user_connection_approver_set : <a href="class162159.html#refclass162159"><b>Connection_Approval</b></a>, multiplicity : *</li><li>Python : self.user_connection_approver_set = <a href="class162159.html#refclass162159"><b>Connection_Approval</b></a>()<br /></li></ul><a name="refrelation159215"></a>
+<table><tr><td><div class="element">Relation <b>user_connection_requestor_set (&lt;composition&gt;)</b></div></td></tr></table><p>Declaration :</p><ul><li>Uml : - user_connection_requestor_set : <a href="class162159.html#refclass162159"><b>Connection_Approval</b></a>, multiplicity : *</li><li>Python : self.user_connection_requestor_set = <a href="class162159.html#refclass162159"><b>Connection_Approval</b></a>()<br /></li></ul><a name="refrelation159471"></a>
+<table><tr><td><div class="element">Relation <b>mail_send_set (&lt;composition&gt;)</b></div></td></tr></table><p>Declaration :</p><ul><li>Uml : - mail_send_set : <a href="class162287.html#refclass162287"><b>Mail_Send</b></a>, multiplicity : *</li><li>Python : self.mail_send_set = <a href="class162287.html#refclass162287"><b>Mail_Send</b></a>()<br /></li></ul><a name="refrelation160239"></a>
+<table><tr><td><div class="element">Relation <b>mail_received_set (&lt;aggregation&gt;)</b></div></td></tr></table><p>Declaration :</p><ul><li>Uml : - mail_received_set : <a href="class162287.html#refclass162287"><b>Mail_Send</b></a>, multiplicity : *</li><li>Python : self.mail_received_set = None<br /></li></ul></div>
+</body>
+</html>

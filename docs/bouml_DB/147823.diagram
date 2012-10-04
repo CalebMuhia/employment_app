@@ -40,8 +40,8 @@ relationcanvas 128751 relation_ref 143343 // <generalisation>
 end
 relationcanvas 129007 relation_ref 143471 // <composition>
   from ref 128239 z 2006 to ref 128879
-  role_a_pos 349 425 3000 role_b_pos 461 319 3000
-  multiplicity_a_pos 323 425 3000 multiplicity_b_pos 433 319 3000
+  role_a_pos 349 423 3000 role_b_pos 468 303 3000
+  multiplicity_a_pos 323 423 3000 multiplicity_b_pos 440 303 3000
 end
 relationcanvas 129263 relation_ref 149999 // <composition>
   from ref 128879 z 2006 to ref 129135
@@ -50,8 +50,8 @@ relationcanvas 129263 relation_ref 149999 // <composition>
 end
 relationcanvas 129391 relation_ref 150127 // <composition>
   from ref 128239 z 2006 to ref 129135
-  role_a_pos 651 553 3000 role_b_pos 574 319 3000
-  multiplicity_a_pos 625 553 3000 multiplicity_b_pos 546 319 3000
+  role_a_pos 650 553 3000 role_b_pos 568 303 3000
+  multiplicity_a_pos 624 553 3000 multiplicity_b_pos 540 303 3000
 end
 relationcanvas 129647 relation_ref 157423 // <composition>
   from ref 128879 z 2001 to ref 129519
@@ -62,7 +62,7 @@ relationcanvas 129903 relation_ref 157679 // <composition>
   decenter_begin 721
   decenter_end 507
   from ref 128239 z 2006 to ref 129519
-  role_a_pos 268 201 3000 role_b_pos 385 247 3000
-  multiplicity_a_pos 268 228 3000 multiplicity_b_pos 422 274 3000
+  role_a_pos 268 200 3000 role_b_pos 385 235 3000
+  multiplicity_a_pos 268 227 3000 multiplicity_b_pos 422 262 3000
 end
 end

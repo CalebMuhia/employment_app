@@ -1,6 +1,6 @@
 format 74
 "common" // common
-  revision 3
+  revision 4
   modified_by 111 "giussepi"
   // class settings
   //class diagram settings
@@ -59,6 +59,7 @@ ${docstring}${members}
       idl_decl ""
       explicit_switch_type ""
       
+      comment "There's a physical security issue here. I think that admin should be able to see address for authentication purposes but it should be hidden from all users (developer-trainees, startups, investors). If user wants to email someone their address, that's their decision.  So can address please be masked?  The comment (hidden also) can be used for things like letting us know is it a business address, home address, etc."
       attribute 129007 "address_line_1"
 	private explicit_type ""
 	multiplicity "1"
@@ -254,18 +255,6 @@ Person Supertype. All people are centralized here. Sub-types are in other tables
 	comment "(('M', 'Male'), ('F', 'Female'))"
       end
 
-      attribute 137583 "feedback"
-	private explicit_type ""
-	multiplicity "0..1"
-	cpp_decl ""
-	java_decl ""
-	php_decl ""
-	python_decl "${comment}${self}${name} = ${value}
-"
-	idl_decl ""
-	comment "Feedback to CFGIO Large text field: What are we doing right, what are we doing wrong, and what can we do to serve your needs better? What are your priorities? Send CFGIO an email every time this field is changed."
-      end
-
       attribute 137711 "time_zone"
 	private explicit_type ""
 	multiplicity "0..1"
@@ -291,7 +280,7 @@ Person Supertype. All people are centralized here. Sub-types are in other tables
 
       classrelation 141935 // challenge_question_set (<composition>)
 	relation 141423 *---
-	  a role_name "challenge_question_set" multiplicity "*" private
+	  a role_name "challenge_question_set" multiplicity "1" private
 	    python "${comment}${self}${name} = ${type}()
 "
 	    classrelation_ref 141935 // challenge_question_set (<composition>)
@@ -372,7 +361,19 @@ Person Supertype. All people are centralized here. Sub-types are in other tables
 	  b role_name "person" multiplicity "1" private
 	    python "${comment}${self}${name} = ${type}()
 "
-	    classrelation_ref 161135 // person (<composition>)
+	    classrelation_ref 161135 // <composition>
+      end
+
+      classrelation 167663 // feedback_set (<composition>)
+	relation 164207 *---
+	  a role_name "feedback_set" multiplicity "*" private
+	    python "${comment}${self}${name} = ${type}()
+"
+	    classrelation_ref 167663 // feedback_set (<composition>)
+	  b role_name "person" multiplicity "1" private
+	    python "${comment}${self}${name} = ${type}()
+"
+	    classrelation_ref 167791 // person (<composition>)
       end
     end
 
@@ -580,6 +581,46 @@ ${docstring}${members}
 "
 	idl_decl ""
 	comment "auto_now_add=True"
+      end
+    end
+
+    class 169071 "Feedback"
+      visibility package 
+      cpp_decl ""
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl "class ${name}${inherit}:
+${docstring}${members}
+"
+      idl_decl ""
+      explicit_switch_type ""
+      
+      comment "Feedback to CFGIO Large text field: What are we doing right, what are we doing wrong, and what can we do to serve your needs better? What are your priorities? Send CFGIO an email every time the comment field is changed."
+      attribute 166255 "comment"
+	private explicit_type ""
+	multiplicity "1"
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl "${comment}${self}${name} = ${value}
+"
+	idl_decl ""
+      end
+
+      attribute 166383 "datetime"
+	derived private explicit_type ""
+	multiplicity "1"
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl "${comment}${self}${name} = ${value}
+"
+	idl_decl ""
+	comment "auto_now_add=True"
+      end
+
+      classrelation 167791 // person (<composition>)
+	relation_ref 164207 // <composition>
       end
     end
   end

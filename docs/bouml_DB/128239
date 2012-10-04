@@ -1,6 +1,6 @@
 format 74
 "employment_app" // employment_app
-  revision 5
+  revision 6
   modified_by 111 "giussepi"
   // class settings
   //class diagram settings
@@ -489,7 +489,6 @@ ${docstring}${members}
 	idl_decl ""
 	comment "auto_now=True"
       end
-
     end
 
     class 162543 "Project_Comment"
@@ -507,7 +506,7 @@ ${docstring}${members}
 	relation_ref 157423 // <composition>
       end
 
-      classrelation 161135 // person (<composition>)
+      classrelation 161135 // <composition>
 	relation_ref 157679 // <composition>
       end
 

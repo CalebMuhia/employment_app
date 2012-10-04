@@ -1,6 +1,6 @@
 format 74
 "bouml_DB"
-  revision 6
+  revision 7
   modified_by 111 "giussepi"
 
 
@@ -49,4 +49,6 @@ format 74
   package_ref 135023 // common
 
   package_ref 141551 // mails
+
+  package_ref 148079 // faq
 end

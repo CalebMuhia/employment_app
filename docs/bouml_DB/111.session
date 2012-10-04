@@ -3,19 +3,22 @@ diagrams
   classdiagram_ref 134639 // registration models
     975 545 100 4 0 0
   classdiagram_ref 141167 // common models
-    975 545 100 4 4 0
+    975 545 100 4 463 0
   classdiagram_ref 128111 // Django models
     975 545 100 4 0 0
   classdiagram_ref 147695 // cities_light models
     975 545 100 4 0 0
-  active  classdiagram_ref 147823 // employment_app models
-    1219 682 100 4 36 0
+  classdiagram_ref 147823 // employment_app models
+    1219 682 100 4 84 0
   classdiagram_ref 154351 // mails models
     975 545 100 4 0 0
+  active  classdiagram_ref 160879 // faq models
+    1219 682 100 4 0 0
 end
 show_stereotypes
 selected 
-  package_ref 128239 // employment_app
+  package_ref 148079 // faq
 open
+  classview_ref 134639 // registration class view
 end
 end

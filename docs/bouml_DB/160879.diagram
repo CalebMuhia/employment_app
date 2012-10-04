@@ -1,0 +1,19 @@
+format 74
+
+classcanvas 128111 class_ref 175599 // Topic
+  draw_all_relations default hide_attributes default hide_operations default hide_getset_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_context default show_members_multiplicity default show_members_initialization default show_attribute_modifiers default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_relation_visibility default show_infonote default shadow default show_stereotype_properties default
+  xyz 84 209 2000
+end
+classcanvas 128239 class_ref 175727 // Question
+  draw_all_relations default hide_attributes default hide_operations default hide_getset_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_context default show_members_multiplicity default show_members_initialization default show_attribute_modifiers default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_relation_visibility default show_infonote default shadow default show_stereotype_properties default
+  xyz 428 150 2000
+end
+note 128495 "django-faq
+We need to create fixtures with two unique topics: trainee and startup. Doing this we'll be able to differenciate the faqs"
+  xyzwh 106 45 2000 303 87
+relationcanvas 128367 relation_ref 170735 // <composition>
+  from ref 128111 z 2001 to ref 128239
+  role_a_pos 337 231 3000 role_b_pos 240 231 3000
+  multiplicity_a_pos 411 258 3000 multiplicity_b_pos 240 258 3000
+end
+end

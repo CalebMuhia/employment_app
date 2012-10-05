@@ -192,5 +192,5 @@ LOGGING = {
 
 # extra fixtures to load when running syncd
 FIXTURE_DIRS = (
-    '%s/../cities_light_eeuu_fixtures/' % SITE_ROOT,
+    '%s../cities_light_eeuu_fixtures/' % SITE_ROOT,
 )

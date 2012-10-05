@@ -6,19 +6,19 @@ diagrams
     975 545 100 4 463 0
   classdiagram_ref 128111 // Django models
     975 545 100 4 0 0
-  classdiagram_ref 147695 // cities_light models
+  active  classdiagram_ref 147695 // cities_light models
     975 545 100 4 0 0
   classdiagram_ref 147823 // employment_app models
     1219 682 100 4 84 0
   classdiagram_ref 154351 // mails models
     975 545 100 4 0 0
-  active  classdiagram_ref 160879 // faq models
+  classdiagram_ref 160879 // faq models
     1219 682 100 4 0 0
 end
 show_stereotypes
-selected 
-  package_ref 148079 // faq
+selected classdiagram_ref 147695 // cities_light models
 open
   classview_ref 134639 // registration class view
+  classview_ref 147695 // cities_light view
 end
 end

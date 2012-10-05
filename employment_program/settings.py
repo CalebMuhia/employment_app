@@ -5,7 +5,7 @@
 #PROJECT_ROOT = os.path.abspath(os.path.dirname(__file__))
 
 from os.path import join, realpath, dirname, abspath
-
+import sys
 
 SITE_ROOT = join(abspath(dirname(__file__)),"../employment_app")
 DEBUG = True
@@ -146,7 +146,8 @@ INSTALLED_APPS = (
     # 'django.contrib.admindocs',
     'employment_app',
     'registration',
-
+    'cities_light',
+    'south',
     )
 
 LOGIN_REDIRECT_URL = '/'
@@ -188,3 +189,8 @@ LOGGING = {
             },
         }
 }
+
+# extra fixtures to load when running syncd
+FIXTURE_DIRS = (
+    '%s/cities_light_eeuu_fixtures/' % SITE_ROOT,
+)

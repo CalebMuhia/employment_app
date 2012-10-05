@@ -12,4 +12,9 @@ log
 parts
 project/media/uploads
 tmp
+env
+settings_local.py
+static
+media
+*.db
 *.idea

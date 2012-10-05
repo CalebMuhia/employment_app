@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block title %}Login{% endblock %}
+{% block content %}
+{% load url from future %}
+
+<h2>Welcome to the django-faq example project</h2>
+<form method='post' action=''>{% csrf_token %}
+{{form}}
+<form>
+
+{% endblock %}

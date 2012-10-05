@@ -7,6 +7,12 @@
 from os.path import join, realpath, dirname, abspath
 import sys
 
+#AUTH_PROFILE_MODULE = 'common.Person'
+# IMPORTANT
+# If you have custom site profile check that it inherits
+# from pybb.models.PybbProfile or contains all fields from this class.
+# AUTH_PROFILE_MODULE = 'pybb.Profile'
+
 SITE_ROOT = join(abspath(dirname(__file__)),"../employment_app")
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG

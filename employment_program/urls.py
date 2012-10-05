@@ -10,7 +10,8 @@ urlpatterns = patterns('',
     # Examples:
     url(r'^$', 'employment_app.views.home', name='home'),
     url(r'^/', include('registration.backends.default.urls')),
-
+    url(r'^forum/', include('pybb.urls', namespace='pybb')),
+    url('^faq/', include('faq.urls')),
     # Uncomment the admin/doc line below to enable admin documentation:
     # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
     #the registration app

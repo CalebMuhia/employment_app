@@ -1,6 +1,6 @@
 format 74
 "common" // common
-  revision 5
+  revision 6
   modified_by 111 "giussepi"
   // class settings
   //class diagram settings
@@ -243,7 +243,7 @@ Person Supertype. All people are centralized here. Sub-types are in other tables
 	idl_decl ""
       end
 
-      attribute 137071 "sex"
+      attribute 137071 "gender"
 	private explicit_type ""
 	multiplicity "1"
 	cpp_decl ""

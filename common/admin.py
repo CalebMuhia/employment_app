@@ -7,6 +7,7 @@ from common.models import Person, FeedBack, Challengue_Question, \
 
 
 class PersonAdmin(admin.ModelAdmin):
+    """ admin model of the Person """
     pass
 
 admin.site.register(Person, PersonAdmin)

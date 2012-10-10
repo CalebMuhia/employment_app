@@ -26,6 +26,9 @@ class Person(PybbProfile):
     datetime = models.DateTimeField(auto_now_add=True)
     skills = models.ManyToManyField('Skill', through='Person_Skill')
 
+    def __unicode__(self):
+        return u'%s' % self.user.get_full_name()
+
 
 class FeedBack(models.Model):
     """ stores the users's feedback """

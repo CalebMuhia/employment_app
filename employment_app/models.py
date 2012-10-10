@@ -36,7 +36,7 @@ class Project(models.Model):
         ('O', 'Open'),
         ('C', 'Closed')
     )
-    project_id = models.CharField(max_length=15, unique=True)
+    project_id = models.CharField(max_length=15, unique=True, editable=False)
     title = models.CharField(max_length=120)
     short_description = models.CharField(max_length=255)
     public_description = models.CharField(max_length=255)
@@ -60,6 +60,9 @@ class Project(models.Model):
     last_edited = models.DateTimeField(auto_now=True)
     person = models.ForeignKey('common.Person')
 
+    def __unicode__(self):
+        return u'%s' % self.title
+
 
 class Project_Comment(models.Model):
     """ stores the person's comments from a project """
@@ -82,3 +85,7 @@ class Person_Project(models.Model):
     comment_by_cfgio = models.CharField(max_length=255, blank=True)
     datetime = models.DateTimeField(auto_now_add=True)
     last_updated = models.DateTimeField(auto_now=True)
+
+
+from employment_app import signals
+signals.setup_signals()

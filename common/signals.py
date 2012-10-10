@@ -4,6 +4,7 @@
 from django.contrib.auth.models import User, Permission
 from django.db.models import ObjectDoesNotExist
 from django.db.models.signals import post_save
+from common.utils import unique_random_string
 
 
 def user_created(sender, instance, created, **kwargs):
@@ -23,7 +24,8 @@ def user_created(sender, instance, created, **kwargs):
                                       add_topic_permission)
         instance.save()
         from common.models import Person
-        Person(user=instance).save()
+        person_id = unique_random_string(Person, 'person_id', 16)
+        Person(user=instance, person_id=person_id).save()
 
 
 def setup_signals():

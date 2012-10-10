@@ -17,7 +17,7 @@ class Person(PybbProfile):
         ('M', 'Male'),
         ('F', 'Female')
     )
-    person_id = models.CharField(max_length=16, unique=True)
+    person_id = models.CharField(max_length=16, unique=True, editable=False)
     user = models.ForeignKey(User, unique=True)
     middle_name = models.CharField(max_length=25, blank=True)
     gender = models.CharField(max_length=1, choices=GENDER)

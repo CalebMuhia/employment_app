@@ -8,7 +8,7 @@ from common.models import Person, FeedBack, Challengue_Question, \
 
 class PersonAdmin(admin.ModelAdmin):
     """ admin model of the Person """
-    pass
+    list_display = ('__unicode__', 'person_id', )
 
 admin.site.register(Person, PersonAdmin)
 admin.site.register(FeedBack)

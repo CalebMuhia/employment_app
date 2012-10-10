@@ -1,10 +1,18 @@
 Django==1.4.1
+Markdown==2.2.0
 South==0.7.6
 argparse==1.2.1
 distribute==0.6.24
 dj-database-url==0.2.1
+django-annoying==0.7.6
 django-autoslug==1.6.1
 django-cities-light==2.0.4
+-e git://github.com/howiworkdaily/django-faq.git@f5a5cc9ad4b090529ba138590de776e48e47609c#egg=django_faq-dev
+django-pure-pagination==0.2.1
+postmarkup==1.2.0
 progressbar==2.2
 psycopg2==2.4.5
+pybbm==0.11.1
+pytils==0.2.3
+sorl-thumbnail==11.12
 wsgiref==0.1.2

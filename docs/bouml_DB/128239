@@ -1,6 +1,6 @@
 format 74
 "employment_app" // employment_app
-  revision 11
+  revision 12
   modified_by 111 "giussepi"
   // class settings
   //class diagram settings
@@ -124,7 +124,7 @@ ${docstring}${members}
       explicit_switch_type ""
       
       attribute 142319 "project_id"
-	unique private explicit_type ""
+	derived unique private explicit_type ""
 	multiplicity "1"
 	cpp_decl ""
 	java_decl ""

@@ -2,23 +2,24 @@ window_sizes 1600 876 375 1219 682 120
 diagrams
   classdiagram_ref 134639 // registration models
     975 545 100 4 0 0
-  active  classdiagram_ref 141167 // common models
+  classdiagram_ref 141167 // common models
     1219 682 100 4 472 0
   classdiagram_ref 128111 // Django models
     975 545 100 4 0 0
   classdiagram_ref 147695 // cities_light models
     975 545 100 4 0 0
-  classdiagram_ref 147823 // employment_app models
-    1219 682 100 4 180 0
+  active  classdiagram_ref 147823 // employment_app models
+    1219 682 100 4 72 0
   classdiagram_ref 154351 // mails models
     975 545 100 4 0 0
   classdiagram_ref 160879 // faq models
     1219 682 100 4 0 0
   classdiagram_ref 167407 // pybb models
-    975 545 100 4 535 0
+    975 545 100 4 235 0
 end
 show_stereotypes
+selected attribute_ref 142319 // project_id
 open
-  class_ref 141295 // Person
+  class_ref 149103 // Project
 end
 end

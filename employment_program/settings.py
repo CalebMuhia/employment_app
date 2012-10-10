@@ -12,6 +12,10 @@ import sys
 # If you have custom site profile check that it inherits
 # from pybb.models.PybbProfile or contains all fields from this class.
 # AUTH_PROFILE_MODULE = 'pybb.Profile'
+AUTH_PROFILE_MODULE = 'common.Person'
+
+#Change to true before deploying into production
+ENABLE_SSL = False
 
 SITE_ROOT = join(abspath(dirname(__file__)),"../employment_app")
 DEBUG = True
@@ -103,6 +107,16 @@ TEMPLATE_LOADERS = (
     #     'django.template.loaders.eggs.Loader',
     )
 
+TEMPLATE_CONTEXT_PROCESSORS = (
+    'django.core.context_processors.debug',
+    'django.core.context_processors.i18n',
+    'django.core.context_processors.media',
+    'django.core.context_processors.static',
+    'django.contrib.auth.context_processors.auth',
+    'django.contrib.messages.context_processors.messages',
+    'pybb.context_processors.processor',
+)
+
 MIDDLEWARE_CLASSES = (
     'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -110,7 +124,8 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     # Uncomment the next line for simple clickjacking protection:
-    # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'pybb.middleware.PybbMiddleware',
     )
 
 ROOT_URLCONF = 'employment_program.urls'
@@ -151,9 +166,20 @@ INSTALLED_APPS = (
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
     'employment_app',
+    # django registration
     'registration',
+    # django cities light
     'cities_light',
     'south',
+    # django pybbm
+    'pybb',
+    'pytils',
+    'sorl.thumbnail',
+    'pure_pagination',
+    # django faq
+    'faq',
+    # apps
+    'common',    
     )
 
 LOGIN_REDIRECT_URL = '/'

@@ -18,21 +18,17 @@
 <a name="refclass141295"></a>
 <p>Multi-table inheritance<br /><br />Person Supertype. All people are centralized here. Sub-types are in other tables. A person can belong to multiple groups (client and developer). “No one can see your personal info including name, email, phone, address”.<br /></p>
 <p>Declaration :</p><ul>
-<li>Python : class Person(object)</li></ul><p>Directly inherited by : <a href="class148975.html#refclass148975"><b>Client</b></a> <a href="class148591.html#refclass148591"><b>Developer</b></a> </p>
+<li>Python : class Person(object)</li></ul><p>Directly inherited by : <a href="class148975.html#refclass148975"><b>Client</b></a> <a href="class148591.html#refclass148591"><b>Developer</b></a> <a href="class183279.html#refclass183279"><b>PybbProfile</b></a> </p>
 <div class="sub">
 <a name="refrelation134895"></a>
 <table><tr><td><div class="element">Relation <b>user (&lt;composition&gt;)</b></div></td></tr></table><p>Declaration :</p><ul><li>Uml : - user : <a href="class128111.html#refclass128111"><b>User</b></a>, multiplicity : 1</li><li>Python : self.user = <a href="class128111.html#refclass128111"><b>User</b></a>()<br /></li></ul><a name="refrelation135279"></a>
 <table><tr><td><div class="element">Relation <b>location_set (&lt;composition&gt;)</b></div></td></tr></table><p>Declaration :</p><ul><li>Uml : - location_set : <a href="class141167.html#refclass141167"><b>Location</b></a>, multiplicity : *</li><li>Python : self.location_set = <a href="class141167.html#refclass141167"><b>Location</b></a>()<br /></li></ul><a name="refattribute136559"></a>
 <table><tr><td><div class="element">Attribute <b>person_id</b></div></td></tr></table>
-<p>alphanumeric of length 16<br /></p><p>Declaration :</p><ul><li>Uml : - person_id : , multiplicity : 1, derived, unique</li><li>Python : self.person_id = None<br /></li></ul><a name="refattribute136687"></a>
-<table><tr><td><div class="element">Attribute <b>phone_number</b></div></td></tr></table>
-<p>Declaration :</p><ul><li>Uml : - phone_number : , multiplicity : 1</li><li>Python : self.phone_number = None<br /></li></ul><a name="refattribute136943"></a>
+<p>alphanumeric of length 16<br /></p><p>Declaration :</p><ul><li>Uml : - person_id : , multiplicity : 1, derived, unique</li><li>Python : self.person_id = None<br /></li></ul><a name="refattribute136943"></a>
 <table><tr><td><div class="element">Attribute <b>middle_name</b></div></td></tr></table>
 <p>Declaration :</p><ul><li>Uml : - middle_name : , multiplicity : 0..1</li><li>Python : self.middle_name = None<br /></li></ul><a name="refattribute137071"></a>
 <table><tr><td><div class="element">Attribute <b>gender</b></div></td></tr></table>
-<p>(('M', 'Male'), ('F', 'Female'))<br /></p><p>Declaration :</p><ul><li>Uml : - gender : , multiplicity : 1</li><li>Python : self.gender = None<br /></li></ul><a name="refattribute137711"></a>
-<table><tr><td><div class="element">Attribute <b>time_zone</b></div></td></tr></table>
-<p>Declaration :</p><ul><li>Uml : - time_zone : , multiplicity : 0..1</li><li>Python : self.time_zone = None<br /></li></ul><a name="refattribute137839"></a>
+<p>(('M', 'Male'), ('F', 'Female'))<br /></p><p>Declaration :</p><ul><li>Uml : - gender : , multiplicity : 1</li><li>Python : self.gender = None<br /></li></ul><a name="refattribute137839"></a>
 <table><tr><td><div class="element">Attribute <b>comment</b></div></td></tr></table>
 <p>internal CFGIO comment<br /></p><p>Declaration :</p><ul><li>Uml : - comment : , multiplicity : 0..1</li><li>Python : self.comment = None<br /></li></ul><a name="refrelation141935"></a>
 <table><tr><td><div class="element">Relation <b>challenge_question_set (&lt;composition&gt;)</b></div></td></tr></table><p>Declaration :</p><ul><li>Uml : - challenge_question_set : <a href="class147823.html#refclass147823"><b>Challenge_Question</b></a>, multiplicity : 1</li><li>Python : self.challenge_question_set = <a href="class147823.html#refclass147823"><b>Challenge_Question</b></a>()<br /></li></ul><a name="refrelation142191"></a>

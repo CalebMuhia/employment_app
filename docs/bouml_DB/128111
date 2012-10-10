@@ -1,6 +1,6 @@
 format 74
 "Django" // Django
-  revision 7
+  revision 8
   modified_by 111 "giussepi"
   // class settings
   //class diagram settings
@@ -243,6 +243,94 @@ ${docstring}${members}
 	    python "${comment}${self}${name} = ${value}
 "
 	    classrelation_ref 160367 // receivers (<aggregation>)
+      end
+
+      classrelation 181359 // forum_set (<aggregation>)
+	relation_ref 177391 // <aggregation>
+      end
+
+      classrelation 181743 // forumreadtracker_set (<composition>)
+	relation 177647 *---
+	  a role_name "forumreadtracker_set" multiplicity "*" private
+	    python "${comment}${self}${name} = ${type}()
+"
+	    classrelation_ref 181743 // forumreadtracker_set (<composition>)
+	  b role_name "user" multiplicity "1" private
+	    python "${comment}${self}${name} = ${type}()
+"
+	    classrelation_ref 181871 // user (<composition>)
+      end
+
+      classrelation 182127 // readed_forums (<aggregation>)
+	relation_ref 177775 // <aggregation>
+      end
+
+      classrelation 182511 // topic_set (<composition>)
+	relation 178031 *---
+	  a role_name "topic_set" multiplicity "*" private
+	    python "${comment}${self}${name} = ${type}()
+"
+	    classrelation_ref 182511 // topic_set (<composition>)
+	  b role_name "user" multiplicity "1" private
+	    python "${comment}${self}${name} = ${type}()
+"
+	    classrelation_ref 182639 // user (<composition>)
+      end
+
+      classrelation 182895 // subscriptions (<aggregation>)
+	relation_ref 178159 // <aggregation>
+      end
+
+      classrelation 183023 // topicreadtracker_set (<composition>)
+	relation 178287 *---
+	  a role_name "topicreadtracker_set" multiplicity "*" private
+	    python "${comment}${self}${name} = ${type}()
+"
+	    classrelation_ref 183023 // topicreadtracker_set (<composition>)
+	  b role_name "user" multiplicity "1" private
+	    python "${comment}${self}${name} = ${type}()
+"
+	    classrelation_ref 183151 // user (<composition>)
+      end
+
+      classrelation 183663 // readed_topics (<aggregation>)
+	relation_ref 178543 // <aggregation>
+      end
+
+      classrelation 183791 // posts (<composition>)
+	relation 178671 *---
+	  a role_name "posts" multiplicity "*" private
+	    python "${comment}${self}${name} = ${type}()
+"
+	    classrelation_ref 183791 // posts (<composition>)
+	  b role_name "user" multiplicity "1" private
+	    python "${comment}${self}${name} = ${type}()
+"
+	    classrelation_ref 183919 // user (<composition>)
+      end
+
+      classrelation 184431 // profile (<composition>)
+	relation 179055 *---
+	  a role_name "profile" multiplicity "1" private
+	    python "${comment}${self}${name} = ${type}()
+"
+	    classrelation_ref 184431 // profile (<composition>)
+	  b role_name "user" multiplicity "1" private
+	    python "${comment}${self}${name} = ${type}()
+"
+	    classrelation_ref 184559 // user (<composition>)
+      end
+
+      classrelation 185455 // poll_answers (<composition>)
+	relation 179567 *---
+	  a role_name "poll_answers" multiplicity "*" private
+	    python "${comment}${self}${name} = ${type}()
+"
+	    classrelation_ref 185455 // poll_answers (<composition>)
+	  b role_name "user" multiplicity "1" private
+	    python "${comment}${self}${name} = ${type}()
+"
+	    classrelation_ref 185583 // user (<composition>)
       end
     end
   end

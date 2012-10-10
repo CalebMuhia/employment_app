@@ -1,6 +1,6 @@
 format 74
 "employment_app" // employment_app
-  revision 8
+  revision 11
   modified_by 111 "giussepi"
   // class settings
   //class diagram settings
@@ -431,7 +431,7 @@ ${docstring}${members}
 	relation_ref 150127 // <composition>
       end
 
-      attribute 157935 "type"
+      attribute 157935 "type_person"
 	private explicit_type ""
 	multiplicity "1"
 	cpp_decl ""

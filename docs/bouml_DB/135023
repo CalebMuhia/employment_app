@@ -1,6 +1,6 @@
 format 74
 "common" // common
-  revision 6
+  revision 8
   modified_by 111 "giussepi"
   // class settings
   //class diagram settings
@@ -221,17 +221,6 @@ Person Supertype. All people are centralized here. Sub-types are in other tables
 	comment "alphanumeric of length 16"
       end
 
-      attribute 136687 "phone_number"
-	private explicit_type ""
-	multiplicity "1"
-	cpp_decl ""
-	java_decl ""
-	php_decl ""
-	python_decl "${comment}${self}${name} = ${value}
-"
-	idl_decl ""
-      end
-
       attribute 136943 "middle_name"
 	private explicit_type ""
 	multiplicity "0..1"
@@ -253,17 +242,6 @@ Person Supertype. All people are centralized here. Sub-types are in other tables
 "
 	idl_decl ""
 	comment "(('M', 'Male'), ('F', 'Female'))"
-      end
-
-      attribute 137711 "time_zone"
-	private explicit_type ""
-	multiplicity "0..1"
-	cpp_decl ""
-	java_decl ""
-	php_decl ""
-	python_decl "${comment}${self}${name} = ${value}
-"
-	idl_decl ""
       end
 
       attribute 137839 "comment"

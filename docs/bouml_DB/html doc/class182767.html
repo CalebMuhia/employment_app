@@ -1,0 +1,50 @@
+<!-- Documentation produced by the Html generator of Bouml (http://bouml.free.fr) -->
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<title>Class Topic</title>
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body bgcolor="#ffffff">
+
+<div class = "title">Class Topic</div>
+<p></p>
+
+<!-- ============================================================= -->
+
+<a name="refclass182767"></a>
+<p>Declaration :</p><ul>
+<li>Python : class Topic(object)</li></ul><div class="sub">
+<a name="refrelation182383"></a>
+<table><tr><td><div class="element">Relation <b>forum (&lt;composition&gt;)</b></div></td></tr></table><p>Declaration :</p><ul><li>Uml : - forum : <a href="class182511.html#refclass182511"><b>Forum</b></a>, multiplicity : 1</li><li>Python : self.forum = <a href="class182511.html#refclass182511"><b>Forum</b></a>()<br /></li></ul><a name="refattribute182511"></a>
+<table><tr><td><div class="element">Attribute <b>name</b></div></td></tr></table>
+<p>Declaration :</p><ul><li>Uml : - name : , multiplicity : 1</li><li>Python : self.name = None<br /></li></ul><a name="refattribute182639"></a>
+<table><tr><td><div class="element">Attribute <b>created</b></div></td></tr></table>
+<p>Declaration :</p><ul><li>Uml : - created : , multiplicity : 1</li><li>Python : self.created = None<br /></li></ul><a name="refattribute182767"></a>
+<table><tr><td><div class="element">Attribute <b>updated</b></div></td></tr></table>
+<p>Declaration :</p><ul><li>Uml : - updated : , multiplicity : 1</li><li>Python : self.updated = None<br /></li></ul><a name="refrelation182639"></a>
+<table><tr><td><div class="element">Relation <b>user (&lt;composition&gt;)</b></div></td></tr></table><p>Declaration :</p><ul><li>Uml : - user : <a href="class128111.html#refclass128111"><b>User</b></a>, multiplicity : 1</li><li>Python : self.user = <a href="class128111.html#refclass128111"><b>User</b></a>()<br /></li></ul><a name="refattribute182895"></a>
+<table><tr><td><div class="element">Attribute <b>views</b></div></td></tr></table>
+<p>Declaration :</p><ul><li>Uml : - views : , multiplicity : 0..1</li><li>Python : self.views = None<br /></li></ul><a name="refattribute183023"></a>
+<table><tr><td><div class="element">Attribute <b>sticky</b></div></td></tr></table>
+<p>Declaration :</p><ul><li>Uml : - sticky : , multiplicity : 0..1</li><li>Python : self.sticky = None<br /></li></ul><a name="refattribute183151"></a>
+<table><tr><td><div class="element">Attribute <b>closed</b></div></td></tr></table>
+<p>Declaration :</p><ul><li>Uml : - closed : , multiplicity : 0..1</li><li>Python : self.closed = None<br /></li></ul><a name="refrelation182767"></a>
+<table><tr><td><div class="element">Relation <b>subscribers (&lt;aggregation&gt;)</b></div></td></tr></table><p>Declaration :</p><ul><li>Uml : - subscribers : <a href="class128111.html#refclass128111"><b>User</b></a>, multiplicity : *</li><li>Python : self.subscribers = None<br /></li></ul><a name="refattribute183279"></a>
+<table><tr><td><div class="element">Attribute <b>post_count</b></div></td></tr></table>
+<p>Declaration :</p><ul><li>Uml : - post_count : , multiplicity : 0..1</li><li>Python : self.post_count = None<br /></li></ul><a name="refattribute183407"></a>
+<table><tr><td><div class="element">Attribute <b>on_moderation</b></div></td></tr></table>
+<p>Declaration :</p><ul><li>Uml : - on_moderation : , multiplicity : 1</li><li>Python : self.on_moderation = None<br /></li></ul><a name="refattribute183535"></a>
+<table><tr><td><div class="element">Attribute <b>poll_type</b></div></td></tr></table>
+<p>Declaration :</p><ul><li>Uml : - poll_type : , multiplicity : 1</li><li>Python : self.poll_type = None<br /></li></ul><a name="refattribute183663"></a>
+<table><tr><td><div class="element">Attribute <b>poll_question</b></div></td></tr></table>
+<p>Declaration :</p><ul><li>Uml : - poll_question : , multiplicity : 0..1</li><li>Python : self.poll_question = None<br /></li></ul><a name="refrelation183279"></a>
+<table><tr><td><div class="element">Relation <b>topicreadtracker_set (&lt;composition&gt;)</b></div></td></tr></table><p>Declaration :</p><ul><li>Uml : - topicreadtracker_set : <a href="class182895.html#refclass182895"><b>TopicReadTracker</b></a>, multiplicity : *</li><li>Python : self.topicreadtracker_set = <a href="class182895.html#refclass182895"><b>TopicReadTracker</b></a>()<br /></li></ul><a name="refrelation183535"></a>
+<table><tr><td><div class="element">Relation <b>readed_by (&lt;aggregation&gt;)</b></div></td></tr></table><p>Declaration :</p><ul><li>Uml : - readed_by : <a href="class128111.html#refclass128111"><b>User</b></a>, multiplicity : *</li><li>Python : self.readed_by = None<br /></li></ul><a name="refrelation184047"></a>
+<table><tr><td><div class="element">Relation <b>posts (&lt;composition&gt;)</b></div></td></tr></table><p>Declaration :</p><ul><li>Uml : - posts : <a href="class183151.html#refclass183151"><b>Post</b></a>, multiplicity : *</li><li>Python : self.posts = <a href="class183151.html#refclass183151"><b>Post</b></a>()<br /></li></ul><a name="refrelation184943"></a>
+<table><tr><td><div class="element">Relation <b>poll_anwers (&lt;composition&gt;)</b></div></td></tr></table><p>Declaration :</p><ul><li>Uml : - poll_anwers : <a href="class183663.html#refclass183663"><b>PollAnswer</b></a>, multiplicity : *</li><li>Python : self.poll_anwers = <a href="class183663.html#refclass183663"><b>PollAnswer</b></a>()<br /></li></ul></div>
+</body>
+</html>

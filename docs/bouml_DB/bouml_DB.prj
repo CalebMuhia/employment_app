@@ -1,6 +1,6 @@
 format 74
 "bouml_DB"
-  revision 8
+  revision 11
   modified_by 111 "giussepi"
 
 
@@ -51,4 +51,6 @@ format 74
   package_ref 141551 // mails
 
   package_ref 148079 // faq
+
+  package_ref 154607 // pybb
 end

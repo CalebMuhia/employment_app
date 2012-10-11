@@ -1,6 +1,6 @@
 format 74
 "pybb" // pybb
-  revision 1
+  revision 2
   modified_by 111 "giussepi"
   // class settings
   //class diagram settings
@@ -162,7 +162,7 @@ ${docstring}${members}
 	  b role_name "forum_set" multiplicity "*" private
 	    python "${comment}${self}${name} = ${value}
 "
-	    classrelation_ref 181359 // forum_set (<aggregation>)
+	    classrelation_ref 181359 // <aggregation>
       end
 
       attribute 181743 "updated"
@@ -241,7 +241,7 @@ ${docstring}${members}
 	  b role_name "readed_forums" multiplicity "*" private
 	    python "${comment}${self}${name} = ${value}
 "
-	    classrelation_ref 182127 // readed_forums (<aggregation>)
+	    classrelation_ref 182127 // <aggregation>
       end
 
       classrelation 182255 // topics (<composition>)
@@ -382,7 +382,7 @@ ${docstring}${members}
 	  b role_name "subscriptions" multiplicity "*" private
 	    python "${comment}${self}${name} = ${value}
 "
-	    classrelation_ref 182895 // subscriptions (<aggregation>)
+	    classrelation_ref 182895 // <aggregation>
       end
 
       attribute 183279 "post_count"
@@ -450,7 +450,7 @@ ${docstring}${members}
 	  b role_name "readed_topics" multiplicity "*" private
 	    python "${comment}${self}${name} = ${value}
 "
-	    classrelation_ref 183663 // readed_topics (<aggregation>)
+	    classrelation_ref 183663 // <aggregation>
       end
 
       classrelation 184047 // posts (<composition>)
@@ -729,21 +729,6 @@ ${docstring}${members}
 	idl_decl ""
       end
 
-      classrelation 184303 // <generalisation>
-	relation 178927 ---|>
-	  a public
-	    python "${type}"
-	    classrelation_ref 184303 // <generalisation>
-	  b parent class_ref 183407 // Profile
-      end
-
-      classrelation 185711 // <generalisation>
-	relation 179695 ---|>
-	  a public
-	    python "${type}"
-	    classrelation_ref 185711 // <generalisation>
-	  b parent class_ref 141295 // Person
-      end
     end
 
     class 183407 "Profile"
@@ -759,6 +744,14 @@ ${docstring}${members}
       
       classrelation 184559 // user (<composition>)
 	relation_ref 179055 // <composition>
+      end
+
+      classrelation 192239 // <generalisation>
+	relation 186223 ---|>
+	  a public
+	    python "${type}"
+	    classrelation_ref 192239 // <generalisation>
+	  b parent class_ref 183279 // PybbProfile
       end
     end
 

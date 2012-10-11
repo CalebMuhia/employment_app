@@ -130,9 +130,8 @@ relationcanvas 131695 relation_ref 164207 // <composition>
   role_a_pos 149 755 3000 role_b_pos 262 698 3000
   multiplicity_a_pos 149 782 3000 multiplicity_b_pos 295 725 3000
 end
-relationcanvas 132079 relation_ref 179695 // <generalisation>
-  decenter_begin 491
-  from ref 131951 z 2006 to ref 128239
+relationcanvas 132207 relation_ref 186351 // <generalisation>
+  from ref 128239 z 2006 to ref 131951
   no_role_a no_role_b
   no_multiplicity_a no_multiplicity_b
 end

@@ -1,6 +1,6 @@
 format 74
 "common" // common
-  revision 8
+  revision 9
   modified_by 111 "giussepi"
   // class settings
   //class diagram settings
@@ -352,6 +352,14 @@ Person Supertype. All people are centralized here. Sub-types are in other tables
 	    python "${comment}${self}${name} = ${type}()
 "
 	    classrelation_ref 167791 // person (<composition>)
+      end
+
+      classrelation 192367 // <generalisation>
+	relation 186351 ---|>
+	  a public
+	    python "${type}"
+	    classrelation_ref 192367 // <generalisation>
+	  b parent class_ref 183279 // PybbProfile
       end
     end
 

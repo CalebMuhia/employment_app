@@ -42,7 +42,7 @@ classcanvas 132591 class_ref 183279 // PybbProfile
 end
 classcanvas 132719 class_ref 183407 // Profile
   draw_all_relations default hide_attributes default hide_operations default hide_getset_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_context default show_members_multiplicity default show_members_initialization default show_attribute_modifiers default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_relation_visibility default show_infonote default shadow default show_stereotype_properties default
-  xyz 642 1088 2000
+  xyz 642 1086 2000
 end
 classcanvas 133103 class_ref 183535 // Attachment
   draw_all_relations default hide_attributes default hide_operations default hide_getset_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_context default show_members_multiplicity default show_members_initialization default show_attribute_modifiers default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_relation_visibility default show_infonote default shadow default show_stereotype_properties default
@@ -117,7 +117,7 @@ end
 relationcanvas 130927 relation_ref 178415 // <composition>
   decenter_begin 478
   from ref 130031 z 2001 to ref 130671
-  role_a_pos 342 89 3000 role_b_pos 426 153 3000
+  role_a_pos 357 93 3000 role_b_pos 410 147 3000
   multiplicity_a_pos 466 109 3000 multiplicity_b_pos 383 147 3000
 end
 relationcanvas 131055 relation_ref 178543 // <aggregation>
@@ -141,15 +141,10 @@ relationcanvas 132079 relation_ref 178799 // <composition>
   role_a_pos 412 579 3000 role_b_pos 412 414 3000
   multiplicity_a_pos 386 579 3000 multiplicity_b_pos 384 414 3000
 end
-relationcanvas 132847 relation_ref 178927 // <generalisation>
-  from ref 132591 z 2001 to ref 132719
-  no_role_a no_role_b
-  no_multiplicity_a no_multiplicity_b
-end
 relationcanvas 132975 relation_ref 179055 // <composition>
   from ref 129263 z 2006 to ref 132719
-  role_a_pos 680 1067 3000 role_b_pos 680 842 3000
-  multiplicity_a_pos 652 1067 3000 multiplicity_b_pos 652 842 3000
+  role_a_pos 680 1065 3000 role_b_pos 680 842 3000
+  multiplicity_a_pos 652 1065 3000 multiplicity_b_pos 652 842 3000
 end
 relationcanvas 133231 relation_ref 179183 // <composition>
   from ref 131695 z 2001 to ref 133103
@@ -159,7 +154,7 @@ end
 relationcanvas 133743 relation_ref 179311 // <composition>
   decenter_begin 38
   from ref 130031 z 2001 to ref 133615
-  role_a_pos 178 61 3000 role_b_pos 277 168 3000
+  role_a_pos 166 48 3000 role_b_pos 277 168 3000
   multiplicity_a_pos 166 75 3000 multiplicity_b_pos 303 195 3000
 end
 relationcanvas 133999 relation_ref 179439 // <composition>
@@ -172,5 +167,10 @@ relationcanvas 134127 relation_ref 179567 // <composition>
   from ref 129263 z 2006 to ref 133871
   role_a_pos 748 70 3000 role_b_pos 784 432 3000
   multiplicity_a_pos 722 70 3000 multiplicity_b_pos 756 432 3000
+end
+relationcanvas 134255 relation_ref 186223 // <generalisation>
+  from ref 132719 z 2001 to ref 132591
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
 end
 end

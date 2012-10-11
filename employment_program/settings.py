@@ -33,6 +33,7 @@ MANAGERS = ADMINS
  #       'NAME': os.path.join(PROJECT_ROOT,'employment.db'), # Or path to database file if using sqlite3.
  #   }
 #}
+
 import dj_database_url
 DATABASES = {'default': dj_database_url.config(default='postgres://localhost')}
 

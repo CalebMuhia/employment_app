@@ -37,7 +37,7 @@ class FeedBack(models.Model):
     person = models.ForeignKey('Person')
 
 
-class Challengue_Question(models.Model):
+class Challenge_Question(models.Model):
     """ stores the questions to recover user accounts """
     question = models.CharField(max_length=120)
     answer = models.CharField(max_length=120)

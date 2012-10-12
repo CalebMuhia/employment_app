@@ -2,7 +2,7 @@
 """ common admin """
 
 from django.contrib import admin
-from common.models import Person, FeedBack, Challengue_Question, \
+from common.models import Person, FeedBack, Challenge_Question, \
     Phone_Number, Skill, Person_Skill, Location
 
 
@@ -12,7 +12,7 @@ class PersonAdmin(admin.ModelAdmin):
 
 admin.site.register(Person, PersonAdmin)
 admin.site.register(FeedBack)
-admin.site.register(Challengue_Question)
+admin.site.register(Challenge_Question)
 admin.site.register(Phone_Number)
 admin.site.register(Skill)
 admin.site.register(Person_Skill)

@@ -143,15 +143,7 @@ TEMPLATE_DIRS = (
 
 )
 
-# settings for sending email. ensure that you have postfix installed()
-EMAIL_HOST = 'localhost'
-EMAIL_PORT = 1025
-EMAIL_HOST_USER = ""
-EMAIL_HOST_PASSWORD = ""
-EMAIL_USE_TLS = False
-DEFAULT_FROM_EMAIL = 'clbnjoroge@gmail.com'
-#bash-3.2$ python -m smtpd -n -c DebuggingServer localhost:1025
-
+DEFAULT_FROM_EMAIL = 'webmaster@example.com'
 
 ACCOUNT_ACTIVATION_DAYS = 30
 
@@ -185,15 +177,6 @@ INSTALLED_APPS = (
 
 LOGIN_REDIRECT_URL = '/'
 
-
-EMAIL_USE_TLS = True
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_PORT = 587
-EMAIL_HOST_USER = 'emp.app2012@gmail.com'
-EMAIL_HOST_PASSWORD = 'empapp2012'
-
-
-
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to
 # the site admins on every HTTP 500 error when DEBUG=False.
@@ -223,7 +206,38 @@ LOGGING = {
         }
 }
 
-# extra fixtures to load when running syncd
+# extra fixtures to load when running syncdb
 FIXTURE_DIRS = (
     join(SITE_ROOT, '../cities_light_eeuu_fixtures/'),
 )
+
+#--------------------------------
+# local settings import
+#from http://djangosnippets.org/snippets/1873/
+#--------------------------------
+try:
+    import local_settings
+except ImportError:
+    print """ 
+    -------------------------------------------------------------------------
+    You need to create a local_settings.py file.
+    -------------------------------------------------------------------------
+    """
+    import sys 
+    sys.exit(1)
+else:
+    # Import any symbols that begin with A-Z. Append to lists any symbols that
+    # begin with "EXTRA_".
+    import re
+    for attr in dir(local_settings):
+        match = re.search('^EXTRA_(\w+)', attr)
+        if match:
+            name = match.group(1)
+            value = getattr(local_settings, attr)
+            try:
+                globals()[name] += value
+            except KeyError:
+                globals()[name] = value
+        elif re.search('^[A-Z]', attr):
+            globals()[attr] = getattr(local_settings, attr)
+

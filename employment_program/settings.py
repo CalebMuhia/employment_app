@@ -7,12 +7,11 @@
 from os.path import join, realpath, dirname, abspath
 import sys
 
-#AUTH_PROFILE_MODULE = 'common.Person'
 # IMPORTANT
 # If you have custom site profile check that it inherits
 # from pybb.models.PybbProfile or contains all fields from this class.
 # AUTH_PROFILE_MODULE = 'pybb.Profile'
-AUTH_PROFILE_MODULE = 'common.Person'
+AUTH_PROFILE_MODULE = 'employment_app.UserProfile'
 
 #Change to true before deploying into production
 ENABLE_SSL = False
@@ -161,6 +160,8 @@ INSTALLED_APPS = (
     'employment_app',
     # django registration
     'registration',
+    # django-profiles
+    'profiles',
     # django cities light
     'cities_light',
     'south',

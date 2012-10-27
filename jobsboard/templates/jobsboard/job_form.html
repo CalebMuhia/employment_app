@@ -1,0 +1,52 @@
+{% extends "jobsboard/base.html" %}
+
+{% load i18n %}
+
+{% comment %}
+{% load uni_form %}
+{% uni_form form helper %}
+{% endcomment %}
+
+{% block head_title %}
+
+    {% if is_edit %}
+        {{ job_obj.title }}
+    {% else %}
+        Post a New job
+    {% endif %}
+{% endblock %}
+
+{% block extrahead %}
+  {{job_form.media}}
+  <script type="text/javascript">
+    $(document).ready(function(){
+
+      //links the datetimepicker with the corresponding input
+      $('#id_date_due').datepicker();
+    
+    });
+  </script>
+{% endblock %}
+
+{% block body %}
+<div>
+
+        {% if is_edit %}
+            <h1>{{ job_obj.title }}</h1>
+        {% else %}
+            <h1>Post a New job</h1>
+        {% endif %}
+
+    {% if user.is_authenticated %}
+        <form method="POST" action="">{% csrf_token %}
+            <fieldset>
+                {{ job_form.as_p }}
+                <input type="submit" value="Update&raquo;"/>
+            </fieldset>
+        </form>
+    {% else %}
+            <p>You are not allowed to edit this</p>    
+    {% endif %}
+</div>
+{% endblock %}
+

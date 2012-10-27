@@ -1,0 +1,51 @@
+{% extends "jobsboard/base.html" %}
+
+{% load i18n adminmedia %}
+
+{% block head_title %}
+
+    {% if com_obj %}
+        {{ com_obj|title }}
+    {% else %}
+        Add new Project
+    {% endif %}
+
+{% endblock %}
+
+{% block extrahead %}{{com_form.media}}
+<script type="text/javascript">
+  $(document).ready( function() {
+
+    //links the datetimepicker with the corresponding inputs
+    $('#id_datetime_prototype_completion_anticipated').datetimepicker();
+    $('#id_datetime_prototype_actually_completed').datetimepicker();
+
+  });
+</script>
+{% endblock %}
+{% block body %}
+
+<div>
+    <div>
+        {% if com_obj %}
+            <h1>{{ com_obj|title }}</h1>
+        {% else %}
+            <h1>Add new Project</h1>
+        {% endif %}
+    </div>
+    {% if user.is_authenticated %}
+        <form method="POST" action="">{% csrf_token %}
+            <fieldset>
+                {{ com_form.as_p }}
+                <div>
+                    <input type="submit" value="Update&raquo;"/>
+                </div>
+            </fieldset>
+        </form>
+    {% else %}
+        <p>You are not allowed to edit this</p>    
+    {% endif %}
+
+</div>
+{% endblock %}
+

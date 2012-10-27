@@ -2,26 +2,17 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>{%block title%}Job Training and Startup Accelerator{%endblock%}</title>
+    <title>{% block title %}Job Training and Startup Accelerator{% endblock %}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
 
     <!-- Le styles -->
     <link href="/static/css/bootstrap.css" rel="stylesheet">
-    <script src="/static/js/jquery.js"></script>
-    <script src="/static/js/application.js"></script>
-    <script type="text/javascript" src="/static/search.js"></script>
-
-
-
+    <script src="/static/common/js/jquery-1.8.2.min.js"></script>
 
     <link href="/static/css/bootstrap-responsive.css" rel="stylesheet">
     <link href="/static/css/bootstrap.css" rel="stylesheet">
-
-
-
-
 
     <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
@@ -35,8 +26,11 @@
     <link rel="apple-touch-icon-precomposed" sizes="72x72"
           href="/static/ico/apple-touch-icon-72-precomposed.png">
     <link rel="apple-touch-icon-precomposed" href="/static/ico/apple-touch-icon-57-precomposed.png">
-
-
+    {% block extrastyle %}{% endblock %}
+    {% block extrahead %}{% endblock %}
+    {% block blockbots %}
+    <meta name="robots" content="NONE,NOARCHIVE" />
+    {% endblock %}
 </head>
 
 <body>
@@ -53,10 +47,30 @@
 
             <div class="nav-collapse">
                 <ul class="nav">
-                    <li class="active"><a href="{% url home %}">Home</a></li>
-                    <li class="active"><a href="{% url pybb:index %}">Forum</a></li>
-                    <li class="active"><a href="{% url faq_topic_list %}">FAQ</a></li>
+                    <li class="active"><a href="{% url employment_app_home %}">Home</a></li>
+                    <li><a href="{% url pybb:index %}">Forum</a></li>
+                    <li><a href="{% url faq_topic_list %}">FAQ</a></li>
+		    <li>
+		    <div class="btn-group">
+		      <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+			Jobs
+			<span class="caret"></span>
+		      </a>
+		      <ul class="dropdown-menu">
+			<!-- dropdown menu links -->
+			<li><a href="{% url jobs_list %}">Jobs List</a></li>
+			<li><a href="{% url company_list %}">Projects</a></li>
+			{% if user.is_authenticated %}
+			<li><a href="{% url apply_list %}">Applied Jobs</a></li>
+			<li><a href="{% url your_job_post %}">Your Posted Jobs</a></li>
+			<li><a href="{% url your_company %}">Your Projects</a></li>
+			<li><a href="{% url job_create %}">Post a Job</a></li>
+			<li><a href="{% url company_create %}">Add New Project</a></li>
+			{% endif %}
 
+		      </ul>
+		    </div>
+		    </li>
                 </ul>
                 <ul class="nav pull-right">
                 {% if user.is_authenticated %}
@@ -80,11 +94,15 @@
 
 <div style="margin-bottom: 50px;"></div>
 
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
 
-
-
-
-            {%block content%}{%endblock%}
+            {% block content %}{% endblock %}
 
 
 </div>
@@ -104,10 +122,7 @@
 
 <script src="/static/js/bootstrap.js"></script>
 <script src="/static/js/bootstrap.min.js"></script>
-
-
-
-
+<script src="/static/common/js/bootstrap/bootstrap-dropdown.js"></script>
 
 
 </body>

@@ -1,0 +1,15 @@
+    <b><a href="{% url job_details job.id %}" >{{ job.title|title }}</a></b>
+    at
+    <b><a href="{{ job.project.get_absolute_url }}" >{{ job.project }}</a></b>
+    <br>
+    <span>Posted by: {{ job.posted_by }}</a> ;
+     {{ job.date_added|date:"F j, Y" }} - {{ job.date_added|timesince }} ago
+    ; Status {{ job.get_status_display|title }}
+    </span>
+    {% ifequal job.posted_by user %}
+        <br>
+        <a href="{% url job_edit job.id %}" >Edit</a> 
+        ۰ <a href="{% url job_remove job.id %}" onclick="return check_job(this);">Delete</a>
+    {% endifequal  %}
+
+

@@ -1,0 +1,20 @@
+{% extends "jobsboard/base.html" %}
+
+{% load i18n %}
+
+
+{% block head_title %}Applied Jobs - List{% endblock %}
+
+{% block body %}
+    <h1>Applied Job{{ jobs|pluralize }} ({{ jobs.count }})</h1>
+    <br>
+
+    {% for job in jobs %}
+    <span><a href="{% url job_details job.job.id %}">{{ job.job.title }}</a> at <a href="{% url company_detail job.job.project.title_slug %}">{{ job.job.title_slug }}</a></span>۰ <span style="color:#999;">{{ job.date_applied|timesince }}</span> ago ۰<a href="{% url apply_remove_from_list job.id %}" onclick="return check(this);">Delete</a>
+    <br><span>Job Status:{{ job.job.get_status_display }}</span>
+    <br><span>Your Status:{{ job.get_status_display|title }}</span>
+    <br><br>
+    {% endfor %}
+
+{% endblock %}
+

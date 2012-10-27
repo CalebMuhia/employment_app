@@ -2,6 +2,7 @@
 """ common utils """
 
 from django.core.exceptions import ObjectDoesNotExist
+from django.template.defaultfilters import slugify
 import random
 
 
@@ -27,3 +28,19 @@ def unique_random_string(model, field, string_length=10):
         except ObjectDoesNotExist:
             unique = True
     return random_str
+
+
+def unique_slug(model, slug_field, data):
+    """  """
+    unique = False
+    uslug = slugify(data)
+    ucode = 0
+    while (not unique):
+        try:
+            model.objects.get(**{'{0}'.format(slug_field): uslug})
+        except ObjectDoesNotExist:
+            unique = True
+        else:
+            uslug += str(ucode)
+            ucode += 1
+    return uslug

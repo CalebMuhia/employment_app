@@ -1,0 +1,35 @@
+{% extends "jobsboard/base.html" %}
+
+{% comment %}
+{% load i18n %}
+{% load uni_form %}
+{% load pagination_tags %}
+{% load avatar_tags %}
+{% load markup %}
+{% endcomment %}
+
+{% block head_title %}Project's List{% endblock %}
+
+{% block body %}
+
+<div>
+    <div>
+        <h1>Project</h1>
+        <div>
+            <form action="" method="get">
+                <input type="text" name="q">
+                <input type="submit" value="Search" name="submit">
+            </form>
+        </div>
+    </div>
+
+    <span>Total Projects {{ company.count }}</span>
+
+    <ul>
+        {% for com in company %}
+            <li>{% include 'jobsboard/inc_company_list.html' %}</li>
+        {% endfor %}
+    </ul>
+</div>
+
+{% endblock %}

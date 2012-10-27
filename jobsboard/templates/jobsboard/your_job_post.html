@@ -1,0 +1,29 @@
+{% extends "jobsboard/base.html" %}
+
+{% load i18n %}
+
+{% block head_title %}Your Job Post{% endblock %}
+
+{% block body %}
+<div>
+    <div>
+        <h1>Your Posted Jobs</h1>
+        <div>
+            <form action="" method="get">
+                <input type="text" name="q">
+                <input type="submit" class="nd_jobsboard_search" value="Search" name="submit">
+            </form>
+        </div>
+    </div>
+
+    <p>Inform the school where you graduated to verify your account so that you may apply to jobs.</p>
+    <span>Total Jobs {{ jobs.count }}</span>
+
+    <ul>
+        {% for job in jobs %}
+            <li>{% include 'jobsboard/inc_job_list.html' %}</li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}
+

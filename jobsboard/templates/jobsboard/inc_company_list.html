@@ -1,0 +1,12 @@
+
+<b><a href="{{ com.get_absolute_url }}">{{ com.title }}</a></b>
+<br>
+<span>
+    Added on {{ com.registration|date:"F j, Y" }} - {{ com.registration|timesince }} ago<br>
+    {{ com.address }}
+</span>
+{% ifequal com.person user.get_profile %}
+<br>
+<a href="{% url company_edit com.id %}">Edit</a>
+۰ <a href="{% url com_remove com.id %}" onclick="return check_company(this);">Delete</a>
+{% endifequal %}

@@ -2,6 +2,7 @@
 """ employemnt_app models """
 
 from django.db import models
+from django.core.urlresolvers import reverse
 from common.models import Person
 
 
@@ -44,24 +45,33 @@ class Project(models.Model):
     payment_description = models.CharField(max_length=255)
     dissolution_strategy = models.TextField()
     estimated_total_project_cost = models.FloatField()
-    complexity_rating = models.CharField(max_length=1, choices=COMPLEXITY)
+    complexity_rating = models.CharField(max_length=1, choices=COMPLEXITY,
+                                         default='M')
     url = models.URLField(blank=True)
     percent_prototype_completed = models.IntegerField(default=0)
     datetime_prototype_completion_anticipated = models.DateTimeField()
     datetime_prototype_actually_completed = models.DateTimeField()
     project_status_history = models.CharField(max_length=255)
-    looking_for_developers = models.CharField(max_length=1, choices=YESNO)
+    looking_for_developers = models.CharField(max_length=1, choices=YESNO,
+                                              default='Y')
     developer_description = models.TextField(blank=True)
     non_disclosure_agreement = models.TextField(blank=True)
-    open_or_closed = models.CharField(max_length=1, choices=OPENCLOSED)
+    open_or_closed = models.CharField(max_length=1, choices=OPENCLOSED,
+                                      default='O')
     comment = models.TextField(blank=True)
     lessons_learned = models.TextField(blank=True)
     registration = models.DateTimeField(auto_now_add=True)
     last_edited = models.DateTimeField(auto_now=True)
     person = models.ForeignKey('common.Person')
+    ###
+    title_slug = models.SlugField('slug', unique=True)
 
     def __unicode__(self):
         return u'%s' % self.title
+
+    @models.permalink
+    def get_absolute_url(self):
+        return ("company_detail", [str(self.title_slug)])
 
 
 class Project_Comment(models.Model):

@@ -1,0 +1,28 @@
+{% extends "jobsboard/base.html" %}
+
+{% load i18n %}
+
+{% block head_title %}You Projects{% endblock %}
+
+{% block body %}
+<div>
+    <div>
+        <div>
+            <h1>Your Projects</h1>
+        </div>
+        <div>
+            <form action="" method="get">
+                <input type="text" name="q">
+                <input type="submit" value="Search" name="submit">
+            </form>
+        </div>
+    </div>
+        <span>Total Projects {{ company.count }}</span>
+    <ul>
+        {% for com in company %}
+            <li>{% include 'jobsboard/inc_company_list.html' %}</li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}
+

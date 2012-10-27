@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}
+  {% block head_title %}
+  {% endblock %}
+{% endblock %}
+
+{% block extrahead %}
+<script>
+    function check(frm) {
+            var dataIsValid = confirm("Are you sure you wanto to delete from the applied job?");
+            /* all your validation/processing code goes here */
+            if(dataIsValid) {
+                return(true);
+            } else {
+                return(false);
+            }
+            }
+
+    function check_job(frm) {
+            var dataIsValid = confirm("Are you sure you want to delete this job?");
+            /* all your validation/processing code goes here */
+            if(dataIsValid) {
+                return(true);
+            } else {
+                return(false);
+            }
+            }
+
+    function check_applicant_status(frm) {
+            var dataIsValid = confirm("Are you sure you want to change the status?");
+            /* all your validation/processing code goes here */
+            if(dataIsValid) {
+                return(true);
+            } else {
+                return(false);
+            }
+            }
+    function check_company(frm) {
+                var dataIsValid = confirm("Are you sure you want to delete this company?");
+                /* all your validation/processing code goes here */
+                if(dataIsValid) {
+                  return(true);
+                } else {
+                  return(false);
+                }
+              }
+</script>
+{% endblock %}
+
+{% block content %}
+  {% block body %}
+  {% endblock %}
+{% endblock %}

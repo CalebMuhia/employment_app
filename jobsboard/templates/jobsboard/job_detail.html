@@ -1,0 +1,113 @@
+{% extends "jobsboard/base.html" %}
+
+{% load i18n %}
+
+{% block head_title %}Jobs Board - Details{% endblock %}
+
+{% block body %}
+<div>
+    {% if job %}
+        <h1>{{ job.title }}</h1>
+            <span>Company: <b><a href="{{ job.company.get_absolute_url }}">{{ job.company }}</a></b><br>
+            Posted By: {{ job.posted_by }}<br>
+            <b>Posted since</b>: {{ job.date_added|date:"F j, Y" }} - {{ job.date_added|timesince }} ago<br>
+            <b>Status</b>: {{ job.get_status_display }}
+        </span>
+        {% ifequal job.posted_by request.user %}-
+            Change Status to
+            <a href="{% url job_status job.id 1 %}">Open</a> |
+            <a href="{% url job_status job.id 2 %}">Filled</a> |
+            <a href="{% url job_status job.id 3 %}">Canceled</a> |
+            <a href="{% url job_status job.id 4 %}">Stale</a> |
+        {% endifequal  %}
+
+        <p>{{ job.description|safe }}</p>
+
+        {% if user.is_authenticated %}
+            {% ifnotequal job.posted_by user %}
+                {% if meapp %}
+                    <b>You have already applied for this job</b>
+                {% else %}
+                    {% ifequal job.status jobstatus  %}
+                        <form method="POST" action="">
+                            <fieldset>
+                                {{ app_form }}
+                                <div>
+                                <input type="submit" value="Apply for this job &raquo;"/>
+                                </div>
+                            </fieldset>
+                        </form>
+                    {% endifequal %}
+                {% endif %}
+            {% else %}
+                <a href="{% url job_edit job.id %}">Edit</a> ۰ 
+                <a href="{% url job_remove job.id %}" onclick="return check_job(this);">Delete</a>
+
+            {% endifnotequal  %} ۰ 
+        {% endif %}
+
+{% comment %}
+
+{# requires django-flag #}
+{% silk "flag_red" %}
+    <a href="#" onclick="return false;">
+        <span id="flag-toggle">Flag as inappropriate</span></a>
+    <div id="flag-form" class="hidden">
+        {% flag job 'posted_by' %}
+    </div>
+{% endcomment %}
+
+</div>
+
+<div>
+    <h1>Applicant{{ apps|pluralize }} ({{ apps.count }})</h1>
+    {% if apps %}
+        {% for appcount in application.job.all %}
+            Candidates:{{ appcount.is_candidate.count }}<br><br>
+        {% endfor %}
+        <ul>
+            {% for app in apps %}
+                <li>
+                    <div>
+                        <b>
+                         {{ app.user }}</b>
+                        <br/>Date Applied: {{ app.date_applied|date:"F j, Y" }} - {{ app.date_applied|timesince }} ago
+                        <br/>Status: 
+                        {% if app.is_candidate %} <b style="color:#F08080;">{{ app.get_status_display|title }}</b> {% endif %}
+                        {% ifequal app.is_at 0 %}<b style="color:#008000;">{{ app.get_status_display|title }}</b> {% endifequal %}
+                        {% if app.is_notqualified%} <b style="color:#20B2AA;">{{ app.get_status_display|title }}</b> {% endif %}
+                        {% if app.is_overqualified %} <b style="color:#32CD32;">{{ app.get_status_display|title }}</b> {% endif %}
+                        {% if app.is_delisted %} <b style="color:##C71585;">{{ app.get_status_display|title }}</b> {% endif %}
+                        {% if app.is_winner %} <b style="color:##808000;">{{ app.get_status_display|title }}</b> {% endif %}
+                    </div>
+
+                    {% ifequal job.posted_by user %}
+                        -
+                        <a href="{% url applicant_status app.id 1 %}" title="Candidate"  onclick="return check_applicant_status(this);">Candidate</a> |
+                        <a href="{% url applicant_status app.id 0 %}" title="Unattended"  onclick="return check_applicant_status(this);">Unattended</a> | 
+                        <a href="{% url applicant_status app.id 2 %}" title="Not Qualified" onclick="return check_applicant_status(this);">Not Qualified</a> | 
+                        <a href="{% url applicant_status app.id 3 %}" title="Over Qualified" onclick="return check_applicant_status(this);">Over Qualified</a> | 
+                        <a href="{% url applicant_status app.id 4 %}" title="Delisted" onclick="return check_applicant_status(this);">Delisted</a> | 
+                        <a href="{% url applicant_status app.id 5 %}" title="Winner" onclick="return check_applicant_status(this);">Winner</a> | 
+                        <a href="{% url job_apply_remove app.id job.id %}" title="Delete"  onclick="return check(this);">Delete</a> | 
+                    {% endifequal  %}
+                    {% if app.is_candidate %}
+                        {% ifequal app.user request.user %}
+                            |&nbsp;<a href="{% url apply_remove app.id %}" onclick="return check(this);">Delete</a>
+                            {% endifequal %}<br>
+                        {% endif %}
+                    </div>
+                </li> 
+            {% endfor %}
+        </ul>
+
+    {% else %}
+        No applicants.  Apply now
+    {% endif %}
+</div>
+{% else %}
+    <p>No job found</p>
+{% endif %}
+
+{% endblock %}
+

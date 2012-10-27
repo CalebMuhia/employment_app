@@ -1,0 +1,63 @@
+{% extends "jobsboard/base.html" %}
+
+{% load i18n %}
+
+{% comment %}
+<!--
+    Display the company detail.
+-->
+{% load uni_form %}
+{% load avatar_tags %}
+{% load markup %}
+{% load flagtags %}
+{% load theme_tags %}
+{% endcomment %}
+
+{% block head_title %}Project Details- {{ com.title }}{% endblock %}
+
+{% block body %}
+<div>
+    {% if user.is_authenticated %}
+        <h1>{{ com.title }}</h1>
+        <span>
+        Date Added: {{ com.registration|date:"F j, Y" }}<br>
+        Added by :{{ com.person }}
+</span>
+        <br>
+        <p>
+        {{ com.public_description|urlize|safe }}
+        </p>
+            {% ifequal com.person user.get_profile %}
+                <br>
+                <a href="{% url company_edit com.id %}">Edit</a>
+                ۰ <a href="{% url com_remove com.id %}" onclick="return nd_check_company(this);">Delete</a>۰
+            {% endifequal  %}
+
+{% comment %}
+<!--This commented code requires django-flag-->
+
+        {% if user.is_authenticated %}
+            {% silk "flag_red" %}
+            <a href="#" onclick="return false;"><span id="flag-toggle">Flag</span></a><br>
+            <div id="flag-form" class="hidden">
+                {% flag com 'added_by' %}
+            </div>
+        {% endif %}
+{% endcomment %}
+
+        <br>
+        <div>
+            <b>{{ jobs.count }} Job{{ jobs|pluralize }} Posted</b>
+        </div>
+        <p>Inform the school where you graduated to verify your account inorder to apply to any opened jobs.</p>
+        <ul>
+            {% for job in jobs %}
+                <li>{% include 'jobsboard/inc_job_list.html' %}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>You are not allowed to view this page.</p>    
+    {% endif %}
+</div>
+{% endblock %}
+

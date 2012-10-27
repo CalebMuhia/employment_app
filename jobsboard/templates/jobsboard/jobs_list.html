@@ -1,0 +1,30 @@
+{% extends "jobsboard/base.html" %}
+
+{% load i18n %}
+
+{% block head_title %}Jobs Board - List{% endblock %}
+
+{% block body %}
+{{ block.super }}
+<div>
+    <div>
+        <h2>Jobs Board</h2>
+        <div>
+            <form action="" method="get">
+                <input type="text" name="q">
+                <input type="submit" value="Search" name="submit">
+            </form>
+        </div>
+    </div>
+
+        <p>Inform the school where you graduated to verify your account so that you may apply to jobs.</p>
+
+        <h3>Total Jobs {{ jobs.count }}</h3>
+        <ul>
+            {% for job in jobs %}
+                <li>{% include 'jobsboard/inc_job_list.html' %}</li>
+            {% endfor %}
+        </ul>
+</div>
+
+{% endblock %}

@@ -12,7 +12,6 @@ urlpatterns = patterns(
     # url(r'^/', include('registration.backends.default.urls')),
     url(r'^forum/', include('pybb.urls', namespace='pybb')),
     url(r'^faq/', include('faq.urls')),
-    url(r'^jobs/', include('jobs.urls')),
     url(r'^jobsboard/', include('jobsboard.urls')),
     # django-tinymce
     url(r'^tinymce/', include('tinymce.urls')),

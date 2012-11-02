@@ -34,7 +34,6 @@ class JobForm(forms.ModelForm):
         self.fields['description'].widget = TinyMCE(
             attrs={'cols': 80, 'rows': 20})
 
-
 # class CompanyForm(forms.ModelForm):
 
 #     class Meta:

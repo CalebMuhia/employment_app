@@ -3,7 +3,7 @@
 
 
 #PROJECT_ROOT = os.path.abspath(os.path.dirname(__file__))
-
+from django.core.urlresolvers import reverse
 from os.path import join, realpath, dirname, abspath
 import sys
 
@@ -138,7 +138,9 @@ TEMPLATE_DIRS = (
 # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
 # Always use forward slashes, even on Windows.
 # Don't forget to use absolute paths, not relative paths.
-    "/home/caleb/projects/employment_app/employement app/templates/"
+    "/home/caleb/projects/employment_app/employement app/templates/",
+    "/home/caleb/projects/employment_app/jobs/templates/",
+    "/home/caleb/projects/employment_app/jobsboard/templates/",    
 #os.path.join(PROJECT_ROOT, "templates"),
 
 )
@@ -166,7 +168,6 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
-    'employment_app',
     # django registration
     'registration',
     # django cities light
@@ -179,12 +180,18 @@ INSTALLED_APPS = (
     'pure_pagination',
     # django faq
     'faq',
+    # django-jobsboard
+    'tagging',    
+    'jobsboard',
     # apps
-    'common',    
+    'employment_app',    
+    'common',
+    # django tinymce
+    'tinymce',    
     )
 
 LOGIN_REDIRECT_URL = '/'
-
+LOGIN_URL = reverse('registration_register')
 
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'
@@ -233,7 +240,7 @@ TINYMCE_DEFAULT_CONFIG = {
     'custom_undo_redo_levels': 10,
 
     # General options
-    'mode': "textareas",
+    # 'mode': "textareas",
     'theme': "advanced",
     'plugins': "autolink,lists,spellchecker,pagebreak,style,layer,table,save,\
 advhr,advimage,advlink,emotions,iespell,inlinepopups,insertdatetime,preview,\

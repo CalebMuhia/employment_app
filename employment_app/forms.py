@@ -28,7 +28,7 @@ class ProjectForm(forms.ModelForm):
         """ customize some field's widgets """
         super(ProjectForm, self).__init__(*args, **kwargs)
         self.fields['long_description'].widget = TinyMCE(
-            attrs={'cols': 80, 'rows': 20})
+            attrs={'cols': 800, 'rows': 20})
         self.fields['dissolution_strategy'].widget = TinyMCE(
             attrs={'cols': 80, 'rows': 20})
         self.fields['developer_description'].widget = TinyMCE(

@@ -128,11 +128,11 @@ def job_detail(request, jobid, form_class=ApplicantForm,
     the applicant may able to apply if he/she is a verified user
     """
     job_obj = get_object_or_404(Job, id=jobid)
-    meapp = Applicant.objects.filter(user=request.user, job=job_obj)
+    meapp = Applicant.objects.filter(user=request.user.id, job=job_obj)
     app = Applicant.objects.filter(job=job_obj)
     job_d = Job.objects.filter(id=jobid)
 
-    if request.method == "POST":
+    if request.method == "POST" and request.user.is_authenticated():
         app_form = form_class(request.POST)
         if app_form.is_valid():
             app = app_form.save(commit=False)
@@ -146,6 +146,7 @@ def job_detail(request, jobid, form_class=ApplicantForm,
             return HttpResponseRedirect(
                 reverse("jobsboard.views.job_detail", args=[job_obj.id]))
     else:
+        messages.warning(request, 'You must be logged in for applying.')
         app_form = form_class()
 
     return render_to_response(template_name, {
@@ -168,8 +169,7 @@ def applicant_status(request, id, status):
 
     the user who post the job is authorize to change the applicants status
     """
-
-    applicant = Applicant.objects.get(pk=id)
+    applicant = get_object_or_404(Applicant, id=id)
     job = get_object_or_404(Job, id=applicant.job.id)
 
     if job.posted_by == request.user:
@@ -193,7 +193,6 @@ def apply_remove(request, id):
     """
     remove applicant from applied jobs
     """
-
     apply = Applicant.objects.get(pk=id)
     if apply.user == request.user:
         apply.delete()
@@ -243,7 +242,7 @@ def job_apply_remove(request, id, jobid):
     remove applicant by employers
     """
     job = get_object_or_404(Job, id=jobid)
-    apply = Applicant.objects.get(pk=id)
+    apply = get_object_or_404(Applicant, id=id)
     if job.posted_by == request.user:
         apply.delete()
         messages.success(
@@ -273,9 +272,8 @@ def job_remove(request, id):
 
 def job_status(request, status, id):
     """
-    employer change the status of applicant
+    employer change the status of job
     """
-
     job = get_object_or_404(Job, id=id)
     if job.posted_by == request.user:
         job.status = status
@@ -307,17 +305,18 @@ def company_remove(request, id):
 
 def company_list(request, template_name="jobsboard/company_list.html"):
     """
-    display the list of company
+    display the list of companies
     """
     is_me = False
     project = Project.objects.all().order_by('title')
-    if request.user.is_authenticated():
-        other_user = get_object_or_404(User, username=request.user.username)
-
-        if request.user == other_user:
-            is_me = True
-        else:
-            is_me = False
+    # This has no sense, is_me variable will always be True
+    # furthermore, this variable is no used in the template
+    # if request.user.is_authenticated():
+    #     other_user = get_object_or_404(User, username=request.user.username)
+    #     if request.user == other_user:
+    #         is_me = True
+    #     else:
+    #         is_me = False
 
     search_terms = request.GET.get('q', '')
     if search_terms:
@@ -332,7 +331,7 @@ def company_list(request, template_name="jobsboard/company_list.html"):
                    | project.filter(registration__icontains=search_terms))
     return render_to_response(template_name, dict({
         "company": project,
-        "is_me": is_me,
+        # "is_me": is_me,
     }), context_instance=RequestContext(request))
 
 

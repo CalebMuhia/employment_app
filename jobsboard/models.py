@@ -119,6 +119,26 @@ class Job(models.Model):
                                                                self.status)
                     print '-------------------------------->'
 
+    # def __eq__(self, y):
+    # I'm not overloading the == operator because when doing it an error in
+    # form.is_valid() method is raised.
+    def compare(self, y):
+        """
+        It compares all the attributes except the unique attributes.
+        """
+        if (self.posted_by == y.posted_by
+            and self.project == y.project
+            and self.title == y.title
+            and self.title_slug == y.title_slug
+            and self.description == y.description
+            and self.status == y.status
+            and self.date_added == y.date_added
+            and self.date_updated == y.date_updated
+            and self.date_due == y.date_due
+            and self.tags == y.tags):
+            return True
+        return False
+
 
 class Applicant(models.Model):
     """
@@ -152,6 +172,19 @@ class Applicant(models.Model):
     def get_absolute_url(self):
         return ("job_details", [self.job.pk])
     get_absolute_url = models.permalink(get_absolute_url)
+
+    # def __eq__(self, y):
+    # I'm not overloading the == operator because when doing it an error in
+    # form.is_valid() method is raised.
+    def compare(self, y):
+        """
+        It compares all the attributes except the unique attributes.
+        """
+        if (self.user == y.user and self.job == y.job
+            and self.status == y.status
+            and self.date_appplied == y.date_applied):
+            return True
+        return False
 
     def is_candidate(self):
         if self.status == 1:

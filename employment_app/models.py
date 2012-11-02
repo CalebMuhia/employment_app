@@ -73,6 +73,43 @@ class Project(models.Model):
     def get_absolute_url(self):
         return ("company_detail", [str(self.title_slug)])
 
+    # def __eq__(self, y):
+    # I'm not overloading the == operator because when doing it an error in
+    # form.is_valid() method is raised.
+    def compare(self, y):
+        """
+        It compares all the attributes except the unique attributes.
+        """
+        if (self.title == y.title
+            and self.short_description == y.short_description
+            and self.public_description == y.public_description
+            and self.long_description == y.long_description
+            and self.payment_description == y.payment_description
+            and self.dissolution_strategy == y.dissolution_strategy
+            and self.estimated_total_project_cost == y.
+            estimated_total_project_cost
+            and self.complexity_rating == y.complexity_rating and
+            self.url == y.url
+            and self.percent_prototype_completed == y.
+            percent_prototype_completed
+            and self.datetime_prototype_completion_anticipated == y.
+            datetime_prototype_completion_anticipated
+            and self.datetime_prototype_actually_completed == y.
+            datetime_prototype_actually_completed
+            and self.project_status_history == y.project_status_history
+            and self.looking_for_developers == y.looking_for_developers
+            and self.developer_description == y.developer_description
+            and self.non_disclosure_agreement == y.non_disclosure_agreement
+            and self.open_or_closed == y.open_or_closed
+            and self.comment == y.comment
+            and self.lessons_learned == y.lessons_learned
+            and self.registration == y.registration
+            and self.last_edited == y.last_edited
+            and self.person == y.person
+            and self.title_slug == y.title_slug):
+            return True
+        return False
+
 
 class Project_Comment(models.Model):
     """ stores the person's comments from a project """

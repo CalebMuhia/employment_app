@@ -8,46 +8,13 @@ from django.core.urlresolvers import reverse
 from jobsboard.models import Job, Applicant
 from employment_app.models import Project
 from common.utils import random_string_with_length
+from employment_app.tests import BaseOperations as emp_app_BaseOperations
 import random
 import datetime
 
 
-class BaseOperations(TestCase):
+class BaseOperations(emp_app_BaseOperations):
     """ holds the basic operations of this application """
-
-    @staticmethod
-    def _create_user(active=False, superuser=False):
-        """
-        Creates a user (the signal creates its profile).
-        Returns the user.
-        """
-        u = User.objects.create(
-            username=random_string_with_length(5),
-            is_active=active, is_staff=True, is_superuser=superuser)
-        u.set_password('1')
-        u.save()
-        return u
-
-    @staticmethod
-    def _create_project(person):
-        """ creates and returns a new project """
-        return Project.objects.create(
-            title=random_string_with_length(),
-            short_description=random_string_with_length(),
-            public_description=random_string_with_length(),
-            long_description=random_string_with_length(),
-            payment_description=random_string_with_length(),
-            dissolution_strategy=random_string_with_length(),
-            estimated_total_project_cost=random.randint(10000, 500000),
-            complexity_rating='M',
-            percent_prototype_completed=0,
-            datetime_prototype_completion_anticipated=datetime.datetime.now(),
-            datetime_prototype_actually_completed=datetime.datetime.now(),
-            looking_for_developers='Y',
-            open_or_closed='O',
-            person=person
-        )
-
     @staticmethod
     def _create_job(user, project):
         """ creates and returns a new job """

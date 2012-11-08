@@ -8,7 +8,7 @@ from employment_app.models import Project
 
 def home(request):
     """ shows the homepage """
-    return render_to_response("employment_app/home.html",
+    return render_to_response("home.html",
                               context_instance=RequestContext(request))
 
 

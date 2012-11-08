@@ -5,6 +5,27 @@ from django.db import models
 from django.contrib.auth.models import User
 from pybb.models import PybbProfile
 
+# THERE IS NO NEED TO USE THIS BECAUSE WE CAN REPLATE ALL THIS CODE JUST USING
+# THE DATETIMEFIELD OPTIONS auto_now and auto_now_add
+#TimeStampedModel plundered from django-extensions. Aargh Jim Lad.
+#See here: https://github.com/django-extensions/
+# from fields import CreationDateTimeField, ModificationDateTimeField
+# from django.utils.translation import ugettext_lazy as _
+
+# class TimeStampedModel(models.Model):
+#     """
+#     TimeStampedModel
+#     An abstract base class model that provides self-managed "created" and
+#     "modified" fields.
+#     """
+#     created = CreationDateTimeField(_('created'))
+#     modified = ModificationDateTimeField(_('modified'))
+
+#     class Meta:
+#         get_latest_by = 'modified'
+#         ordering = ('-modified', '-created',)
+#         abstract = True
+
 
 class Person(PybbProfile):
     """
@@ -27,7 +48,13 @@ class Person(PybbProfile):
     skills = models.ManyToManyField('Skill', through='Person_Skill')
 
     def __unicode__(self):
-        return u'%s' % self.user.get_full_name()
+        return u'%s %s %s' % (
+            self.user.first_name, self.middle_name or '', self.user.last_name)
+
+    @models.permalink
+    def get_absolute_url(self):
+        return (
+            'profiles_profile_detail', (), {'username': self.user.username})
 
 
 class FeedBack(models.Model):
@@ -37,7 +64,7 @@ class FeedBack(models.Model):
     person = models.ForeignKey('Person')
 
 
-class Challengue_Question(models.Model):
+class Challenge_Question(models.Model):
     """ stores the questions to recover user accounts """
     question = models.CharField(max_length=120)
     answer = models.CharField(max_length=120)
@@ -63,6 +90,9 @@ class Phone_Number(models.Model):
 class Skill(models.Model):
     """ stores person's skills """
     name = models.CharField(max_length=60)
+
+    def __unicode__(self):
+        return u'%s' % self.name
 
 
 class Person_Skill(models.Model):

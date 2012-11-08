@@ -9,8 +9,11 @@ django-autoslug==1.6.1
 django-cities-light==2.0.4
 -e git://github.com/howiworkdaily/django-faq.git@f5a5cc9ad4b090529ba138590de776e48e47609c#egg=django_faq-dev
 django-pure-pagination==0.2.1
+django-registration==0.8
 django-tagging==0.3.1
 django-tinymce==1.5.1b2
+lxml==3.0.1
+mock==1.0.1
 postmarkup==1.2.0
 progressbar==2.2
 psycopg2==2.4.5

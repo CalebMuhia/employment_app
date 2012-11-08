@@ -2,8 +2,45 @@
 """ employemnt_app models """
 
 from django.db import models
-from django.core.urlresolvers import reverse
+from pybb.models import PybbProfile
 from common.models import Person
+
+#An app to manage User Profiles
+#django-profiles should do all the heavy lifting
+# from common.models import TimeStampedModel
+# from django.contrib.auth.models import User
+
+# class UserProfile(TimeStampedModel, PybbProfile):
+#     user = models.OneToOneField(User)
+#     bio = models.TextField()
+
+#     @model.permalink
+#     def get_absolute_url(self):
+#         return ('profiles_profile_detail', (), { 'username': self.user.username })
+#     get_absolute_url = models.permalink(get_absolute_url)
+
+
+# class Skill(TimeStampedModel):
+#     """ stores user's skills """
+#     LEVELS = (
+#         ('A', 'A'),
+#         ('B', 'B'),
+#         ('C', 'C'),
+#         ('D', 'D'),
+#         ('F', 'F'),
+#     )
+#     user = models.ForeignKey(User)
+#     skill = models.CharField(max_length=60)
+#     experience_years = models.DecimalField(max_digits=3, decimal_places=1)
+#     level = models.CharField(max_length=1, choices=LEVELS)
+
+# class Location(TimeStampedModel):
+#     """ stores locations """
+#     user = models.ForeignKey(User)
+#     address_line_1 = models.CharField(max_length=255)
+#     address_line_2 = models.CharField(max_length=255, blank=True)
+#     address_line_3 = models.CharField(max_length=255, blank=True)
+#     zip = models.CharField(max_length=5)
 
 
 class Client(Person):
@@ -20,7 +57,6 @@ class Developer(Person):
     Stores developer's data.
     """
     bio = models.TextField()
-
 
 class Project(models.Model):
     """ stores project's data """

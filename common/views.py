@@ -1,1 +1,2 @@
-# Create your views here.
+# -*- coding: utf-8 -*-
+""" common's views """

@@ -19,10 +19,11 @@ def user_created(sender, instance, created, **kwargs):
             add_topic_permission = Permission.objects.get_by_natural_key(
                 'add_topic', 'pybb', 'topic')
         except ObjectDoesNotExist:
-            return
-        instance.user_permissions.add(add_post_permission,
-                                      add_topic_permission)
-        instance.save()
+            pass
+        else:
+            instance.user_permissions.add(add_post_permission,
+                                          add_topic_permission)
+            instance.save()
         from common.models import Person
         person_id = unique_random_string(Person, 'person_id', 16)
         Person(user=instance, person_id=person_id).save()

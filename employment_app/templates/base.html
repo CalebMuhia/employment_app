@@ -51,25 +51,40 @@
                     <li><a href="{% url pybb:index %}">Forum</a></li>
                     <li><a href="{% url faq_topic_list %}">FAQ</a></li>
 		    <li>
-		    <div class="btn-group">
-		      <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
-			Jobs
-			<span class="caret"></span>
-		      </a>
-		      <ul class="dropdown-menu">
-			<!-- dropdown menu links -->
-			<li><a href="{% url jobs_list %}">Jobs List</a></li>
-			<li><a href="{% url company_list %}">Projects</a></li>
-			{% if user.is_authenticated %}
-			<li><a href="{% url apply_list %}">Applied Jobs</a></li>
-			<li><a href="{% url your_job_post %}">Your Posted Jobs</a></li>
-			<li><a href="{% url your_company %}">Your Projects</a></li>
-			<li><a href="{% url job_create %}">Post a Job</a></li>
-			<li><a href="{% url company_create %}">Add New Project</a></li>
-			{% endif %}
-
-		      </ul>
-		    </div>
+		      <div class="btn-group">
+			<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+			  Jobs
+			  <span class="caret"></span>
+			</a>
+			<ul class="dropdown-menu">
+			  <!-- dropdown menu links -->
+			  <li><a href="{% url jobs_list %}">Jobs List</a></li>
+			  <li><a href="{% url company_list %}">Projects</a></li>
+			  {% if user.is_authenticated %}
+			  <li><a href="{% url apply_list %}">Applied Jobs</a></li>
+			  <li><a href="{% url your_job_post %}">Your Posted Jobs</a></li>
+			  <li><a href="{% url your_company %}">Your Projects</a></li>
+			  <li><a href="{% url job_create %}">Post a Job</a></li>
+			  <li><a href="{% url company_create %}">Add New Project</a></li>
+			  {% endif %}
+			</ul>
+		      </div>
+		    </li>
+		    <li>
+		      <div class="btn-group">
+			<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+			  Profiles
+			  <span class="caret"></span>
+			</a>
+			<ul class="dropdown-menu">
+			  <!-- dropdown menu links -->
+			  <li><a href="{% url profiles_profile_list %}">Profiles list</a></li>
+			  {% if user.is_authenticated %}
+			  <li><a href="{% url profiles_profile_detail user.username %}">My Profile</a></li>
+			  <li><a href="{% url profiles_edit_profile %}">Edit my Profile</a></li>
+			  {% endif %}
+			</ul>
+		      </div>
 		    </li>
                 </ul>
                 <ul class="nav pull-right">

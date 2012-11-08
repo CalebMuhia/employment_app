@@ -1,0 +1,83 @@
+{% extends "base.html" %}
+
+{% block title %}
+  Profile | {{profile}}
+{% endblock %}
+
+{% block extrahead %}
+  {{form.media}}
+{% endblock %}
+
+{% block content %}
+<div>
+  <div>
+    <h1>Profile: {{profile}}</h1>
+  </div>
+  <table class="table">
+    <tr>
+      <th>Avatar</th>
+      <td><img src='{{profile.avatar}}' /></td>
+    </tr>
+    <tr>
+      <th>Username: </th>
+      <td>{{profile.user.username}}</td>
+    </tr>
+    <tr>
+      <th>Gender: </th>
+      <td>{% if profile.gender == 'M' %}Male{% else %}Female{% endif %}</td>
+    </tr>
+    <tr>
+      <th>Date joined: </th>
+      <td>{{profile.datetime}}</td>
+    </tr>
+    {% if show_signatures %}
+    <tr>
+      <th>Signature: </th>
+      <td>{{profile.signature}}</td>
+    </tr>
+    <tr>
+      <th>Signature HTML: </th>
+      <td>{{profile.signature_html}}</td>
+    </tr>
+    {% endif%}
+    <tr>
+      <th>Time zone: </th>
+      <td>{{profile.time_zone}}</td>
+    </tr>
+    <tr>
+      <th>Language: </th>
+      <td>{{profile.language}}</td>
+    </tr>
+    <tr>
+      <th>Posts: </th>
+      <td>{{profile.post_count}}</td>
+    </tr>
+
+    <!-- Falta mostrar los skills -->
+    <tr>
+      <td colspan=2>
+	<table class="table table-striped">
+	  <thead>
+	    <th>Skill</th>
+	    <th>Level</th>
+	    <th>Years of experience</th>
+	  </thead>
+	  {% for skill in profile.person_skill_set.all %}
+	  <tr>
+	    <th>{{skill.skill}}</th>
+	    <td>{{skill.level}}</td>
+	    <td>{{skill.experience_years}}</td>
+	  </tr>
+	  {% empty %}
+	  <tr>
+	    <td colspan=2> There are no skills registered yet.</td>
+	  </tr>
+	  {% endfor %}
+      </table>
+      </td>
+    </tr>
+
+
+  </table>
+</div>
+{% endblock %}

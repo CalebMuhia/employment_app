@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}
+  Edit your Profile
+{% endblock %}
+
+{% block extrahead %}
+  {{wizard.form.media}}
+  <script type="text/javascript" src="{{STATIC_URL}}common/js/dynamic_formset.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function (){
+
+      //Enables the function to add new skills
+      dynamic_formset(
+        {{wizard.form.total_form_count}}, "select#id_1-0-skill", "tr", "tbody", 
+        "button#add_skill"
+      );
+
+    });
+  </script>
+{% endblock %}
+
+{% block content %}
+<div>
+  <div>
+    <h1>Edit your profile</h1>
+  </div>
+<p>Step {{ wizard.steps.step1 }} of {{ wizard.steps.count }}</p>
+<form action="" method="post">{% csrf_token %}
+<table class="table table-striped">
+{% if wizard.steps.step1 == 1 %}
+  <h3>Update your personal data</h3>
+{% else %}
+  <h3>Update your skill set</h3>
+  <thead>
+  <tr>
+    {% for field in wizard.form.forms.0.visible_fields %}
+      <th>{{field.label_tag}}</th>
+    {% endfor %}
+    <th></th>
+  </tr>
+  </thead>
+{% endif %}
+{{ wizard.management_form }}
+<tbody>
+{% if wizard.form.forms %}
+  {{ wizard.form.management_form }}
+  {% for form in wizard.form.forms %}
+     {# form #}
+     <tr>
+       {% for field in form.visible_fields %}
+         <td>{{field}}{% if field.errors %}{{field.errors}}{% endif %}</td>
+       {% endfor %}
+       <td>
+         {% for field in form.hidden_fields %}
+           {{field}}
+         {% endfor %}
+       </td>
+     </tr>
+  {% endfor %}
+{% else %}
+  {{ wizard.form }}
+{% endif %}
+</tbody>
+</table>
+{% if wizard.steps.step1 == 2 %}
+<button id="add_skill" class="btn btn-primary" type="button">Add another skill</button>
+{% endif %}
+{% if wizard.steps.prev %}
+<button name="wizard_goto_step" type="submit" value="{{ wizard.steps.first }}">{% trans "first step" %}</button>
+<button name="wizard_goto_step" type="submit" value="{{ wizard.steps.prev }}">{% trans "prev step" %}</button>
+{% endif %}
+<input type="submit" value="{% trans "submit" %}"/>
+</form>
+</div>
+{% endblock %}

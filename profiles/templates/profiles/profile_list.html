@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block title %}
+  User profiles' list
+{% endblock %}
+
+{% block content %}
+<div>
+  <div>
+    <h1>  User profiles' list</h1>
+  </div>
+  <ul>
+  {% for profile in object_list %}
+    <li><a href="{{profile.get_absolute_url}}">{{profile}}</a></li>
+  {% empty %}
+    <li>There are no user profiles.</li>
+  {% endfor %}
+  </ul>
+</div>
+{% endblock %}

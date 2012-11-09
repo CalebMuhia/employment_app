@@ -10,11 +10,11 @@ downloads
 eggs
 log
 parts
-project/media/uploads
-tmp
-env
+project/media/uploads/*
+tmp/*
+env/*
 settings_local.py
-static
-media
+static/*
+media/*
 *.db
 *.idea

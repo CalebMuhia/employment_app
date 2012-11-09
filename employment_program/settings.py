@@ -1,7 +1,6 @@
 # Django settings for employment_program project.
 #import os
 
-
 #PROJECT_ROOT = os.path.abspath(os.path.dirname(__file__))
 from django.core.urlresolvers import reverse_lazy
 from os.path import join, realpath, dirname, abspath

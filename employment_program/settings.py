@@ -3,15 +3,15 @@
 
 
 #PROJECT_ROOT = os.path.abspath(os.path.dirname(__file__))
-from django.core.urlresolvers import reverse
+from django.core.urlresolvers import reverse_lazy
 from os.path import join, realpath, dirname, abspath
 import sys
 
 # IMPORTANT
 # If you have custom site profile check that it inherits
 # from pybb.models.PybbProfile or contains all fields from this class.
-AUTH_PROFILE_MODULE = 'pybb.Profile'
-# AUTH_PROFILE_MODULE = 'employment_app.UserProfile'
+# AUTH_PROFILE_MODULE = 'pybb.Profile'
+AUTH_PROFILE_MODULE = 'common.Person'
 
 #Change to true before deploying into production
 ENABLE_SSL = False
@@ -61,12 +61,12 @@ USE_TZ = True
 
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/home/media/media.lawrence.com/media/"
-MEDIA_ROOT = ''
+MEDIA_ROOT = join(SITE_ROOT, 'media/')
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash.
 # Examples: "http://media.lawrence.com/media/", "http://example.com/media/"
-MEDIA_URL = ''
+MEDIA_URL = '/media/'
 
 # Absolute path to the directory static files should be collected to.
 # Don't put anything in this directory yourself; store your static files
@@ -138,7 +138,8 @@ TEMPLATE_DIRS = (
 # Always use forward slashes, even on Windows.
 # Don't forget to use absolute paths, not relative paths.
     "/home/caleb/projects/employment_app/employement app/templates/",
-    "/home/caleb/projects/employment_app/jobsboard/templates/",    
+    "/home/caleb/projects/employment_app/projects/templates/",    
+    "/home/caleb/projects/employment_app/jobsboard/templates/",
 #os.path.join(PROJECT_ROOT, "templates"),
 
 )
@@ -154,6 +155,7 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.formtools',    
     # Uncomment the next line to enable the admin:
     'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
@@ -183,7 +185,7 @@ INSTALLED_APPS = (
     )
 
 LOGIN_REDIRECT_URL = '/'
-LOGIN_URL = reverse('registration_register')
+LOGIN_URL = reverse_lazy('registration_register')
 
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'
@@ -270,28 +272,28 @@ TINYMCE_COMPRESSOR = True
 # local settings import
 #from http://djangosnippets.org/snippets/1873/
 #--------------------------------
-# try:
-#     import local_settings
-# except ImportError:
-#     print """ 
-#     -------------------------------------------------------------------------
-#     You need to create a local_settings.py file.
-#     -------------------------------------------------------------------------
-#     """
-#     import sys 
-#     sys.exit(1)
-# else:
-#     # Import any symbols that begin with A-Z. Append to lists any symbols that
-#     # begin with "EXTRA_".
-#     import re
-#     for attr in dir(local_settings):
-#         match = re.search('^EXTRA_(\w+)', attr)
-#         if match:
-#             name = match.group(1)
-#             value = getattr(local_settings, attr)
-#             try:
-#                 globals()[name] += value
-#             except KeyError:
-#                 globals()[name] = value
-#         elif re.search('^[A-Z]', attr):
-#             globals()[attr] = getattr(local_settings, attr)
+try:
+    import local_settings
+except ImportError:
+    print """ 
+    -------------------------------------------------------------------------
+    You need to create a local_settings.py file.
+    -------------------------------------------------------------------------
+    """
+    import sys 
+    sys.exit(1)
+else:
+    # Import any symbols that begin with A-Z. Append to lists any symbols that
+    # begin with "EXTRA_".
+    import re
+    for attr in dir(local_settings):
+        match = re.search('^EXTRA_(\w+)', attr)
+        if match:
+            name = match.group(1)
+            value = getattr(local_settings, attr)
+            try:
+                globals()[name] += value
+            except KeyError:
+                globals()[name] = value
+        elif re.search('^[A-Z]', attr):
+            globals()[attr] = getattr(local_settings, attr)

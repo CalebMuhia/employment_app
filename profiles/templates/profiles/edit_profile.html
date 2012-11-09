@@ -11,11 +11,13 @@
   <script type="text/javascript">
     $(document).ready(function (){
 
+      {% if wizard.form.total_form_count %}
       //Enables the function to add new skills
       dynamic_formset(
         {{wizard.form.total_form_count}}, "select#id_1-0-skill", "tr", "tbody", 
         "button#add_skill"
       );
+      {% endif %}
 
     });
   </script>

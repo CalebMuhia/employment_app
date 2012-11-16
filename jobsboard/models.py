@@ -48,9 +48,7 @@ from tagging.fields import TagField
 
 
 class Job(models.Model):
-    """
-    A job with its details.
-    """
+    """ A job with its details """
     STATUS_CHOICES = (
         (1, _('Open')),
         (2, _('Filled')),

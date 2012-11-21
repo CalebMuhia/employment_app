@@ -1,11 +1,18 @@
 {% extends "base.html" %}
-{% block title %}Login{% endblock %}
+
+{% block title %}{{ block.super }}: Add Question{% endblock %}
+
 {% block content %}
-{% load url from future %}
-
-<h2>Welcome to the django-faq example project</h2>
-<form method='post' action=''>{% csrf_token %}
-{{form}}
-<form>
-
+<h3>Submit Question</h3>
+<p>
+  Use this form to submit a question (and optionally a corresponding answer)
+  that you would like to see added to the FAQs on this site.
+</p>
+<form action="." method="POST">
+  {% csrf_token %}
+  <table>
+    {{ form.as_table }}
+  </table>
+  <input type="submit" value="Submit"/>
+</form>
 {% endblock %}

@@ -49,7 +49,19 @@
                 <ul class="nav">
                     <li class="active"><a href="{% url employment_app_home %}">Home</a></li>
                     <li><a href="{% url pybb:index %}">Forum</a></li>
-                    <li><a href="{% url faq_topic_list %}">FAQ</a></li>
+		    <li>
+		      <div class="btn-group">
+			<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+			  FAQ
+			  <span class="caret"></span>
+			</a>
+			<ul class="dropdown-menu">
+			  <!-- dropdown menu links -->
+			  <li><a href="{% url faq_topic_list %}">Topics List</a></li>
+			  <li><a href="{% url faq_submit %}">Submit a question</a></li>
+			</ul>
+		      </div>
+		    </li>
 		    <li>
 		      <div class="btn-group">
 			<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">

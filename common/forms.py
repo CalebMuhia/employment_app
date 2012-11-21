@@ -36,7 +36,7 @@ class PersonForm(forms.ModelForm):
     class Meta:
         """ Form's meta class """
         model = Person
-        exclude = ('skills', 'user')
+        exclude = ('skills', 'user', 'post_count')
 
     def __init__(self, *args, **kwargs):
         """ initializes the fields added to the form """
@@ -54,7 +54,7 @@ class PersonForm(forms.ModelForm):
             'email_address', 'gender',
             'new_password', 'confirm_new_password', 'signature',
             'signature_html', 'time_zone', 'language', 'show_signatures',
-            'post_count', 'avatar', 'autosubscribe', 'comment'
+            'avatar', 'autosubscribe', 'comment'
         ]
 
     def clean_username(self):
@@ -84,17 +84,17 @@ class PersonForm(forms.ModelForm):
             if not pass2:
                 self._errors['confirm_new_password'] = self.error_class([
                     'Confirm your new password.'])
-                del c_d['confirm_new_password']
-            if pass1 != pass2:
+                # del c_d['new_password']
+            elif pass1 != pass2:
                 del c_d['new_password']
                 del c_d['confirm_new_password']
                 raise forms.ValidationError(
                     'The passwords typed are not equal.')
-        if pass2:
+        elif pass2:
             if not pass1:
                 self._errors['new_password'] = self.error_class([
                     'Type your new password.'])
-                del c_d['new_password']
+                # del c_d['confirm_new_password']
         return c_d
 
     @transaction.commit_on_success

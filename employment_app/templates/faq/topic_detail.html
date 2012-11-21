@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %}{{ block.super }}: {{ topic }}{% endblock %}
+
+{% block content %}
+<h2>{{ topic }}</h2>
+<ol>
+{% for question in questions %}
+  <li>
+    <a href="{% url faq_question_detail  topic.slug question.slug %}">{{ question.text }}</a>
+  </li>
+  {% empty %}
+  <li>There are not any question in this topic yet.</li>
+{% endfor %}
+</ol>
+
+{% endblock %}

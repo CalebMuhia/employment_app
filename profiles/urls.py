@@ -24,6 +24,7 @@ redirect. If you don't use that name, remember to explicitly pass
 """
 
 from django.conf.urls.defaults import *
+from django.contrib.auth.decorators import login_required
 from common.forms import PersonForm, SkillsFormSet
 from profiles import views
 
@@ -33,12 +34,13 @@ urlpatterns = patterns('',
                        #     views.create_profile,
                        #     name='profiles_create_profile'),
                        url(r'^edit/$',
-                           views.EditProfileWizard.as_view((PersonForm,
-                                                            SkillsFormSet)),
+                           login_required(
+                               views.EditProfileWizard.as_view(
+                                   (PersonForm, SkillsFormSet))),
                            name='profiles_edit_profile'),
                        # url(r'^edit/$',
                        #     views.edit_profile,
-                       #     name='profiles_edit_profile'),                   
+                       #     name='profiles_edit_profile'),
                        url(r'^(?P<username>\w+)/$',
                            views.profile_detail,
                            name='profiles_profile_detail'),

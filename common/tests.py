@@ -18,6 +18,9 @@ class BaseOperations(TestCase):
         """
         u = User.objects.create(
             username=random_string_with_length(5),
+            first_name=random_string_with_length(5),
+            last_name=random_string_with_length(5),
+            email=random_string_with_length(5) + '@mail.com',
             is_active=active, is_staff=True, is_superuser=superuser)
         u.set_password('1')
         u.save()

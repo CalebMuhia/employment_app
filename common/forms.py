@@ -7,14 +7,15 @@ from django.db import transaction
 from django.forms.models import inlineformset_factory
 from common.models import Person, Person_Skill
 from common.fields import UsernameField
+import os
 
 
 SkillsFormSet = inlineformset_factory(Person, Person_Skill, extra=2)
 
 
-class Person0Form(forms.ModelForm):
-    class Meta:
-        model = Person
+# class Person0Form(forms.ModelForm):
+#     class Meta:
+#         model = Person
 
 
 class PersonForm(forms.ModelForm):
@@ -99,7 +100,13 @@ class PersonForm(forms.ModelForm):
 
     @transaction.commit_on_success
     def save(self, *args, **kwargs):
-        """ saves the data to the corresponding Person and User objects """
+        """
+        saves the data to the corresponding Person and User objects
+        This method also removes the image saved in the tmp directory
+        Note: when the form is not saved the uploaded image is not deleted
+        so it should be better is this form is put at last position on the
+        wizard form.
+        """
         person = super(PersonForm, self).save(*args, **kwargs)
         user = person.user
         c_d = self.cleaned_data
@@ -111,4 +118,6 @@ class PersonForm(forms.ModelForm):
         if pass1:
             user.set_password(pass1)
         user.save()
+        if c_d.get('avatar'):
+            os.remove(self.cleaned_data['avatar'].file.name)
         return person

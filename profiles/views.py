@@ -3,11 +3,12 @@
 Views for creating, editing and viewing site-specific user profiles.
 """
 
+from django.conf import settings
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.contrib.formtools.wizard.views import SessionWizardView
 from django.core.exceptions import ObjectDoesNotExist
-from django.core.files.storage import Storage, FileSystemStorage
+from django.core.files.storage import FileSystemStorage
 from django.core.urlresolvers import reverse
 from django.http import Http404
 from django.http import HttpResponseRedirect
@@ -17,8 +18,8 @@ from django.template import RequestContext
 from django.views.generic.list_detail import object_list
 from common.forms import PersonForm, SkillsFormSet
 from common.models import Person, Person_Skill
-
 from profiles import utils
+import os
 
 # THE PROFILE IS CREATED JUST AFTER SAVING THE USER, SO THIS IS NO LONGER
 # REQUIRED
@@ -125,10 +126,12 @@ from profiles import utils
 # create_profile = login_required(create_profile)
 
 
+
 class EditProfileWizard(SessionWizardView):
     """ WizardView for editing the profile """
     template_name = 'profiles/edit_profile.html'
-    file_storage = FileSystemStorage()
+    file_storage = FileSystemStorage(
+        location=os.path.join(settings.MEDIA_ROOT, 'tmp'))
 
     def done(self, form_list, **kwargs):
         """ saves the data from each form """
@@ -162,6 +165,10 @@ class EditProfileWizard(SessionWizardView):
             return {'instance': self.request.user.get_profile()}
         return {}
 
+    def get_template_names(self):
+        if self.steps.current == '0':
+            return 'profiles/personform.html'
+        return super(EditProfileWizard, self).get_template_names()
 
 # def edit_profile(request, form_class=None, success_url=None,
 #                  template_name='profiles/edit_profile.html',

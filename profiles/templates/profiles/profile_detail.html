@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load thumbnail %}
 
 {% block title %}
   Profile | {{profile}}
@@ -16,7 +17,13 @@
   <table class="table">
     <tr>
       <th>Avatar</th>
-      <td><img src='{{profile.avatar}}' /></td>
+      <td>
+      {% thumbnail profile.avatar "119x119" as img %}
+	<img src="{{img.url}}" width="img.width" height="img.heigth" />
+      {% empty %}
+	<img src="{{STATIC_URL}}common/img/no_image.jpg" width="114" height="119" />
+      {% endthumbnail %}
+      </td>
     </tr>
     <tr>
       <th>Username: </th>

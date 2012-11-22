@@ -3,9 +3,10 @@
 
 from django.contrib import admin
 from common.models import FeedBack, Challenge_Question, \
-    Phone_Number, Skill
+    Phone_Number, Skill, Person
 
 admin.site.register(FeedBack)
 admin.site.register(Challenge_Question)
 admin.site.register(Phone_Number)
 admin.site.register(Skill)
+admin.site.register(Person)

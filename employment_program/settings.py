@@ -15,7 +15,6 @@ AUTH_PROFILE_MODULE = 'common.Person'
 #Change to true before deploying into production
 ENABLE_SSL = False
 
-# SITE_ROOT = join(abspath(dirname(__file__)),"../employment_app")
 SITE_ROOT = abspath(dirname(__file__))
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
@@ -137,9 +136,6 @@ TEMPLATE_DIRS = (
 # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
 # Always use forward slashes, even on Windows.
 # Don't forget to use absolute paths, not relative paths.
-    # "/home/caleb/projects/employment_app/employment_app/templates/",
-    # "/home/caleb/projects/employment_app/projects/templates/",    
-    # "/home/caleb/projects/employment_app/jobsboard/templates/",
     join(SITE_ROOT, "employment_app", "templates"),
     join(SITE_ROOT, "projects", "templates"),
     join(SITE_ROOT, "jobsboard", "templates"),    

@@ -140,9 +140,9 @@ TEMPLATE_DIRS = (
     # "/home/caleb/projects/employment_app/employment_app/templates/",
     # "/home/caleb/projects/employment_app/projects/templates/",    
     # "/home/caleb/projects/employment_app/jobsboard/templates/",
-    join(BASEDIR, "employment_app", "templates"),
-    join(BASEDIR, "projects", "templates"),
-    join(BASEDIR, "jobsboard", "templates"),    
+    join(SITE_ROOT, "employment_app", "templates"),
+    join(SITE_ROOT, "projects", "templates"),
+    join(SITE_ROOT, "jobsboard", "templates"),    
     
 #os.path.join(PROJECT_ROOT, "templates"),
 

@@ -36,7 +36,7 @@ urlpatterns = patterns('',
                        url(r'^edit/$',
                            login_required(
                                views.EditProfileWizard.as_view(
-                                   (PersonForm, SkillsFormSet))),
+                                   (SkillsFormSet, PersonForm))),
                            name='profiles_edit_profile'),
                        # url(r'^edit/$',
                        #     views.edit_profile,

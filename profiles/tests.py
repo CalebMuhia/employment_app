@@ -2,6 +2,7 @@
 """ profiles's tests """
 
 from django.test import TestCase
+from django.core.files import File
 from django.core.urlresolvers import reverse
 from django.conf import settings
 from django.contrib.auth.models import User
@@ -9,6 +10,7 @@ from common.models import Person
 from common.tests import BaseOperations as common_BaseOperations
 from common.utils import random_string_with_length
 from pybb.models import TZ_CHOICES
+import os
 
 
 class BaseOperations(common_BaseOperations):
@@ -52,8 +54,11 @@ class ProfileViewsTests(BaseOperations):
         response = self.client.get(reverse('profiles_edit_profile'))
         self.assertEqual(
             response.status_code, 200,
-            'EditProfileWizard view: The view was not redirected properly.')
-
+            'EditProfileWizard view: The http status code should be 200.')
+        response = self.client.post(reverse('profiles_edit_profile'),
+                                    {'edit_profile_wizard-current_step': 0,
+                                     '0-TOTAL_FORMS': 2,
+                                     '0-INITIAL_FORMS': 0})
         # 2
         form_data = response.context['wizard']['form']
         self.assertTrue(
@@ -69,24 +74,29 @@ class ProfileViewsTests(BaseOperations):
             initialized properly.')
 
         # 3
-        data = {'0-username': user.username,
-                '0-first_name': user.first_name,
-                '0-last_name': user.last_name,
-                '0-email_address': user.email,
-                '0-id': profile.id,
-                '0-middle_name': profile.middle_name,
-                '0-gender': profile.gender,
-                '0-comment': profile.comment,
-                '0-time_zone': profile.time_zone
+        data = {'1-username': user.username,
+                '1-first_name': user.first_name,
+                '1-last_name': user.last_name,
+                '1-email_address': user.email,
+                '1-id': profile.id,
+                '1-middle_name': profile.middle_name,
+                '1-gender': profile.gender,
+                '1-comment': profile.comment,
+                '1-time_zone': profile.time_zone,
+                'edit_profile_wizard-current_step': '1'
                 }
         data_0 = data.copy()
-        data_0['edit_profile_wizard-current_step'] = '0'
         response = self.client.post(reverse('profiles_edit_profile'), data_0)
-        self.assertFalse(response.context['wizard']['form'].errors,
-                         'EditProfileWizard view: No errors should be \
-                         raised by the PersonForm.')
+        self.assertRedirects(
+            response, profile.get_absolute_url(),
+            msg_prefix='EditProfileWizard view: The view shoud be \
+                             redirected to the user profile_detail view')
         user2 = self._create_user()
-        data_0['0-username'] = user2.username
+        data_0['1-username'] = user2.username
+        self.client.post(reverse('profiles_edit_profile'),
+                         {'edit_profile_wizard-current_step': 0,
+                          '0-TOTAL_FORMS': 2,
+                          '0-INITIAL_FORMS': 0})
         response = self.client.post(reverse('profiles_edit_profile'), data_0)
         self.assertTrue(response.context['wizard']['form']['username'].errors,
                         'EditProfileWizard view: An error on username \
@@ -95,8 +105,7 @@ class ProfileViewsTests(BaseOperations):
 
         # 4
         data_0 = data.copy()
-        data_0['edit_profile_wizard-current_step'] = '0'
-        data_0['0-email_address'] = user2.email
+        data_0['1-email_address'] = user2.email
         response = self.client.post(reverse('profiles_edit_profile'),
                                     data_0)
         self.assertTrue(
@@ -107,8 +116,7 @@ class ProfileViewsTests(BaseOperations):
 
         # 5
         data_0 = data.copy()
-        data_0['edit_profile_wizard-current_step'] = '0'
-        data_0['0-new_password'] = '12345'
+        data_0['1-new_password'] = '12345'
         response = self.client.post(reverse('profiles_edit_profile'), data_0)
         self.assertTrue(
             'confirm_new_password' in response.context['wizard'][
@@ -116,43 +124,44 @@ class ProfileViewsTests(BaseOperations):
             'EditProfileWizard view: An error should be raised because the \
             password was not confirmed.')
         data_0 = data.copy()
-        data_0['edit_profile_wizard-current_step'] = '0'
-        data_0['0-confirm_new_password'] = '12345'
+        data_0['1-confirm_new_password'] = '12345'
         response = self.client.post(reverse('profiles_edit_profile'), data_0)
         self.assertTrue(
             'new_password' in response.context['wizard']['form'].errors,
             'EditProfileWizard view: An error should be raised because the \
             password was not confirmed.')
-        data_0['0-new_password'] = '54321'
+        data_0['1-new_password'] = '54321'
         response = self.client.post(reverse('profiles_edit_profile'), data_0)
         self.assertTrue(
             '__all__' in response.context['wizard']['form'].errors,
             'EditProfileWizard view: An error should be raised because the \
             passwords are no equal.')
-        data_0['0-new_password'] = '12345'
+        data_0['1-new_password'] = '12345'
         response = self.client.post(reverse('profiles_edit_profile'), data_0)
-        self.assertFalse(response.context['wizard']['form'].errors,
-                         'EditProfileWizard view: No error should be raised.')
-
+        self.assertRedirects(
+            response, profile.get_absolute_url(),
+            msg_prefix='EditProfileWizard view: The view shoud be \
+                             redirected to the user profile_detail view')
         # 6
+        self.client.post(reverse('profiles_edit_profile'),
+                         {'edit_profile_wizard-current_step': 0,
+                          '0-TOTAL_FORMS': 2,
+                          '0-INITIAL_FORMS': 0})
+        avatar_dir = os.path.join(
+            settings.STATIC_ROOT, 'common', 'img', 'no_image.jpg')
         response = self.client.post(reverse('profiles_edit_profile'),
-                                    {'0-username': 'user_1',
-                                     '0-first_name': 'user_1',
-                                     '0-last_name': 'user_1',
-                                     '0-email_address': 'user_1@mail.com',
-                                     '0-id': profile.id,
-                                     '0-middle_name': 'user_1',
-                                     '0-gender': Person.GENDER[1][0],
-                                     '0-comment': 'aaa',
-                                     '0-time_zone': TZ_CHOICES[1][0],
-                                     'edit_profile_wizard-current_step': 0
+                                    {'1-username': 'user_1',
+                                     '1-first_name': 'user_1',
+                                     '1-last_name': 'user_1',
+                                     '1-email_address': 'user_1@mail.com',
+                                     '1-id': profile.id,
+                                     '1-middle_name': 'user_1',
+                                     '1-gender': Person.GENDER[1][0],
+                                     '1-comment': 'aaa',
+                                     '1-time_zone': TZ_CHOICES[1][0],
+                                     '1-avatar': File(open(avatar_dir)),
+                                     'edit_profile_wizard-current_step': 1
                                      })
-        self.assertFalse(response.context['wizard']['form'].errors,
-                         'EditProfileWizard view: No error should be raised.')
-        response = self.client.post(reverse('profiles_edit_profile'),
-                                    {'edit_profile_wizard-current_step': 1,
-                                     '1-TOTAL_FORMS': 2,
-                                     '1-INITIAL_FORMS': 0})
         user = User.objects.get(id=user.id)
         profile = user.get_profile()
         self.assertRedirects(response, profile.get_absolute_url(),
@@ -167,9 +176,11 @@ class ProfileViewsTests(BaseOperations):
         self.assertTrue(profile.middle_name == 'user_1' and
                         profile.gender == profile.GENDER[1][0] and
                         profile.comment == 'aaa' and
-                        profile.time_zone == TZ_CHOICES[1][0],
+                        profile.time_zone == TZ_CHOICES[1][0] and
+                        profile.avatar.name,
                         'EditProfileWizard view: The profile was no updated \
                         properly.')
+        os.remove(os.path.join(settings.MEDIA_ROOT, profile.avatar.name))
 
     def test_profile_detail(self):
         """

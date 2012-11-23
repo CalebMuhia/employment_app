@@ -141,7 +141,7 @@ class EditProfileWizard(SessionWizardView):
             'profiles_profile_detail', args=(self.request.user.username, )))
 
     def get_form_initial(self, step):
-        if step == '0':
+        if step == '1':
             return self.initial_dict.get(
                 step, {'username': self.request.user.username,
                        'first_name': self.request.user.first_name,
@@ -150,7 +150,7 @@ class EditProfileWizard(SessionWizardView):
         return self.initial_dict.get(step, {})
 
     def get_form_instance(self, step):
-        if step == '0':
+        if step == '1':
             return self.instance_dict.get(step,
                                           self.request.user.get_profile())
         # FOR SOME REASON THIS IS NOT WORKING PROPERLY, THIS WAS OVERCAME
@@ -161,12 +161,12 @@ class EditProfileWizard(SessionWizardView):
         return self.instance_dict.get(step, None)
 
     def get_form_kwargs(self, step=None):
-        if step == '1':
+        if step == '0':
             return {'instance': self.request.user.get_profile()}
         return {}
 
     def get_template_names(self):
-        if self.steps.current == '0':
+        if self.steps.current == '1':
             return 'profiles/personform.html'
         return super(EditProfileWizard, self).get_template_names()
 

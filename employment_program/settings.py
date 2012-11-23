@@ -16,7 +16,7 @@ AUTH_PROFILE_MODULE = 'common.Person'
 ENABLE_SSL = False
 
 # SITE_ROOT = join(abspath(dirname(__file__)),"../employment_app")
-SITE_ROOT = abspath(dirname(__file__)
+SITE_ROOT = abspath(dirname(__file__))
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 

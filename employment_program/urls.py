@@ -2,7 +2,7 @@
 
 from django.conf.urls import patterns, include, url
 from django.conf import settings
-
+from registration.forms import RegistrationFormUniqueEmail
 # Uncomment the next two lines to enable the admin:
 from django.contrib import admin
 admin.autodiscover()
@@ -19,6 +19,10 @@ urlpatterns = patterns(
     # django-tinymce
     url(r'^tinymce/', include('tinymce.urls')),
     #the registration app
+    url(r'^accounts/register/$', 'registration.views.register',
+        {'form_class': RegistrationFormUniqueEmail,
+         'backend': 'registration.backends.default.DefaultBackend'},       
+         name='registration_register'),        
     (r'^accounts/', include('registration.backends.default.urls')),
     # Uncomment the admin/doc line below to enable admin documentation:
     # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),

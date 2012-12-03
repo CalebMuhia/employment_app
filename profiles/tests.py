@@ -39,6 +39,7 @@ class ProfileViewsTests(BaseOperations):
         4.- Verifies that the email will be unique always.
         5.- Verifies that if passwords are provided then they must be equal.
         6.- Verifies that the user and its profile are updated correctly.
+        7.- Verifies that images on tmp folder and old avatar are deleted.
         """
         # 1
         response = self.client.get(reverse('profiles_edit_profile'))
@@ -180,6 +181,37 @@ class ProfileViewsTests(BaseOperations):
                         profile.avatar.name,
                         'EditProfileWizard view: The profile was no updated \
                         properly.')
+        # 7
+        self.client.post(reverse('profiles_edit_profile'),
+                         {'edit_profile_wizard-current_step': 0,
+                          '0-TOTAL_FORMS': 2,
+                          '0-INITIAL_FORMS': 0})
+        avatar_dir = os.path.join(
+            settings.STATIC_ROOT, 'common', 'img', 'no_image.jpg')
+        response = self.client.post(reverse('profiles_edit_profile'),
+                                    {'1-username': 'user_1',
+                                     '1-first_name': 'user_1',
+                                     '1-last_name': 'user_1',
+                                     '1-email_address': 'user_1@mail.com',
+                                     '1-id': profile.id,
+                                     '1-middle_name': 'user_1',
+                                     '1-gender': Person.GENDER[1][0],
+                                     '1-comment': 'aaa',
+                                     '1-time_zone': TZ_CHOICES[1][0],
+                                     '1-avatar': File(open(avatar_dir)),
+                                     'edit_profile_wizard-current_step': 1
+                                     })
+
+        def open_file():
+            open(os.path.join(settings.MEDIA_ROOT,
+                              profile.avatar.name))
+        self.assertRaises(IOError, open_file)
+        tmp_dir = os.path.join(settings.MEDIA_ROOT, 'tmp')
+        self.assertEqual(
+            len(os.listdir(tmp_dir)), 0,
+            'EditProfileWizard view: Images on tmp folder weren\'t deleted.')
+        user = User.objects.get(id=user.id)
+        profile = user.get_profile()
         os.remove(os.path.join(settings.MEDIA_ROOT, profile.avatar.name))
 
     def test_profile_detail(self):

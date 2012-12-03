@@ -3,8 +3,10 @@
 
 from django import forms
 from django.contrib.auth.models import User
+from django.core.files.uploadedfile import UploadedFile
 from django.db import transaction
 from django.forms.models import inlineformset_factory
+from django.shortcuts import get_object_or_404
 from common.models import Person, Person_Skill
 from common.fields import UsernameField
 import os
@@ -103,13 +105,19 @@ class PersonForm(forms.ModelForm):
         """
         saves the data to the corresponding Person and User objects
         This method also removes the image saved in the tmp directory
-        Note: when the form is not saved the uploaded image is not deleted
-        so it should be better is this form is put at last position on the
-        wizard form.
+        and if a new avatar has been uploaded then the old avatar image is
+        deleted.
         """
+        c_d = self.cleaned_data
+        if c_d.get('id') and c_d.get('avatar') and (
+                isinstance(c_d.get('avatar'), UploadedFile)):
+            person = get_object_or_404(Person, id=c_d.get('id'))
+            try:
+                old_avatar = person.avatar.file.name
+            except ValueError:
+                old_avatar = None
         person = super(PersonForm, self).save(*args, **kwargs)
         user = person.user
-        c_d = self.cleaned_data
         user.username = c_d['username']
         user.first_name = c_d['first_name']
         user.last_name = c_d['last_name']
@@ -118,6 +126,8 @@ class PersonForm(forms.ModelForm):
         if pass1:
             user.set_password(pass1)
         user.save()
-        if c_d.get('avatar'):
+        if isinstance(c_d.get('avatar'), UploadedFile):
             os.remove(self.cleaned_data['avatar'].file.name)
+            if old_avatar:
+                os.remove(old_avatar)
         return person

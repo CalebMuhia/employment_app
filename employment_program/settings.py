@@ -297,3 +297,5 @@ else:
                 globals()[name] = value
         elif re.search('^[A-Z]', attr):
             globals()[attr] = getattr(local_settings, attr)
+
+###

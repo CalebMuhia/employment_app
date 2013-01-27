@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>{% block title %}Job Training and Startup Accelerator{% endblock %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Le styles -->
+    <link href="/static/css/bootstrap.css" rel="stylesheet">
+    <script src="/static/common/js/jquery-1.8.2.min.js"></script>
+
+    <link href="/static/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="/static/css/bootstrap.css" rel="stylesheet">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le fav and touch icons -->
+    <link rel="shortcut icon" href="{{STATIC_URL}}img/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114"
+          href="/static/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72"
+          href="/static/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="/static/ico/apple-touch-icon-57-precomposed.png">
+    {% block extrastyle %}{% endblock %}
+    {% block extrahead %}{% endblock %}
+    {% block blockbots %}
+    <meta name="robots" content="NONE,NOARCHIVE" />
+    {% endblock %}
+</head>
+
+<body>
+
+<div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container-fluid">
+            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </a>
+            <a class="brand" href="#">Gov Ideas</a>
+
+            <div class="nav-collapse">
+                <ul class="nav">
+                    <li class="active"><a href="{% url employment_app_home %}">Home</a></li>
+                    <li><a href="{% url pybb:index %}">Forum</a></li>
+		    <li>
+		      <div class="btn-group">
+			<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+			  FAQ
+			  <span class="caret"></span>
+			</a>
+			<ul class="dropdown-menu">
+			  <!-- dropdown menu links -->
+			  <li><a href="{% url faq_topic_list %}">Topics List</a></li>
+			  <li><a href="{% url faq_submit %}">Submit a question</a></li>
+			</ul>
+		      </div>
+		    </li>
+		    <li>
+		      <div class="btn-group">
+			<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+			  Jobs
+			  <span class="caret"></span>
+			</a>
+			<ul class="dropdown-menu">
+			  <!-- dropdown menu links -->
+			  <li><a href="{% url jobs_list %}">Jobs List</a></li>
+			  <li><a href="{% url company_list %}">Projects</a></li>
+			  {% if user.is_authenticated %}
+			  <li><a href="{% url apply_list %}">Applied Jobs</a></li>
+			  <li><a href="{% url your_job_post %}">Your Posted Jobs</a></li>
+			  <li><a href="{% url your_company %}">Your Projects</a></li>
+			  <li><a href="{% url job_create %}">Post a Job</a></li>
+			  <li><a href="{% url company_create %}">Add New Project</a></li>
+			  {% endif %}
+			</ul>
+		      </div>
+		    </li>
+		    <li>
+		      <div class="btn-group">
+			<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+			  Profiles
+			  <span class="caret"></span>
+			</a>
+			<ul class="dropdown-menu">
+			  <!-- dropdown menu links -->
+			  <li><a href="{% url profiles_profile_list %}">Profiles list</a></li>
+			  {% if user.is_authenticated %}
+			  <li><a href="{% url profiles_profile_detail user.username %}">My Profile</a></li>
+			  <li><a href="{% url profiles_edit_profile %}">Edit my Profile</a></li>
+			  {% endif %}
+			</ul>
+		      </div>
+		    </li>
+                </ul>
+                <ul class="nav pull-right">
+                {% if user.is_authenticated %}
+
+                    <li ><p class="navbar-text">Logged in as <a href="/accounts/{{ user.username }}">{{ user.username }}</a></p></li>
+                    <li><a href="{% url auth_logout  %}">Logout</a></li>
+
+                {% else %}
+                    <li > <a href=" {% url auth_login %}">Login</a></li>
+                    <li > <a href="{% url registration_register %}">Register</a></li>
+                {% endif %}
+                </ul>
+
+            </div>
+            <!--/.nav-collapse -->
+        </div>
+    </div>
+</div>
+<div class="container">
+
+
+  <div style="margin-bottom: 50px;"></div>
+
+  {% if messages %}
+  <ul class="messages">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+  </ul>
+  {% endif %}
+
+  {% block content %}{% endblock %}
+
+
+</div>
+<hr>
+
+<footer>
+  <p>&copy; Gov Ideas 2012</p>
+</footer>
+
+<!--/.fluid-container-->
+
+
+<!-- Le javascript
+    ================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+
+<script src="/static/js/bootstrap.js"></script>
+<script src="/static/js/bootstrap.min.js"></script>
+<script src="/static/common/js/bootstrap/bootstrap-dropdown.js"></script>
+
+
+</body>
+</html>

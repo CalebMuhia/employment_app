@@ -15,6 +15,7 @@ tmp/*
 env/*
 settings_local.py
 static/*
+employment_program/static/*
 media/*
 *.db
 *.idea

@@ -1,0 +1,82 @@
+// scaffolding styles
+
+body {
+	color: @textColor;
+	font-family: @baseFontFamily;
+	& a {
+		color: @primaryColor;
+	}
+}
+
+h1, h2, h3, h4, h5, h6 {
+	color: @baseHeadingColor;
+	font-weight: 300;
+}
+
+h1 {
+	font-weight: bold;
+}
+
+ul {
+	margin-left: 0;
+	& li {
+	list-style: none;
+	}
+}
+
+// utility class
+.centered {
+	text-align: center;
+}
+
+// utility mixin
+.decorative-shadow {
+	.box-shadow(0px 0px 0px 4px rgba(0,0,0,0.2));
+}
+
+// teaser section of page
+.teaser {
+	height: 200px;
+	margin-top: -10px;
+	background: url(../assets/slide-01.jpg);
+	.background-size(cover);
+	h1 {
+		margin-top: 110px;
+		color: #fff;
+		text-shadow: 0 0 5px rgba(0,0,0,1);
+	}
+}
+
+// middle bar
+.middle-bar {
+	width: auto;
+	min-width: 100%;
+	height: auto;
+	margin-bottom: 25px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	text-align: center;
+	border-top: 1px solid black;
+	border-bottom: 1px solid black;
+	background: #222;
+	& h2 {
+		color: #fff;
+	}
+	& .btn {
+		margin-left: 15px;
+	}
+}
+
+// blog
+article h2 a {
+	color: #000;
+	&:hover {
+		color: @primaryColor;
+		text-decoration: none;
+		&:hover:after {
+			float: right;
+			font-family: "FontAwesome";
+			content: "\f064";
+		}
+	}
+}

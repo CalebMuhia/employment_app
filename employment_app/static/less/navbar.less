@@ -1,0 +1,82 @@
+
+// navbar container
+.navbar-wrapper {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	z-index: 10;
+	margin-bottom: -90px; // to pull up carousel
+}
+
+.navbar .navbar-inner {
+	background-color: @navbarBackground;
+	background-image: none; // discard default gradient
+	border: 0;
+	.border-radius(0 0 5px 5px);
+	.decorative-shadow;
+}
+
+// Downsize the brand/project name a bit 
+.navbar .brand {
+	padding: 14px 20px 16px; // Increase vertical padding to match navbar links
+	font-size: 16px;
+	font-weight: bold;
+	text-shadow: 0;
+}
+
+// Navbar links: increase padding for taller navbar 
+.navbar .nav > li > a {
+	padding: 15px 20px;
+}
+
+// Offset the responsive button for proper vertical alignment 
+.navbar .btn-navbar {
+	margin-top: 7px;
+}
+
+// Dropdown Menu Link
+.navbar .nav li.dropdown.open > .dropdown-toggle,
+.navbar .nav li.dropdown.active > .dropdown-toggle,
+.navbar .nav li.dropdown.open.active > .dropdown-toggle {
+	background-color: @navbarActiveBackground;
+	color: @navbarLinkColor;
+}
+
+// Dropdown Menu Container
+.dropdown-menu {
+	margin-top: -1px;
+	.border-radius(0 0 6px 6px);
+	background-color: @navbarBackground;
+}
+// Dropdown Menu Link
+.dropdown-menu li > a {
+	color: @navbarLinkColor;
+}
+// Dropddown Menu Link Hover
+.dropdown-menu li > a:hover,
+.dropdown-menu li > a:focus,
+.dropdown-submenu:hover > a {
+	background-color: @navbarActiveBackground; 
+	background-image: none;
+}
+// Navigation Active State
+.navbar .nav > .active > a,
+.navbar .nav > .active > a:hover,
+.navbar .nav > .active > a:focus {
+	color: @navbarActiveLink;
+	background-color: @navbarActiveBackground;
+	box-shadow: none;
+}
+// Dropdown Menu Caret Down
+.navbar .nav li.dropdown > .dropdown-toggle .caret,
+.navbar .nav li.dropdown.open > .dropdown-toggle .caret,
+.navbar .nav li.dropdown.active > .dropdown-toggle .caret,
+.navbar .nav li.dropdown.open.active > .dropdown-toggle .caret {
+	border-top-color: @navbarLinkColor;
+}
+// Discard Dropdown Container Caret 
+.navbar .nav > li > .dropdown-menu::before,
+.navbar .nav > li > .dropdown-menu::after {
+	display: none;
+}

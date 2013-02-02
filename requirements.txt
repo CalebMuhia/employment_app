@@ -18,7 +18,7 @@ lxml==3.0.1
 mock==1.0.1
 postmarkup==1.2.0
 progressbar==2.2
-psycopg2==2.4.5
+#psycopg2==2.4.5
 py==1.4.12
 pybbm==0.11.1
 pytils==0.2.3

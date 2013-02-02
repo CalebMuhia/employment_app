@@ -1,0 +1,55 @@
+
+// Primary Color Scheme
+// -------------------------
+@primaryColor: 				#2DB2EA;
+@primaryColorLight: 		lighten(@primaryColor, 5%);
+@primaryColorDark: 			darken(@primaryColor, 10%);
+
+@complementaryColor: 		#2d3032;
+@complementaryColorLight: 	lighten(@complementaryColor, 10%);
+@complementaryColorDark: 	darken(@complementaryColor, 5%);
+
+// Buttons
+// -------------------------
+@btnBackground:						lighten(@complementaryColor, 20%); // Deafult button
+@btnBackgroundHighlight: 			lighten(@btnBackground, 10%);
+@btnBorder: 						darken(@btnBackground, 5%);
+
+@btnPrimaryBackground: 				@primaryColor; // Primary button
+@btnPrimaryBackgroundHighlight: 	lighten(@btnPrimaryBackground, 5%);
+@btnPrimaryBorder: 					darken(@btnPrimaryBackground, 5%);
+
+// Links
+// -------------------------
+@linkColor: 				@primaryColor;
+@linkColorHover: 			@primaryColorDark;
+
+// Scaffolding
+// -------------------------
+@bodyBackground: 			#fff;
+
+// Typography
+// -------------------------
+@baseFontFamily: 			'Open Sans', Arial, sans-serif; // Google Webfont
+@baseHeadingColor: 			#2F353E;
+@textColor: 				#666;
+
+// Navbar
+// -------------------------
+@navbarBackground: 			#000; // Discard default gradient
+@navbarLinkColor: 			#fff;
+@navbarActiveBackground:	@primaryColor;
+@navbarActiveLink: 			#fff;
+
+// Ribbons
+// -------------------------
+@ribbonLeftColor:			@complementaryColorDark;
+@ribbonRightColor:			@primaryColor;
+
+
+// Footer
+// -------------------------
+@footerBackground: 			@complementaryColor;
+@footerTextColor: 			#aaa;
+
+

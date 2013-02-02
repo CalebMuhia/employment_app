@@ -4,7 +4,7 @@
 
 <!-- Carousel
      ================================================== -->
-<div id="myCarousel" class="carousel slide" style="margin-top: -70px;">  <!--Alex added the margin-top -70px because he copied the template wrong and need to fix it manually until some figures out what Alex did wrong. Without that there's a big white space betwen nav bar and slides -->
+<div id="myCarousel" class="carousel slide" >  <!--Alex added the margin-top -70px because he copied the template wrong and need to fix it manually until some figures out what Alex did wrong. Without that there's a big white space betwen nav bar and slides -->
   <div class="carousel-inner">
     <!------------------------------------------------------------------------>
     <div class="item">
@@ -54,47 +54,115 @@
 
 {%  block content %}
   <!-- Example row of columns -->
-  <div class="row">
-    <div class="span4">
-      <h2>Background</h2>
-      <li><p>  There are thousands of startup ideas that cannot be implemented due to software developer costs</p></li><p></p>
-      <li>  There are millions of unemployed, many of whom could learn programming from free sources </li>
+    <div class="container">
+        <!-- Three columns -->
+        <div class="row">
 
-      <h4>Benefits</h4>
-      <p>   </p><li> Unemployed become employable with high-paying future-proof skills. </li>
 
-      <li>    Startup ideas are enabled</li>
-      <li>   Nationwide innovation is expanded</li><p></p>
-      <p><a class="btn" href="#">View details »</a></p>
-    </div>
-    <div class="span4">
-      <h2>Basic Concept</h2>
-      <p>    </p><li>Unemployed job trainees learn programming from 
-	free sources and start writing beginner apps in one year, and write 
-	moderately well after 2 years. College students majoring in computer 
-	science/MIS are ready immediately.</li>
+            <div class="span4">
+                <h2>Background</h2>
+                <p><i class="icon-beaker icon-4x pull-left"></i>There are thousands of startup ideas that cannot be implemented due to software developer costs
+There are millions of unemployed, many of whom could learn programming from free sources </p>
+                    <h3 class="muted">Benefits</h3>
+                     <ul>
+                         <li>Unemployed become employable with high-paying future-proof skills.</li>
+                         <li>Startup ideas are enabled</li>
+                         <li>Nationwide innovation is expanded</li>
+                     </ul>
 
-      <li>   Unemployed novice programmers offer programming services to startups with simple app or web-design requirements.</li>
 
-      <li>    Startups offer equity or delayed transaction-based payments to learning programmers.</li>
-      <li>    For startups, the purpose is to give them an affordable 
-	prototype that allows investors to evaluate and fund the production 
-	version of their idea. For job trainees, it gives them real-world 
-	learning experience and qualifies them to apply for entry-level 
-	programming positions,or to start their own startup. </li><p></p>
-      <p><a class="btn" href="#">View details »</a></p>
-    </div>
-    <div class="span4">
-      <h2>Get Started!</h2>
-      <p></p><ul> <li>How it works </li>
-	<li> Browse through trainee and startup offerings </li>
-	<li> Register! </li>
-	<li>  Main menu </li>
-	<li> Contact</li></ul> <p></p>
 
-      <p><a class="btn" href="#">View details »</a></p>
-    </div>
-  </div>
+                <p><a class="btn" href="#">View details &raquo;</a></p>
+            </div><!-- /.span4 -->
+            <div class="span4">
+                <h2>Basic Concept</h2>
+                <p><i class="icon-lightbulb icon-4x pull-left"></i><ul>
+                <li>Unemployed job trainees learn programming from free sources and start writing beginner apps in one year, and write moderately well after 2 years. College students majoring in computer science/MIS are ready immediately.</li>
+            <li>Unemployed novice programmers offer programming services to startups with simple app or web-design requirements.</li>
+            <li>Startups offer equity or delayed transaction-based payments to learning programmers.</li>
+                <li>For startups, the purpose is to give them an affordable prototype that allows investors to evaluate and fund the production version of their idea. For job trainees, it gives them real-world learning experience and qualifies them to apply for entry-level programming positions,or to start their own startup.</li>
+
+
+
+
+
+            </ul></p>
+                <p><a class="btn" href="#">View details &raquo;</a></p>
+            </div><!-- /.span4 -->
+            <div class="span4">
+                <h2>Get Started!</h2>
+                <p><i class="icon-cogs icon-4x pull-left"></i></p>
+                <div class="pull-right">
+                <ul>
+                    <li><a href="">How it works</a></li>
+                    <li><a href="">Browse through trainee and startup offerings</a></li>
+                    <li class="offset"><a href="">Register!</a></li>
+                    <li><a href="">Main menu</a></li>
+                    <li><a href="">Contact</a></li>
+                </ul>
+                </div>
+
+
+
+
+
+
+                <p style="clear: both"><a class="btn" href="#">View details &raquo;</a></p>
+            </div><!-- /.span4 -->
+        </div><!-- /.row -->
+
+        <hr>
+        <h2>Time to take a tour:</h2>
+        <hr>
+
+
+
+        <div class="row">
+            <div class="span12 tour-section">
+                <img src="{{ STATIC_URL }}img/product-02.jpg" alt="" class="pull-left tour-image">
+                <div class="ribbon-right">
+                    <h2>Compose <i class="icon-plus-sign-alt"></i></h2>
+                </div>
+                <h2>Oh yeah, it's that good. <br>
+                    <span class="muted">See for yourself.</span></h2>
+                <p class="lead">We love to support independent business owners and understand that dealing with web designers or server hosts can be complicated. We simplify the process by bundling everything in one super dupper bundle just for you.</p>
+                <p class="lead">Independent business owners and understand that dealing with web designers or server hosts can be complicated. We simplify the process by bundling everything in one package.</p>
+                <p><a href="#" class="btn btn-primary btn-large">Try it for free</a></p>
+            </div>
+        </div>
+
+        <hr>
+
+        <div class="row">
+            <div class="span12 tour-section">
+                <img src="{{ STATIC_URL }}img/product-04.jpg" alt="" class="pull-right tour-image">
+                <div class="ribbon-left">
+                    <h2><i class="icon-comments"></i> Share</h2>
+                </div>
+                <h2>And lastly, this one. <br>
+                    <span class="muted">Checkmate.</span></h2>
+                <p class="lead">Awesome support team, your website is easy to update yourself and is already mobile optimized. We also continuously update our technology to remain competitive and up to date all the time.</p>
+                <p class="lead">Besides an awesome support team, your website is easy to update yourself and is already mobile optimized. We also continuously update our technology to remain competitive.</p>
+                <p><a href="#" class="btn btn-primary btn-large">Try it for free</a></p>
+            </div>
+        </div>
+        <hr>
+
+        <div class="row">
+            <div class="span12">
+                <div class="well centered">
+                    <h3><i class="icon-magic"></i> Start a free trial now</h3>
+                    <form class="form-inline">
+                        Create an account:
+                        <input type="text" placeholder="Email">
+                        <input type="password" placeholder="Password">
+                        <button type="submit" class="btn btn-primary">Sign Me Up</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div><!-- /.container -->
 
 
     <!-- <div class="well-large"> -->

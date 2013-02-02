@@ -1,0 +1,67 @@
+// wells
+.well {
+	border-color: #ccc;
+	.gradient(#F5F6F6, #F5F6F6, #E0E0E0);
+	box-shadow: inset 0 0 0 rgba(0,0,0,0); // discard inset shadow
+	box-shadow: 0 2px 5px 1px rgba(0,0,0,0.1);
+	input {
+		margin-bottom: 5px;
+	}
+}
+
+// ribbon to the left
+.ribbon-left:before,{
+	content: "";
+	float:left;
+	border:24px solid @ribbonLeftColor;
+}
+.ribbon-left:before {
+	border-left-color:transparent;
+}
+.ribbon-left h2 {
+	margin-right: 5px;
+	line-height: 48px;
+	color: #fff;
+	background: @ribbonLeftColor;
+	overflow:hidden;
+}
+
+// ribbon to the right
+.ribbon-right:before,{
+	content: "";
+	float:right;
+	border:24px solid @ribbonRightColor;
+}
+.ribbon-right:before {
+	border-right-color:transparent;
+}
+.ribbon-right h2 {
+	padding-left: 10px; 
+	line-height: 48px;
+	color: #fff;
+	background: @ribbonRightColor;
+	overflow:hidden;
+}
+
+// Tag Cloud (for Footer and Sidebar)
+.tag-cloud {
+	margin-left: 0;
+	padding: 0;
+	list-style: none;
+	& li {
+		display: inline-block;
+		margin-bottom: 15px;
+		position: relative;
+	}
+	& a {
+		padding: 4px 10px;
+		border: 0;
+		background: @complementaryColorLight;
+		color: #fff;
+		text-decoration: none;
+		.border-radius(2px);
+	}
+	& a:hover {
+		background: @primaryColor;
+	}
+}

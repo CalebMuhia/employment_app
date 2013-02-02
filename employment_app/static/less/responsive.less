@@ -1,0 +1,77 @@
+
+@media (min-width: 979px) and (max-width: 1200px) { 
+	.tour-image {
+		max-width: 400px;
+	}
+}
+
+@media (max-width: 979px) {
+
+	.navbar-wrapper {
+		top: 20px;
+	}
+	.container.navbar-wrapper {
+		margin-bottom: 0;
+		width: auto;
+	}
+	.navbar-inner {
+		border-radius: 0;
+		margin: -20px 0;
+	}
+	// active button
+	.navbar-inverse .nav-collapse .nav > li > a,
+	.navbar-inverse .nav-collapse .dropdown-menu a {
+	color: #fff;
+	font-weight: normal;
+	}
+
+	.navbar-inverse .nav-collapse .nav > li > a:hover,
+	.navbar-inverse .nav-collapse .dropdown-menu a:hover {
+		background-color: @primaryColor;
+		color: #fff;
+	}
+	.carousel {
+		& .item, & img {
+			height: 450px; // adjust this depending on you content height
+		}
+	}
+	.tour-image {
+		display: block;
+		float: none;
+		max-width: 50%;
+		margin: 0 auto;
+	}
+}
+
+
+@media (max-width: 767px) {
+
+	.navbar .navbar-inner {
+		.border-radius(0);
+	}
+	.carousel {
+		margin-left: -20px;
+		margin-right: -20px;
+		& .item, & img {
+			height: 330px; // adjust this depending on you content height
+		}
+	}
+	.carousel-caption {
+		padding: 0 70px;
+		margin-top: 100px;
+		text-align: center;
+		& h1 {
+			font-size: 30px;
+		}
+		& .lead, & .btn {
+			font-size: 18px;
+		}
+	}
+	// full width sections on mobile
+	.teaser, .middle-bar, footer, .footer-bottom {
+		margin-left: -20px;
+		margin-right: -20px;
+		padding-left: 20px;
+		padding-right: 20px;
+	}
+}

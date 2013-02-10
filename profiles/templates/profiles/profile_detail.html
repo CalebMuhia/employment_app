@@ -1,5 +1,26 @@
 {% extends "profiles/base.html" %}
 {% load thumbnail %}
+{% block extrastyle %}
+    <style type="text/css">
+        .background {
+
+            background:#fff;
+
+            font-family:segoeui;
+            border-radius: 10px;
+            -moz-border-radius: 10px;
+            -webkit-border-radius: 10px;
+
+
+
+        }
+    .container{
+        font-size: 18px;
+    }
+    </style>
+
+{% endblock %}
+
 
 {% block title %}
   Profile | {{profile}}
@@ -10,81 +31,99 @@
 {% endblock %}
 
 {% block content %}
-<div>
-  <div>
-    <h1>Profile: {{profile}}</h1>
-  </div>
-  <table class="table">
-    <tr>
-      <th>Avatar</th>
-      <td>
-      {% thumbnail profile.avatar "119x119" as img %}
-	<img src="{{img.url}}" width="img.width" height="img.heigth" />
-      {% empty %}
-	<img src="{{STATIC_URL}}common/img/no_image.jpg" width="114" height="119" />
-      {% endthumbnail %}
-      </td>
-    </tr>
-    <tr>
-      <th>Username: </th>
-      <td>{{profile.user.username}}</td>
-    </tr>
-    <tr>
-      <th>Gender: </th>
-      <td>{% if profile.gender == 'M' %}Male{% else %}Female{% endif %}</td>
-    </tr>
-    <tr>
-      <th>Date joined: </th>
-      <td>{{profile.datetime}}</td>
-    </tr>
-    {% if show_signatures %}
-    <tr>
-      <th>Signature: </th>
-      <td>{{profile.signature}}</td>
-    </tr>
-    <tr>
-      <th>Signature HTML: </th>
-      <td>{{profile.signature_html}}</td>
-    </tr>
-    {% endif%}
-    <tr>
-      <th>Time zone: </th>
-      <td>{{profile.time_zone}}</td>
-    </tr>
-    <tr>
-      <th>Language: </th>
-      <td>{{profile.language}}</td>
-    </tr>
-    <tr>
-      <th>Posts: </th>
-      <td>{{profile.post_count}}</td>
-    </tr>
 
-    <!-- Falta mostrar los skills -->
-    <tr>
-      <td colspan=2>
-	<table class="table table-striped">
-	  <thead>
-	    <th>Skill</th>
-	    <th>Level</th>
-	    <th>Years of experience</th>
-	  </thead>
-	  {% for skill in profile.person_skill_set.all %}
-	  <tr>
-	    <th>{{skill.skill}}</th>
-	    <td>{{skill.level}}</td>
-	    <td>{{skill.experience_years}}</td>
-	  </tr>
-	  {% empty %}
-	  <tr>
-	    <td colspan=2> There are no skills registered yet.</td>
-	  </tr>
-	  {% endfor %}
-      </table>
-      </td>
-    </tr>
+    <div class="container well">
+        <div class="row">
+            <div>
+                <h1 style="padding-left:15px">Profile: {{profile}}</h1>
+            </div>
+            <div class="span3 left-sidebar background">
+
+                <div class="account-settings">
+                    {% thumbnail profile.avatar "119x119" as img %}
+                        <img src="{{img.url}}" width="img.width" height="img.heigth" />
+                    {% empty %}
+                        <img src="{{STATIC_URL}}common/img/no_image.jpg" width="114" height="119" />
+                    {% endthumbnail %}
+                </div>
+                <div class="account-detail">
+                    <p><h3 class="t-center"><td>{{profile.user.username}}</td></h3></p>
+                    <p><strong>Gender :</strong></p>
+                    <p>{% if profile.gender == 'M' %}Male{% else %}Female{% endif %}</p>
+                    <p><strong>Date joined:</strong></p>
+                    <p>{{profile.datetime}}</p>
+                    <p><strong>Location : </strong></p>
+                    <p>California</p>
+                    {% if show_signatures %}
+
+                        <p><strong>Signature: </strong></p>
+                        <p> {{profile.signature}}</p>
 
 
-  </table>
-</div>
+                        <p><strong>Signature HTML:</strong></p>
+                        <p>  {{profile.signature_html}}</p>
+
+                    {% endif%}
+
+                    <p><strong>Time zone:</strong></p>
+                    <p>{{profile.time_zone}}</p>
+
+
+                        <p><strong>Language: </strong></p>
+                    <p>{{profile.language}}</p>
+
+
+                            <p><strong> Posts: </strong></p>
+                    <p> {{profile.post_count}}</p>
+
+
+                </div>
+            </div>
+            <div class="span9 content-setting background">
+                <div class="row">
+                    <div class="span9">
+                        <div class="public-profile">
+                            <h3>About {{ profile.user.username }}</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse ultrices nisi eget metus tincidunt mollis.
+                                Pellentesque pretium bibendum felis, quis dictum nibh rhoncus vel.
+                                Nulla facilisi. Curabitur sapien orci, imperdiet viverra pharetra et, sollicitudin quis erat. Praesent eleifend adipiscing rutrum.
+                                Integer commodo hendrerit vulputate. Curabitur at ante libero. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                Sed in odio dolor, ac luctus sapien. Nullam a eros quis libero consectetur ornare at sed nisi.
+                                Donec ullamcorper tellus sapien. Nullam eget massa a eros sagittis congue sed ac nibh.
+                                Maecenas non lorem nec metus sagittis ultricies vitae non eros.</p>
+                        </div>
+                    </div>
+                    <div class="span9  ">
+                    <div class="public-profile">
+                        <h3><a href="#">{{ profile.user.username }}'s</a> skills</h3>
+                        <table class="table table-striped table-bordered" >
+                            <thead>
+                            <th>Skill</th>
+                            <th>Level</th>
+                            <th>Years of experience</th>
+                            </thead>
+                            {% for skill in profile.person_skill_set.all %}
+                                <tr>
+                                    <th>{{skill.skill}}</th>
+                                    <td>{{skill.level}}</td>
+                                    <td>{{skill.experience_years}}</td>
+                                </tr>
+                            {% empty %}
+                                <tr>
+                                    <td colspan=3> There are no skills registered yet.</td>
+                                </tr>
+                            {% endfor %}
+                        </table>
+                    </div>
+
+
+                    </div><!-- end portfolio images -->
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+
 {% endblock %}

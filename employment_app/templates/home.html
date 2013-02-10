@@ -1,5 +1,11 @@
 {% extends "base.html" %}
 
+{% block extrastyle %}
+
+
+
+{% endblock %}
+
 {% block carousel %}
 
 <!-- Carousel
@@ -9,7 +15,7 @@
     <!------------------------------------------------------------------------>
     <div class="item">
       <img src="{{ STATIC_URL }}img/idea3.jpg" alt="">
-      <div class="container">
+      <div class="container span7">
         <div class="carousel-caption">
           <h1>Jumpstarting Startups <br>and Job Seekers.</h1>
           <p class="lead"> Unemployed become employable with 
@@ -24,7 +30,7 @@
 
     <div class="item active">
       <img src="{{ STATIC_URL }}img/smart_phone_job_red.jpg" alt="">
-      <div class="container">
+      <div class="container span7">
         <div class="carousel-caption">
           <h1>Spark innovation.</h1>
           <p class="lead">Unemployed job trainees learn to program with real-world learning experiences - innovationupstart.com</p>
@@ -36,7 +42,7 @@
     <!------------------------------------------------------------------------>
     <div class="item">
       <img src="{{ STATIC_URL }}img/desk_pc1.jpg" alt="">
-      <div class="container">
+      <div class="container span7">
         <div class="carousel-caption">
           <h1>Busting down obstacles <br>for startups and <br>job seekers.</h1>
           <p class="lead">Startups get connected with developer job trainees<br>who create their dev website or prototype <br>programming code.</p>
@@ -46,8 +52,8 @@
     </div>
     <!------------------------------------------------------------------------>
   </div>
-  <a class="left carousel-control" href="http://twitter.github.com/bootstrap/examples/carousel.html#myCarousel" data-slide="prev">‹</a>
-  <a class="right carousel-control" href="http://twitter.github.com/bootstrap/examples/carousel.html#myCarousel" data-slide="next">›</a>
+  <a class="left carousel-control" href="#myCarousel" data-slide="prev">‹</a>
+  <a class="right carousel-control" href="#myCarousel" data-slide="next">›</a>
 </div><!-- /.carousel -->
 
 {% endblock %}

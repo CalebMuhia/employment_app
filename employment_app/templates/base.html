@@ -78,8 +78,8 @@
                                 {% endif %}
                             </ul>
                         </li>
-                        <li><a href="#about">About</a></li>
-                        <li><a href="#contact">Contact</a></li>
+                        <li><a href="{% url about_us %}">About</a></li>
+                        <li><a href="{% url contact_us %}">Contact</a></li>
                     </ul>
                     <ul class="nav pull-right">
                         {% if user.is_authenticated %}
@@ -104,7 +104,7 @@
         <div class="container">
             <div class="row">
                 <div class="span12">
-                    <h2>All you have to do is press this fancy button <a href="#" class="btn btn-large">Sign Up <i class="icon-circle-arrow-right"></i></a></h2>
+                    <h2>Free for all employment seekers and startups forever!<a href="#" class="btn btn-large">Sign Up Today <i class="icon-circle-arrow-right"></i></a></h2>
                 </div>
             </div>
         </div>
@@ -182,7 +182,7 @@
             <div class="row">
                 <div class="span12">
                     <p class="pull-right"><a href="#">Back to top</a></p>
-                    <p>&copy; Designed by &middot; <a href="">@accomplice</a></p>
+                    <p> &copy; App built by <a href="">Giussepi López </a>     Template Designed by &middot; <a href="https://twitter.com/Accomplise">@accomplice</a> </p>
                 </div>
             </div>
         </div>

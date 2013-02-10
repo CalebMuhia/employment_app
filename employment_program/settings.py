@@ -6,6 +6,7 @@ from django.core.urlresolvers import reverse_lazy
 from os.path import join, realpath, dirname, abspath
 import sys
 
+
 # IMPORTANT
 # If you have custom site profile check that it inherits
 # from pybb.models.PybbProfile or contains all fields from this class.
@@ -16,6 +17,7 @@ AUTH_PROFILE_MODULE = 'common.Person'
 ENABLE_SSL = False
 
 SITE_ROOT = abspath(dirname(__file__))
+PROJECT_ROOT = abspath(dirname(__name__))
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
@@ -25,16 +27,17 @@ ADMINS = (
 
 MANAGERS = ADMINS
 
-#DATABASES = {
-#    'default': {
-#        'ENGINE': 'django.db.backends.mysql', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
-#        'NAME': 'emp_app',                      # Or path to database file if using sqlite3.
-#        'USER': 'root',                      # Not used with sqlite3.
-#        'PASSWORD': 'phoneboth',                  # Not used with sqlite3.
-#        'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
-#        'PORT': '',                      # Set to empty string for default. Not used with sqlite3.
-#    }
-#}
+"""
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
+        'NAME': 'emp_app',                      # Or path to database file if using sqlite3.
+        'USER': 'root',                      # Not used with sqlite3.
+        'PASSWORD': 'phoneboth',                  # Not used with sqlite3.
+        'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
+        'PORT': '',                      # Set to empty string for default. Not used with sqlite3.
+    }
+}"""
 
 
 
@@ -125,6 +128,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'django.core.context_processors.media',
     'django.core.context_processors.static',
     'django.contrib.auth.context_processors.auth',
+    'django.core.context_processors.request',
     'django.contrib.messages.context_processors.messages',
     'pybb.context_processors.processor',
 )
@@ -149,9 +153,15 @@ TEMPLATE_DIRS = (
 # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
 # Always use forward slashes, even on Windows.
 # Don't forget to use absolute paths, not relative paths.
-    join(SITE_ROOT, "employment_app", "templates"),
-    join(SITE_ROOT, "projects", "templates"),
-    join(SITE_ROOT, "jobsboard", "templates"),    
+#TODO:THIS SEEMS TO BE WRONG!!
+    #join(SITE_ROOT, "employment_app", "templates"),
+    #join(SITE_ROOT, "projects", "templates"),
+    #join(SITE_ROOT, "jobsboard", "templates"),
+    #join(SITE_ROOT, "pybb", "templates"),
+#TODO: THIS SEEMS TO BE GETTING THE RIGHT TEMPLATES
+    join(PROJECT_ROOT, "employment_app", "templates"),
+
+
     
 #os.path.join(PROJECT_ROOT, "templates"),
 

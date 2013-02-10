@@ -1,0 +1,44 @@
+{% extends PYBB_TEMPLATE|default:"base.html" %}
+{% block carousel %}
+    <div class="teaser">
+        <div class="container">
+            <div class="row">
+                <div class="span12">
+                    <h1>Our Forum //</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}
+{% block middlebar %}
+    <div class="middle-bar">
+        <div class="container">
+            <div class="row">
+                <div class="span12">
+                    <h2>Taking discussions to a new height</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+
+{% load i18n pybb_tags %}
+
+{%block title %}{{ PYBB_DEFAULT_TITLE }}{% endblock title %}
+
+{% block extra_head %}
+    {{ block.super }}
+    <!-- Feeds -->
+    <link rel="alternate" type="application/atom+xml" href="{% url pybb:feed_posts %}" title="{% trans "Latest posts on forum" %}" >
+    <link rel="alternate" type="application/atom+xml" href="{% url pybb:feed_topics %}" title="{% trans "Latest topics on forum" %}" >
+{% endblock %}
+
+{% block breadcrumb %}
+    {% include "pybb/breadcrumb.html" %}
+{% endblock %}
+
+{% block content %}{% endblock content %}
+

@@ -1,0 +1,93 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}
+    {% block head_title %}
+    {% endblock %}
+{% endblock %}
+{% block carousel %}
+    <div class="teaser">
+        <div class="container">
+            <div class="row">
+                <div class="span12">
+                    <h1>Contant Us//</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}
+{% block middlebar %}
+    <div class="middle-bar">
+        <div class="container">
+            <div class="row">
+                <div class="span12">
+                    <h2>We are always a call way</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block extrahead %}
+
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="span4">
+                <h3>Our Location</h3>
+                <iframe width="350" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.co.ke/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=500+Main+Street,+Winters,+CA+95694,+United+States&amp;aq=0&amp;oq=500+Main+Street+Winters,+CA+95694&amp;sll=0.15456,37.908326&amp;sspn=17.314043,19.753418&amp;t=m&amp;ie=UTF8&amp;hq=&amp;hnear=500+Main+St,+Winters,+Yolo,+California+95694,+United+States&amp;ll=38.519103,-121.981048&amp;spn=0.003337,0.004823&amp;z=14&amp;output=embed"></iframe><br /><small><a href="https://maps.google.co.ke/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q=500+Main+Street,+Winters,+CA+95694,+United+States&amp;aq=0&amp;oq=500+Main+Street+Winters,+CA+95694&amp;sll=0.15456,37.908326&amp;sspn=17.314043,19.753418&amp;t=m&amp;ie=UTF8&amp;hq=&amp;hnear=500+Main+St,+Winters,+Yolo,+California+95694,+United+States&amp;ll=38.519103,-121.981048&amp;spn=0.003337,0.004823&amp;z=14" style="color:#0000FF;text-align:left">View Larger Map</a></small>
+            </div>
+            <div class="span4">
+                <h3>Contact Info</h3>
+                <div class="well centered">
+                    <p><strong>Company Address:</strong></p>
+                    <hr>
+                    <p>
+                        GAlex Glaros<br />
+                        Center for Government Interoperability<br />
+                        500 Main Street<br />
+                        Winters, CA 95694<br />
+                        (530) 848-5149 PST (phone does not receive text messages)<br />
+
+                        Off-hours chats welcome: Weekends after 1 PM, evenings on Tuesdays, Thursdays, and Fridays, Pacific Standard Time
+                    </p>
+                    <p>Don't hesitate to contact us about anything you want. We are open to questios, comments and suggestions.</p>
+                </div>
+            </div>
+            <div class="span4">
+                <h3>Email Us</h3>
+                <form class="form">
+                    <label for="name">Your name:</label>
+                    <input class="span4" type="text" id="name" placeholder="">
+
+                    <label for="inputEmail">Email:</label>
+                    <input class="span4" type="text" id="inputEmail" placeholder="">
+
+                    <label for="message">Your message:</label>
+                    <textarea class="span4" rows="4" id="message" placeholder=""></textarea>
+
+                    <button type="submit" class="btn">Alright sparky, send it.</button>
+                </form>
+            </div>
+        </div><!-- /.row -->
+
+        <div class="row">
+            <div class="span12">
+                <h3><span>Privacy Policy</span></h3>
+                <div class="alert centered">
+                    <strong>Our privacy policy</strong>
+                    Our website does not share personal information of any kind with anyone. We will not sell or rent your name or personal information to any third party. We DO NOT sell, rent or provide outside access to our mailing list or any data we store. Any data that a user stores via our facilities is wholly owned by that user or business. At any time a user or business is free to take their data and leave, or to simply delete their data from our facilities.
+                    Our website only collects such personal information that is necessary for you to access and use our services. This personal information includes, but is not limited to, first and last name, physical address, zip code, email address, phone number, social security number, birth date, credit card information, financial information, and other personal information necessary to generate proper legal documents.
+                </div>
+            </div>
+        </div>
+
+    </div><!-- /.container -->
+
+{% endblock %}
+}

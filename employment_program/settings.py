@@ -215,6 +215,11 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_HOST_USER = 'emp.app2012@gmail.com'
 EMAIL_HOST_PASSWORD = 'empapp2012'
+# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+DEFAULT_FROM_EMAIL = 'clbnjoroge@gmail.com'
+CONTACT_FORM_RECIPIENT = ''  # email that will receive contact forms emails
+SENDER_NAME = "Innovation Start Up"
+SERVER_EMAIL = DEFAULT_FROM_EMAIL
 
 
 # A sample logging configuration. The only tangible logging

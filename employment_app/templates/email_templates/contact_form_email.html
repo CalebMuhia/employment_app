@@ -1,0 +1,13 @@
+{% extends "email_templates/base.html" %}
+
+{% block body %}
+<p>
+  {{message}}
+</p>
+<p><br/>Sender information:<br/><br/>
+  <span style="font-size: 20px;font-weight:bold;font-style:oblique;padding-left:20px;">
+    Name: {{name}}<br/>
+    Email: {{email}}
+  </span>
+</p>
+{% endblock %}

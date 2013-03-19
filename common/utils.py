@@ -1,8 +1,13 @@
 # -*- coding: utf-8 -*-
 """ common utils """
 
+from django.conf import settings
 from django.core.exceptions import ObjectDoesNotExist
+from django.core.mail import EmailMultiAlternatives
+from django.template import Context
 from django.template.defaultfilters import slugify
+from django.template.loader import render_to_string
+from django.utils.safestring import mark_safe
 import random
 
 
@@ -44,3 +49,29 @@ def unique_slug(model, slug_field, data):
             uslug += str(ucode)
             ucode += 1
     return uslug
+
+
+def send_html_mail(from_email, subject, template_name, data, to_,
+                   text_content='', files=None, path='email_templates/'):
+    """
+    Sends an email using an html template.
+    Data: is a dictionary with the data that will be used with the template
+    files: attached data list.
+    """
+    #  hack to send the email with a defined name
+    try:
+        from_email = "%s <%s>" % (settings.SENDER_NAME, from_email)
+    except AttributeError:
+        pass
+
+    context = Context(data)
+    html_content = mark_safe(render_to_string(
+        '%s%s' % (path, template_name), context))
+    msg = EmailMultiAlternatives(subject, text_content, from_email, [to_])
+    msg.attach_alternative(html_content, "text/html")
+    if files:
+        for afile in files:
+            msg.attach_file(afile)
+    else:
+        pass
+    msg.send()

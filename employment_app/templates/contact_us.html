@@ -61,15 +61,16 @@
             </div>
             <div class="span4">
                 <h3>Email Us</h3>
-                <form class="form">
-                    <label for="name">Your name:</label>
-                    <input class="span4" type="text" id="name" placeholder="">
+                <form class="form" action="" method="POST">{% csrf_token %}
+		    {{form}}
+                    <!-- <label for="name">Your name:</label> -->
+                    <!-- <input class="span4" type="text" id="name" placeholder=""> -->
 
-                    <label for="inputEmail">Email:</label>
-                    <input class="span4" type="text" id="inputEmail" placeholder="">
+                    <!-- <label for="inputEmail">Email:</label> -->
+                    <!-- <input class="span4" type="text" id="inputEmail" placeholder=""> -->
 
-                    <label for="message">Your message:</label>
-                    <textarea class="span4" rows="4" id="message" placeholder=""></textarea>
+                    <!-- <label for="message">Your message:</label> -->
+                    <!-- <textarea class="span4" rows="4" id="message" placeholder=""></textarea> -->
 
                     <button type="submit" class="btn">Alright sparky, send it.</button>
                 </form>

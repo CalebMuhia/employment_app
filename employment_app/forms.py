@@ -2,13 +2,15 @@
 """ employment_app's forms """
 
 from django import forms
+from django.conf import settings
 from django.forms.widgets import RadioSelect
+from common.utils import send_html_mail
 from employment_app.models import Project
 from tinymce.widgets import TinyMCE
 
 
 class ProjectForm(forms.ModelForm):
-    """ form's Project model """
+    """ Project model form """
     class Meta:
         """ Form's meta class """
         model = Project
@@ -45,3 +47,26 @@ class ProjectForm(forms.ModelForm):
         #     choices=Project.OPENCLOSED)
         # self.fields['looking_for_developers'].widget = RadioSelect(
         #     choices=Project.YESNO)
+
+
+class ContactForm(forms.Form):
+    """ contact form """
+    name = forms.CharField(widget=forms.TextInput(
+        attrs={'class': 'span4'}), label="Your name")
+    email = forms.EmailField(widget=forms.TextInput(
+        attrs={'class': 'span4'}), label="Your email")
+    message = forms.CharField(
+        max_length=500, widget=forms.Textarea(
+            attrs={'class': 'span4', 'rows': 7}),
+        label="Your message")
+
+    def save(self):
+        """ sends the email """
+        c_d = self.cleaned_data
+        text_email = "from {0} ({1}): {2}".format(
+            c_d['name'], c_d['email'], c_d['message'])
+        send_html_mail(
+            settings.DEFAULT_FROM_EMAIL, 'New message from contact form!',
+            'contact_form_email.html', c_d, settings.CONTACT_FORM_RECIPIENT,
+            text_email
+        )

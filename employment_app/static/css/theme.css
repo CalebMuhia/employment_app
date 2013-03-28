@@ -70,3 +70,13 @@ body{color:#666;font-family:'Open Sans',Arial,sans-serif}body a{color:#2db2ea}h1
 .paging-portfolio{
     margin-left: 20px;
 }
+
+/* home customization */
+div.carousel-inner .container{
+    margin-left: 13%;
+    text-align: left !important;
+}
+
+.no-margin-left{
+    margin-left: 0px;
+}
